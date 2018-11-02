@@ -28,24 +28,19 @@ public class GameEngine {
     private void setUpGame() {
         //int noPlayers = guiHandler.askForNoPlayers();
         //LOOP and make players
-       // guiHandler.askForPlayerNames();
-        //guiHandler.setGameUpGui();
+        //guiHandler.askForPlayerNames();
+        guiHandler.setGameUpGui(playerTurnController1, playerTurnController2);
 
     }
-    public static void playGame() {
-
-        Message message = new Message();
+    public void playGame() {
 
         //Controller
-        //DiceCupController diceCupController = new DiceCupController(2,6);
-        //PlayerTurnController playerTurnController1 = new PlayerTurnController(player1, diceCupController, diceController1,
-        //        diceController2);
-        //PlayerTurnController playerTurnController2 = new PlayerTurnController(player2, diceCupController, diceController1,
-        //        diceController2);
-        //MessageController messageController = new MessageController(player1, player2);
+        DiceCupController diceCup = new DiceCupController(2,6);
+        PlayerTurnController playerTurnController1 = new PlayerTurnController(player1, square);
+        PlayerTurnController playerTurnController2 = new PlayerTurnController(player2, square);
+        MessageController message = new MessageController();
 
-
-        //guiHandler.setGameUpGui();
+        guiHandler.setGameUpGui(playerTurnController1, playerTurnController2);
 
         //guiHandler.startGameGui();
 
@@ -53,15 +48,13 @@ public class GameEngine {
         //guiHandler.enterNamePlayer1();
         //guiHandler.enterNamePlayer2();
 
-    /* //Start the main game
+     //Start the main game
         do {
-            changePlayer();
-            gui.showPlayerTurn(currentPLayer);
-            PlayerTurnController.takeTurn(currentPlayer, gui);
-            gui.showPlayerTurnEnd(currentPlayer)
-            gui.player1TurnGui();
-            playerTurnController1.playerRoll();
-            gui.player1TurnUpdate(playerTurnController1);
+
+            guiHandler.player1TurnGui(message);
+            guiHandler.player1TurnGui(message);
+            playerTurnController1.roll(diceCup, player1);
+            guiHandler.player1TurnUpdate(playerTurnController1, diceCup.getRef(0),diceCup.getRef(1));
             if (player1.getWon()){
                 break;
             }
