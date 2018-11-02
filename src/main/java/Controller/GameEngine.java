@@ -44,7 +44,7 @@ public class GameEngine {
         //Set player names
         guiHandler.enterNamePlayer1();
         guiHandler.enterNamePlayer2();
-
+/
     /* //Start the main game
         do {
             changePlayer();
