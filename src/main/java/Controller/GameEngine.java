@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Message;
 import Model.Player;
 import View.Gui_Handler;
 
@@ -29,10 +28,8 @@ public class GameEngine {
         //LOOP and make players
         //guiHandler.askForPlayerNames();
         guiHandler.setGameUpGui(playerTurnController1, playerTurnController2);
-
     }
     public void playGame() {
-
         //Controller
         DiceCupController diceCup = new DiceCupController(2,6);
         PlayerTurnController playerTurnController1 = new PlayerTurnController(player1, square);
@@ -40,7 +37,6 @@ public class GameEngine {
         MessageController message = new MessageController();
 
         //guiHandler.startGameGui();
-
         //Set player names
         //guiHandler.enterNamePlayer1();
         //guiHandler.enterNamePlayer2();
@@ -64,10 +60,6 @@ public class GameEngine {
             }*/
         }
         //End the game when one of the players get 40 and a double - or to double 6.
-
         while(!playerTurnController1.getWon() || !playerTurnController2.getWon());
-
-
     }
-
 }
