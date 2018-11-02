@@ -37,19 +37,19 @@ public class Gui_Handler {
         guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
 
         //    felter[0].hasCar(guiPlayer1);
-        felter[player1.getSum()].setCar(guiPlayer1, true);
-        felter[player2.getSum()].setCar(guiPlayer2, true);
+        felter[].setCar(guiPlayer1, true);
+        felter[player2.getBalance()].setCar(guiPlayer2, true);
     }
     public void startGameGui() {
         gui.showMessage(message.startGame());
     }
 
-    public void enterNamePlayer1(MessageController message, PlayerController player) {
+    public void enterNamePlayer1(MessageController message, PlayerTurnController player) {
         gui.showMessage(message.enterNamePlayer1());
         player.setName(gui.getUserString(""));
     }
 
-    public void enterNamePlayer2(MessageController message, PlayerController player) {
+    public void enterNamePlayer2(MessageController message, PlayerTurnController player) {
         gui.showMessage(message.enterNamePlayer2());
         player.setName(gui.getUserString(""));
     }
@@ -58,33 +58,39 @@ public class Gui_Handler {
         gui.setDice(die1.getFaceValue(), die2.getFaceValue());
     }
 
-    public void player1TurnGui(MessageController message) {
-        gui.showMessage(message.player1sTurn());
+    public void player1TurnGui(MessageController message)
+    {
+        gui.showMessage(
+                //message.player1sTurn()
+                "Player 1 tur" );
     }
 
     public void player2TurnGui(MessageController message) {
-        gui.showMessage(message.player2sTurn());
+
+        gui.showMessage(
+                //message.player2sTurn()
+                "Player 2 tur");
     }
 
-    public void setPlayer1Car(PlayerController player) {
-        felter[player.()].setCar(guiPlayer1, true);
+    public void setPlayer1Car(PlayerTurnController player) {
+        felter[player.get()].setCar(guiPlayer1, true);
     }
 
-    public void setPlayer2Car(PlayerController player) {
+    public void setPlayer2Car(PlayerTurnController player) {
         felter[player.getSum()].setCar(guiPlayer2, true);
     }
 
-    public void showScore(PlayerController player) {
-        gui.showMessage(player.getName() + " har nu " + player.getSumSofar() + "point");
+    public void showScore(PlayerTurnController player) {
+        gui.showMessage(player.getName() + " har nu " + player.getBalance() + "point");
     }
 
-    public void player1TurnUpdate(PlayerController player) {
+    public void player1TurnUpdate(PlayerTurnController player) {
         setDiceGui();
         setPlayer1Car();
         showScore(player);
     }
 
-    public void player2TurnUpdate(PlayerController player) {
+    public void player2TurnUpdate(PlayerTurnController player) {
         setDiceGui();
         setPlayer2Car();
         showScore(player);

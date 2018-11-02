@@ -6,11 +6,11 @@ import View.Gui_Handler;
 
 public class GameEngine {
     private final Gui_Handler guiHandler;
-    private final PlayerController playerTurnController;
+    private final PlayerTurnController playerTurnController;
 
     public GameEngine(){
         guiHandler = new Gui_Handler();
-        playerTurnController = new PlayerController();
+        playerTurnController = new PlayerTurnController();
     }
     public void start(){
         setUpGame();
