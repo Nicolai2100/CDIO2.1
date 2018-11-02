@@ -11,7 +11,7 @@ public class GameEngine {
         playerTurnController = new PlayerTurnController();
 
     }
-    /*public void start(){
+    public void start(){
         setUpGame();
         playGame();
     }
@@ -22,7 +22,7 @@ public class GameEngine {
         gui.askForPlayerName();
         gui.setupGUI;
     }
-    */
+
     /* //Start the main game
         do {
             changePlayer();
