@@ -13,7 +13,7 @@ public class PlayerTurnController {
     }
 
     public void roll(DiceCupController diceCup, Player player){
-        square.newSquare(player.getPosition(),diceCup.rollAndGetSum());
+        setPosition(square.newSquare(player.getPosition(), diceCup.rollAndGetSum()));
     }
 
     public int getPosition() {
