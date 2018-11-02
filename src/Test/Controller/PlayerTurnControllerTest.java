@@ -20,9 +20,6 @@ public class PlayerTurnControllerTest {
         assertEquals(nuværendePosition, 1);
         player1.roll(dicecup, model);
         int sum = dicecup.getSum();
-        player1.setPosition(sum);
-        System.out.println(player1.getPosition());
-        //assertEquals(player1.getPosition(), (sum % 12) + nuværendePosition);
-
+        assertEquals(player1.getPosition(), (sum % 12) + nuværendePosition);
     }
 }
