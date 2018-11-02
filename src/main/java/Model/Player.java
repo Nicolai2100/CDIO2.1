@@ -3,7 +3,6 @@ package Model;
 public class Player {
 
     private String name = "";
-    private int balance;
     private boolean won = false;
     private int position = 1;
 
@@ -15,14 +14,14 @@ public class Player {
         this.name = name;
     }
 
-    public int getBalance() {
+    /*public int getBalance() {
         return balance;
     }
 
     public void setBalance(int balance) {
         this.balance = balance;
     }
-
+*/
     public int getPosition() {
         return position;
     }
