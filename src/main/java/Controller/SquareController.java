@@ -20,7 +20,8 @@ public class SquareController {
         return model.getSquare();
     }
 
-    public void squareImpact(int newSquare, PlayerTurnController player, DiceCupController diceCup){
+    public void squareImpact(PlayerTurnController player, DiceCupController diceCup){
+        int newSquare = player.getPosition();
         switch (newSquare){
             case 1:
                 // account

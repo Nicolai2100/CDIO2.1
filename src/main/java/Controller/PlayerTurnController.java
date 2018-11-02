@@ -15,7 +15,8 @@ public class PlayerTurnController {
     }
 
     public void roll(DiceCupController diceCup, Player player){
-        setPosition(square.newSquare(player.getPosition(), diceCup.rollAndGetSum()));
+        square.newSquare(player.getPosition(), diceCup.rollAndGetSum());
+
     }
 
     public void accountUpdate(int accountUpdate)
