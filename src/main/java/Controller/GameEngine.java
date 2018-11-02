@@ -16,12 +16,12 @@ public class GameEngine {
         setUpGame();
         playGame();
     }
-
     private void setUpGame() {
         int noPlayers = guiHandler.askForNoPlayers();
         //LOOP and make players
-        guiHandler.askForPlayerName();
-        guiHandler.setupGUI;
+        guiHandler.askForPlayerNames();
+        guiHandler.setGameUpGui();
+
     }
     public static void playGame() {
         Player player1 = new Player();
