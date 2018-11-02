@@ -7,7 +7,6 @@ public class SquareController {
 
     public SquareController(){}
 
-
     public int newSquare(int rollsum, int getSqaure){
         if (rollsum + getSqaure > 12)
             model.setSquare((rollsum + getSqaure) % 12);

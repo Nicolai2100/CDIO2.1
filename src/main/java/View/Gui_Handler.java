@@ -68,27 +68,25 @@ public class Gui_Handler {
     }
 
     public void showScore(PlayerTurnController player) {
-        gui.showMessage(player.getName() + " har nu " + player.getBalance() + "point");
+        gui.showMessage(player.getName() + " har nu " + player.getBalance() + " point");
     }
 
     public void removePlayer1Car(PlayerTurnController player) {
 
-        felter[player.getPosition()-1].removeAllCars();
+        felter[(player.getPosition()-1)].removeAllCars();
     }
     public void removePlayer2Car(PlayerTurnController player) {
 
-        felter[player.getPosition()-1].removeAllCars();
+        felter[(player.getPosition()-1)].removeAllCars();
     }
 
     public void player1TurnUpdate(PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
-        removePlayer1Car(player);
         setPlayer1Car(player);
         showScore(player);
     }
     public void player2TurnUpdate(PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
-        removePlayer2Car(player);
         setPlayer2Car(player);
         showScore(player);
     }
