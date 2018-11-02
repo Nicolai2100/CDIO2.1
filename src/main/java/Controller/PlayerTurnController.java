@@ -6,18 +6,22 @@ public class PlayerTurnController {
 
     private Player model;
     private SquareController square;
+    private AccountController account;
 
     public PlayerTurnController(Player model, SquareController square){
         this.model = model;
         this.square = square;
+        account = new AccountController();
     }
 
-    public void roll(DiceCupController diceCup, PlayerTurnController player){
+    public void roll(DiceCupController diceCup, Player player){
         setPosition(square.newSquare(player.getPosition(), diceCup.rollAndGetSum()));
-        square.squareImpact(player.getPosition(), player, diceCup);
     }
 
-
+    public void accountUpdate(int accountUpdate)
+    {
+        model.setBalance(account.getBalance()+accountUpdate);
+    }
 
     public int getPosition() {
         return model.getPosition();
