@@ -69,7 +69,7 @@ public class MessageController {
         return returnString;
     }
     public String playerTurn(PlayerTurnController player) {
-        returnString = "It is" + player.getName() + "'s turn! Press Enter to roll!";
+        returnString = "It is " + player.getName() + "'s turn! Press Enter to roll!";
         return returnString;
     }
 
@@ -79,11 +79,11 @@ public class MessageController {
     }
 
     public String playerWon(PlayerTurnController player) {
-        returnString = player.getName() + "has won the game, by having 3000 or more gold coins.";
+        returnString = player.getName() + " has won the game, by having 3000 or more gold coins.";
         return returnString;
     }
     public String playerEndTurn(PlayerTurnController player){
-        returnString = player.getName() + "now has "+player.getBalance()+" gold coins.";
+        returnString = player.getName() + " now has "+player.getBalance()+" gold coins.";
         return returnString;
     }
     public String startGame(){
