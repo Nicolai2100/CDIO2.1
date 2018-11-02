@@ -49,6 +49,7 @@ public class GameEngine {
         //guiHandler.enterNamePlayer2();
 
      //Start the main game
+        /*
         do {
 
             guiHandler.player1TurnGui(message);
@@ -67,6 +68,7 @@ public class GameEngine {
         }
         //End the game when one of the players get 40 and a double - or to double 6.
         while(!player1.getWon() || !player2.getWon());*/
+
     }
 
 }

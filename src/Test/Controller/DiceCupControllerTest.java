@@ -17,14 +17,22 @@ public class DiceCupControllerTest {
 
     @Test
     public void getSum() {
+        assertEquals(diceCup.getSum(), 0);
         rollAllDice();
-        die.getFaceValue();
-
-
-        assertEquals(diceCup.getSum(),);
+        DieController die1 = diceCup.getRef(0);
+        DieController die2 = diceCup.getRef(1);
+        assertEquals(diceCup.getSum(),die1.getFaceValue() + die2.getFaceValue());
     }
 
     @Test
     public void rollAndGetSum() {
+        assertEquals(diceCup.getSum(), 0);
+        diceCup.rollAndGetSum();
+        DieController die1 = diceCup.getRef(0);
+        DieController die2 = diceCup.getRef(1);
+        int sum = die1.getFaceValue()+die2.getFaceValue();
+        assertEquals(diceCup.rollAndGetSum(), sum);
+        assertTrue(2 <= sum && sum <= 12);
+
     }
 }
