@@ -51,22 +51,22 @@ public class GameEngine {
      //Start the main game
         do {
 
-            guiHandler.player1TurnGui(message);
-            guiHandler.player1TurnGui(message);
+            guiHandler.playerTurnGui(message, playerTurnController1);
             playerTurnController1.roll(diceCup, player1);
             guiHandler.player1TurnUpdate(playerTurnController1, diceCup.getRef(0),diceCup.getRef(1));
-            if (player1.getWon()){
+            /*if (player1.getWon()){
                 break;
-            }
-            gui.player2TurnGui();
-            playerTurnController2.playerRoll();
-            gui.player2TurnUpdate(playerTurnController2);
-            if (player2.getWon()){
+            }*/
+
+            guiHandler.playerTurnGui(message, playerTurnController2);
+            playerTurnController2.roll(diceCup, player2);
+            guiHandler.player2TurnUpdate(playerTurnController2, diceCup.getRef(0),diceCup.getRef(1));
+            /*if (player2.getWon()){
                 break;
-            }
+            }*/
         }
         //End the game when one of the players get 40 and a double - or to double 6.
-        while(!player1.getWon() || !player2.getWon());*/
+        while(!player1.getWon() || !player2.getWon());
     }
 
 }

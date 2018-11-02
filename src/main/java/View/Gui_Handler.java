@@ -58,18 +58,11 @@ public class Gui_Handler {
         gui.setDice(die1.getFaceValue(), die2.getFaceValue());
     }
 
-    public void player1TurnGui(MessageController message)
+    public void playerTurnGui(MessageController message, PlayerTurnController player)
     {
         gui.showMessage(
                 //message.player1sTurn()
                 "Player 1 tur" );
-    }
-
-    public void player2TurnGui(MessageController message) {
-
-        gui.showMessage(
-                //message.player2sTurn()
-                "Player 2 tur");
     }
 
     public void setPlayer1Car(PlayerTurnController player) {
@@ -89,12 +82,12 @@ public class Gui_Handler {
         setPlayer1Car(player);
         showScore(player);
     }
-/*
-    public void player2TurnUpdate(PlayerTurnController player) {
-        setDiceGui();
-        setPlayer2Car();
+    public void player2TurnUpdate(PlayerTurnController player, DieController die1, DieController die2) {
+        setDiceGui(die1, die2);
+        setPlayer2Car(player);
         showScore(player);
-    }*/
+    }
+
    /* public void playerWonGui(MessageController message){
         gui.showMessage(message.playerHasWon());
     }
