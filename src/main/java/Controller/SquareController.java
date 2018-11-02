@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Player;
 import Model.Square;
 
 public class SquareController {
@@ -20,45 +21,44 @@ public class SquareController {
         return model.getSquare();
     }
 
-    public void squareImpact(int newSquare){
+    public void squareImpact(int newSquare, PlayerTurnController player, DiceCupController diceCup){
         switch (newSquare){
             case 1:
-                // beskeder(1)
-                 // ekstra tur
-                //Account(); // konto
+                // account
                 break;
             case 2:
-                System.out.println();
+                // account 250
                 break;
             case 3:
-                System.out.println();
+                // account -100
                 break;
             case 4:
-                System.out.println();
+                // account 100
                 break;
             case 5:
-                System.out.println();
+                // account -20
                 break;
             case 6:
-                System.out.println();
+                // account 180
                 break;
             case 7:
-                System.out.println();
+                // account 0
                 break;
             case 8:
-                System.out.println();
+                // account -70
                 break;
             case 9:
-                System.out.println();
+                // account 60
                 break;
             case 10:
-                System.out.println();
+                // account -80
+                player.roll(diceCup, player);
                 break;
             case 11:
-                System.out.println();
+                // account -50
                 break;
             case 12:
-                System.out.println();
+                // account 650
                 break;
             default: ;
         }

@@ -12,9 +12,12 @@ public class PlayerTurnController {
         this.square = square;
     }
 
-    public void roll(DiceCupController diceCup, Player player){
+    public void roll(DiceCupController diceCup, PlayerTurnController player){
         setPosition(square.newSquare(player.getPosition(), diceCup.rollAndGetSum()));
+        square.squareImpact(player.getPosition(), player, diceCup);
     }
+
+
 
     public int getPosition() {
         return model.getPosition();
