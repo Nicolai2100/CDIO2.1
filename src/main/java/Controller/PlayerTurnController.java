@@ -24,7 +24,6 @@ public class PlayerTurnController {
         model.setPosition(position);
     }
 
-
     public String getName() {
         return model.getName();
     }
@@ -35,6 +34,13 @@ public class PlayerTurnController {
 
     public int getBalance() {
         return model.getBalance();
+    }
+
+    public void setWon(boolean bool) {
+        model.setWon(bool);
+    }
+    public boolean getWon() {
+        return model.getWon();
     }
 
 
