@@ -28,7 +28,6 @@ public class Gui_Handler {
         for (int i = 0; i < car.length; i++) {
             car[i] = new GUI_Car();
         }
-
         car[0].setPrimaryColor(Color.BLACK);
         car[1].setPrimaryColor(Color.BLUE);
 
@@ -42,49 +41,54 @@ public class Gui_Handler {
     public void startGameGui() {
         gui.showMessage(message.startGame());
     }
-
     public void enterNamePlayer1(MessageController message, PlayerTurnController player) {
         gui.showMessage(message.enterNamePlayer1());
         player.setName(gui.getUserString(""));
     }
-
     public void enterNamePlayer2(MessageController message, PlayerTurnController player) {
         gui.showMessage(message.enterNamePlayer2());
         player.setName(gui.getUserString(""));
     }*/
-
     public void setDiceGui(DieController die1, DieController die2) {
         gui.setDice(die1.getFaceValue(), die2.getFaceValue());
     }
-
     public void playerTurnGui(MessageController message, PlayerTurnController player)
     {
         gui.showMessage(
                 //message.player1sTurn()
                 "Player 1 tur" );
     }
-
     public void setPlayer1Car(PlayerTurnController player) {
 
-        felter[player.getPosition()].setCar(guiPlayer1, true);
+        felter[player.getPosition()-1].setCar(guiPlayer1, true);
     }
-
     public void setPlayer2Car(PlayerTurnController player) {
 
-        felter[player.getPosition()].setCar(guiPlayer2, true);
+        felter[player.getPosition()-1].setCar(guiPlayer2, true);
     }
 
     public void showScore(PlayerTurnController player) {
         gui.showMessage(player.getName() + " har nu " + player.getBalance() + "point");
     }
 
+    public void removePlayer1Car(PlayerTurnController player) {
+
+        felter[player.getPosition()-1].removeAllCars();
+    }
+    public void removePlayer2Car(PlayerTurnController player) {
+
+        felter[player.getPosition()-1].removeAllCars();
+    }
+
     public void player1TurnUpdate(PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
+        removePlayer1Car(player);
         setPlayer1Car(player);
         showScore(player);
     }
     public void player2TurnUpdate(PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
+        removePlayer2Car(player);
         setPlayer2Car(player);
         showScore(player);
     }
