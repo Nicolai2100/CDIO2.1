@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Die;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ import java.util.Collections;
 import static org.junit.Assert.*;
 
 public class DieControllerTest {
-    //Die model = new Die(6);
     DieController controller = new DieController(6);
 
     @Test

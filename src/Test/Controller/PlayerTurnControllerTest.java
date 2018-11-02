@@ -1,3 +1,5 @@
+package Controller;
+
 import Controller.DiceCupController;
 import Controller.PlayerTurnController;
 import Controller.SquareController;
