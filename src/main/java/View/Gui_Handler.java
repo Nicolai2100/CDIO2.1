@@ -39,9 +39,12 @@ public class Gui_Handler {
         felter[player2.getPosition()-1].setCar(guiPlayer2, true);
     }
 
-    /*public void startGameGui(MessageController message) {
-        gui.showMessage(message.);
-    }*/
+
+
+public void startGameGui(MessageController message) {
+        gui.showMessage(message.startGame());
+    }
+
     public void enterNamePlayer(MessageController message, PlayerTurnController player) {
         gui.showMessage(message.setPlayerName(player));
         player.setName(gui.getUserString(""));

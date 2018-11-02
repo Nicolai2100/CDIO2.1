@@ -36,7 +36,7 @@ public class GameEngine {
         PlayerTurnController playerTurnController2 = new PlayerTurnController(player2, square);
         MessageController message = new MessageController();
 
-        guiHandler.starGame(message);
+        guiHandler.startGameGui(message);
         //Set player names
         guiHandler.enterNamePlayer(message, playerTurnController1);
         guiHandler.enterNamePlayer(message, playerTurnController2);
@@ -48,9 +48,9 @@ public class GameEngine {
             square.newSquare(playerTurnController1.roll(diceCup), playerTurnController1.getPosition(), playerTurnController1);
             square.squareImpact(playerTurnController1, diceCup);
             guiHandler.player1TurnUpdate(playerTurnController1, diceCup.getRef(0),diceCup.getRef(1));
-            /*if (player1.getWon()){
+            if (player1.getWon()){
                 break;
-            }*/
+            }
 
             guiHandler.playerTurnGui(message, playerTurnController2);
             guiHandler.removePlayer2Car(playerTurnController2);
@@ -58,9 +58,9 @@ public class GameEngine {
                     playerTurnController1.getPosition(), playerTurnController2 );
             square.squareImpact(playerTurnController2, diceCup);
             guiHandler.player2TurnUpdate(playerTurnController2, diceCup.getRef(0),diceCup.getRef(1));
-            /*if (player2.getWon()){
+            if (player2.getWon()){
                 break;
-            }*/
+            }
         }
         //End the game when one of the players get 40 and a double - or to double 6.
         while(!playerTurnController1.getWon() || !playerTurnController2.getWon());
