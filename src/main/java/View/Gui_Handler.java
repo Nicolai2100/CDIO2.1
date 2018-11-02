@@ -21,7 +21,7 @@ public class Gui_Handler {
         }
         gui = new GUI(felter);
     }
-    public void setGameUpGui(Player player1, Player player2) {
+    public void setGameUpGui(PlayerTurnController player1, PlayerTurnController player2) {
         guiCreator();
         //GUI_Player
         GUI_Car[] car = new GUI_Car[2];
@@ -37,10 +37,10 @@ public class Gui_Handler {
         guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
 
         //    felter[0].hasCar(guiPlayer1);
-        felter[].setCar(guiPlayer1, true);
-        felter[player2.getBalance()].setCar(guiPlayer2, true);
+        felter[player1.getPosition()].setCar(guiPlayer1, true);
+        felter[player2.getPosition()].setCar(guiPlayer2, true);
     }
-    public void startGameGui() {
+    /*public void startGameGui() {
         gui.showMessage(message.startGame());
     }
 
@@ -52,7 +52,7 @@ public class Gui_Handler {
     public void enterNamePlayer2(MessageController message, PlayerTurnController player) {
         gui.showMessage(message.enterNamePlayer2());
         player.setName(gui.getUserString(""));
-    }
+    }*/
 
     public void setDiceGui(DieController die1, DieController die2) {
         gui.setDice(die1.getFaceValue(), die2.getFaceValue());
@@ -73,18 +73,18 @@ public class Gui_Handler {
     }
 
     public void setPlayer1Car(PlayerTurnController player) {
-        felter[player.get()].setCar(guiPlayer1, true);
+        felter[player.getPosition()].setCar(guiPlayer1, true);
     }
 
     public void setPlayer2Car(PlayerTurnController player) {
-        felter[player.getSum()].setCar(guiPlayer2, true);
+        felter[player.getPosition()].setCar(guiPlayer2, true);
     }
 
     public void showScore(PlayerTurnController player) {
         gui.showMessage(player.getName() + " har nu " + player.getBalance() + "point");
     }
 
-    public void player1TurnUpdate(PlayerTurnController player) {
+    /*public void player1TurnUpdate(PlayerTurnController player) {
         setDiceGui();
         setPlayer1Car();
         showScore(player);
@@ -94,8 +94,8 @@ public class Gui_Handler {
         setDiceGui();
         setPlayer2Car();
         showScore(player);
-    }
-    public void playerWonGui(){
+    }*/
+   /* public void playerWonGui(MessageController message){
         gui.showMessage(message.playerHasWon());
     }
     public void playAgain(){
@@ -107,7 +107,7 @@ public class Gui_Handler {
             System.exit(1);
         }
     }
-
+*/
     /* int noPlayers = guiHandler.askForNoPlayers();
         //LOOP and make players
         gui.askForPlayerName();

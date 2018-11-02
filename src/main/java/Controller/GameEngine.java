@@ -3,29 +3,38 @@ package Controller;
 import Model.Message;
 import Model.Player;
 import View.Gui_Handler;
+import jdk.vm.ci.meta.PrimitiveConstant;
 
 public class GameEngine {
-    private final Gui_Handler guiHandler;
-    private final PlayerTurnController playerTurnController;
+    private Gui_Handler guiHandler;
+    private PlayerTurnController playerTurnController1;
+    private PlayerTurnController playerTurnController2;
+
+    private Player player1;
+    private Player player2;
+    private SquareController square;
 
     public GameEngine(){
         guiHandler = new Gui_Handler();
-        playerTurnController = new PlayerTurnController();
+        player1 = new Player();
+        player2 = new Player();
+        square = new SquareController();
+        playerTurnController1 = new PlayerTurnController(player1, square);
+        playerTurnController2 = new PlayerTurnController(player2, square);
     }
     public void start(){
         setUpGame();
         playGame();
     }
     private void setUpGame() {
-        int noPlayers = guiHandler.askForNoPlayers();
+        //int noPlayers = guiHandler.askForNoPlayers();
         //LOOP and make players
-        guiHandler.askForPlayerNames();
-        guiHandler.setGameUpGui();
+       // guiHandler.askForPlayerNames();
+        //guiHandler.setGameUpGui();
 
     }
     public static void playGame() {
-        Player player1 = new Player();
-        Player player2 = new Player();
+
         Message message = new Message();
 
         //Controller
@@ -37,14 +46,14 @@ public class GameEngine {
         //MessageController messageController = new MessageController(player1, player2);
 
 
-        guiHandler.setGameUpGui();
+        //guiHandler.setGameUpGui();
 
-        guiHandler.startGameGui();
+        //guiHandler.startGameGui();
 
         //Set player names
-        guiHandler.enterNamePlayer1();
-        guiHandler.enterNamePlayer2();
-/
+        //guiHandler.enterNamePlayer1();
+        //guiHandler.enterNamePlayer2();
+
     /* //Start the main game
         do {
             changePlayer();
