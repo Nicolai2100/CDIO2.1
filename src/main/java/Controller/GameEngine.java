@@ -49,6 +49,7 @@ public class GameEngine {
         //guiHandler.enterNamePlayer2();
 
      //Start the main game
+
         do {
             guiHandler.playerTurnGui(message, playerTurnController1);
             playerTurnController1.roll(diceCup, player1);
@@ -65,7 +66,10 @@ public class GameEngine {
             }*/
         }
         //End the game when one of the players get 40 and a double - or to double 6.
-        while(!player1.getWon() || !player2.getWon());
+
+        while(!playerTurnController1.getWon() || !playerTurnController2.getWon());
+
+
     }
 
 }

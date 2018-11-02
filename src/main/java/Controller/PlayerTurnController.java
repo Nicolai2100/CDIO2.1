@@ -13,7 +13,7 @@ public class PlayerTurnController {
     }
 
     public void roll(DiceCupController diceCup, Player player){
-        square.newSquare(player.getPosition(),diceCup.rollAndGetSum());
+        setPosition(square.newSquare(player.getPosition(), diceCup.rollAndGetSum()));
     }
 
     public int getPosition() {
@@ -23,7 +23,6 @@ public class PlayerTurnController {
     public void setPosition(int position) {
         model.setPosition(position);
     }
-
 
     public String getName() {
         return model.getName();
@@ -35,6 +34,13 @@ public class PlayerTurnController {
 
     public int getBalance() {
         return model.getBalance();
+    }
+
+    public void setWon(boolean bool) {
+        model.setWon(bool);
+    }
+    public boolean getWon() {
+        return model.getWon();
     }
 
 
