@@ -15,8 +15,8 @@ public class DiceCupController {
     }
     //The method rolls two dice and returns their value as an integer.
     public void rollAllDice(){
-        for (DieController diceController : dice){
-            diceController.roll();
+        for (DieController dieController : dice){
+            dieController.roll();
         }
     }
     public int getSum(){

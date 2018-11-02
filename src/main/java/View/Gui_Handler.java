@@ -34,7 +34,6 @@ public class Gui_Handler {
 
         guiPlayer1 = new GUI_Player(player1.getName(), player1.getBalance(), car[0]);
         guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
-
         //    felter[0].hasCar(guiPlayer1);
         felter[player1.getPosition()-1].setCar(guiPlayer1, true);
         felter[player2.getPosition()-1].setCar(guiPlayer2, true);
