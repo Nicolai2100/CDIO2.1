@@ -86,5 +86,8 @@ public class MessageController {
         returnString = player.getName() + "now has "+player.getBalance()+" gold coins.";
         return returnString;
     }
+    public String startGame(){
+        return message.regler();
+    }
 
 }
