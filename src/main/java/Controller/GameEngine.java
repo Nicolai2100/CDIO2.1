@@ -45,7 +45,7 @@ public class GameEngine {
         do {
             guiHandler.playerTurnGui(message, playerTurnController1);
             guiHandler.removePlayer1Car(playerTurnController1);
-            square.newSquare(playerTurnController1.roll(diceCup), playerTurnController1.getPosition());
+            square.newSquare(playerTurnController1.roll(diceCup), playerTurnController1.getPosition(), playerTurnController1);
             square.squareImpact(playerTurnController1, diceCup);
             guiHandler.player1TurnUpdate(playerTurnController1, diceCup.getRef(0),diceCup.getRef(1));
             /*if (player1.getWon()){
@@ -55,7 +55,7 @@ public class GameEngine {
             guiHandler.playerTurnGui(message, playerTurnController2);
             guiHandler.removePlayer2Car(playerTurnController2);
             square.newSquare(playerTurnController2.roll(diceCup),
-                    playerTurnController1.getPosition() );
+                    playerTurnController1.getPosition(), playerTurnController2 );
             square.squareImpact(playerTurnController2, diceCup);
             guiHandler.player2TurnUpdate(playerTurnController2, diceCup.getRef(0),diceCup.getRef(1));
             /*if (player2.getWon()){

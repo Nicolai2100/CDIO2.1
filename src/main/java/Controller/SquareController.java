@@ -7,15 +7,15 @@ public class SquareController {
 
     public SquareController(){}
 
-    public int newSquare(int rollsum, int getSqaure){
-        if (rollsum + getSqaure > 12)
+    public int newSquare(int rollsum, int getSqaure, PlayerTurnController player){
+        if (rollsum + getSqaure > 12) {
             model.setSquare((rollsum + getSqaure) % 12);
-//            newSquare = (rollsum + getSqaure) % 12;
+        player.setPosition(model.getSquare());
+        }
         else{
             model.setSquare(rollsum + getSqaure);
-//            newSquare = rollsum + getSqaure;
+            player.setPosition(model.getSquare());
         }
-//        return newSquare;
         return model.getSquare();
     }
 
