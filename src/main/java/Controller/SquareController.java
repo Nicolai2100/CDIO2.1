@@ -18,7 +18,6 @@ public class SquareController {
         return newSquare;
     }
 
-
     public void squareImpact(int newSquare){
         switch (newSquare){
             case 1:
