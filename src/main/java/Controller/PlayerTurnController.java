@@ -16,8 +16,8 @@ public class PlayerTurnController {
 
     public int roll(DiceCupController diceCup){
 
-
         return diceCup.rollAndGetSum();
+
     }
 
     public Player getRef(){
