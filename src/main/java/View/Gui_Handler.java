@@ -28,7 +28,6 @@ public class Gui_Handler {
         for (int i = 0; i < car.length; i++) {
             car[i] = new GUI_Car();
         }
-        //Type.RACECAR; hvordan sættes typen af bil?
 
         car[0].setPrimaryColor(Color.BLACK);
         car[1].setPrimaryColor(Color.BLUE);
@@ -37,10 +36,11 @@ public class Gui_Handler {
         guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
 
         //    felter[0].hasCar(guiPlayer1);
-        felter[player1.getPosition()].setCar(guiPlayer1, true);
-        felter[player2.getPosition()].setCar(guiPlayer2, true);
+        felter[player1.getPosition()-1].setCar(guiPlayer1, true);
+        felter[player2.getPosition()-1].setCar(guiPlayer2, true);
     }
-    /*public void startGameGui() {
+/*
+    public void startGameGui() {
         gui.showMessage(message.startGame());
     }
 
@@ -84,12 +84,12 @@ public class Gui_Handler {
         gui.showMessage(player.getName() + " har nu " + player.getBalance() + "point");
     }
 
-    /*public void player1TurnUpdate(PlayerTurnController player) {
-        setDiceGui();
-        setPlayer1Car();
+    public void player1TurnUpdate(PlayerTurnController player, DieController die1, DieController die2) {
+        setDiceGui(die1, die2);
+        setPlayer1Car(player);
         showScore(player);
     }
-
+/*
     public void player2TurnUpdate(PlayerTurnController player) {
         setDiceGui();
         setPlayer2Car();
@@ -139,5 +139,4 @@ public class Gui_Handler {
         felter[11].setTitle("Goldmine");
         felter[11].setDescription("+650");
     }
-
 }

@@ -10,6 +10,9 @@ public class DiceCupController {
             dice[i] = new DieController(noFaces);
         }
     }
+    public DieController getRef(int i){
+        return dice[i];
+    }
     //The method rolls two dice and returns their value as an integer.
     public void rollAllDice(){
         for (DieController diceController : dice){
