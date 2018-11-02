@@ -9,8 +9,9 @@ public class SquareController {
 
 
     public int newSquare(int rollsum, int getSqaure){
-        if (rollsum + getSqaure > 12)
+        if (rollsum + getSqaure > 12) {
             newSquare = (rollsum + getSqaure) % 12;
+        }
         else{
             newSquare = rollsum + getSqaure;
         }
