@@ -1,7 +1,6 @@
 package Model;
 
 public class Die {
-
     private final int MAX;
     private int faceValue;
 
