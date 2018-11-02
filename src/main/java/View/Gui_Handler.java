@@ -1,6 +1,7 @@
 package View;
 
 import Controller.*;
+import Model.Message;
 import Model.Player;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
@@ -37,26 +38,21 @@ public class Gui_Handler {
         felter[player1.getPosition()-1].setCar(guiPlayer1, true);
         felter[player2.getPosition()-1].setCar(guiPlayer2, true);
     }
-/*
-    public void startGameGui() {
-        gui.showMessage(message.startGame());
-    }
-    public void enterNamePlayer1(MessageController message, PlayerTurnController player) {
-        gui.showMessage(message.enterNamePlayer1());
-        player.setName(gui.getUserString(""));
-    }
-    public void enterNamePlayer2(MessageController message, PlayerTurnController player) {
-        gui.showMessage(message.enterNamePlayer2());
-        player.setName(gui.getUserString(""));
+
+    /*public void startGameGui(MessageController message) {
+        gui.showMessage(message.);
     }*/
+    public void enterNamePlayer(MessageController message, PlayerTurnController player) {
+        gui.showMessage(message.setPlayerName(player));
+        player.setName(gui.getUserString(""));
+    }
+
     public void setDiceGui(DieController die1, DieController die2) {
         gui.setDice(die1.getFaceValue(), die2.getFaceValue());
     }
     public void playerTurnGui(MessageController message, PlayerTurnController player)
     {
-        gui.showMessage(
-                //message.player1sTurn()
-                "Player 1 tur" );
+        gui.showMessage(message.playerTurn(player));
     }
     public void setPlayer1Car(PlayerTurnController player) {
 
