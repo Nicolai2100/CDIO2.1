@@ -13,11 +13,15 @@ public class PlayerTurnControllerTest {
     PlayerTurnController player1 = new PlayerTurnController(model, square);
 
 
+    /*
     @org.junit.Test
     public void roll() {
-        assertEquals(player1.getPosition(), 0);
+        int nuværendePosition = player1.getPosition();
+        assertEquals(nuværendePosition, 1);
         player1.roll(dicecup, model);
-        assertTrue(player1.getPosition() != 0);
+        int sum = dicecup.getSum();
+        System.out.println(sum);
+        assertEquals(player1.getPosition(), (sum % 12) + nuværendePosition);
 
-    }
+    }*/
 }
