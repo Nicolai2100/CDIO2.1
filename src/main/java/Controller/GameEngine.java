@@ -50,7 +50,6 @@ public class GameEngine {
 
      //Start the main game
         do {
-
             guiHandler.playerTurnGui(message, playerTurnController1);
             playerTurnController1.roll(diceCup, player1);
             guiHandler.player1TurnUpdate(playerTurnController1, diceCup.getRef(0),diceCup.getRef(1));

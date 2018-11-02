@@ -66,10 +66,12 @@ public class Gui_Handler {
     }
 
     public void setPlayer1Car(PlayerTurnController player) {
+
         felter[player.getPosition()].setCar(guiPlayer1, true);
     }
 
     public void setPlayer2Car(PlayerTurnController player) {
+
         felter[player.getPosition()].setCar(guiPlayer2, true);
     }
 
