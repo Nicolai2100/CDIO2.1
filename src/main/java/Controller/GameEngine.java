@@ -36,10 +36,10 @@ public class GameEngine {
         PlayerTurnController playerTurnController2 = new PlayerTurnController(player2, square);
         MessageController message = new MessageController();
 
-        //guiHandler.startGameGui();
+        guiHandler.starGame(message);
         //Set player names
-        //guiHandler.enterNamePlayer1();
-        //guiHandler.enterNamePlayer2();
+        guiHandler.enterNamePlayer(message, playerTurnController1);
+        guiHandler.enterNamePlayer(message, playerTurnController2);
 
      //Start the main game
         do {

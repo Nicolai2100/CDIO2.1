@@ -1,13 +1,13 @@
 package Model;
 
-import Controller.PlayerTurnController;
-
 public class Message {
     private String regler="Rules of the game\n" +
             "Players switch 2 dice and land on a field with numbers from 2 to 12.\n" +
             "To land on each of these fields has a positive or negative effect on the players' money.\n" +
             "Players start with a cash of 1000. The game is over when a player reaches 3000.";
 
+
+    private String square1="You passed start!";
     private String square2="You've found the tower, inside there was 250 gold coins";
     private String square3="You fell into the crater and dropped 100 gold coins";
     private String square4="You've reached the palace gates and have been granted 100 gold coins";
