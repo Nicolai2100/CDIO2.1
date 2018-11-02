@@ -16,6 +16,15 @@ public class PlayerTurnController {
         square.newSquare(player.getPosition(),diceCup.rollAndGetSum());
     }
 
+    public int getPosition() {
+        return model.getPosition();
+    }
+
+    public void setPosition(int position) {
+        model.setPosition(position);
+    }
+
+
     public String getName() {
         return model.getName();
     }
