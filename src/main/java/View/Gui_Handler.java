@@ -21,7 +21,6 @@ public class Gui_Handler {
         }
         gui = new GUI(felter);
     }
-
     public void setGameUpGui(Player player1, Player player2) {
         guiCreator();
         //GUI_Player
@@ -79,17 +78,17 @@ public class Gui_Handler {
         felter[player2.getSum()].setCar(guiPlayer2, true);
     }
 
-    public void showScore(PlayerTurnController player) {
+    public void showScore(PlayerController player) {
         gui.showMessage(player.getName() + " har nu " + player.getSumSofar() + "point");
     }
 
-    public void player1TurnUpdate(PlayerTurnController player) {
+    public void player1TurnUpdate(PlayerController player) {
         setDiceGui();
         setPlayer1Car();
         showScore(player);
     }
 
-    public void player2TurnUpdate(PlayerTurnController player) {
+    public void player2TurnUpdate(PlayerController player) {
         setDiceGui();
         setPlayer2Car();
         showScore(player);
