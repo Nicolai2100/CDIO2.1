@@ -44,38 +44,34 @@ public class Gui_Handler {
         gui.showMessage(message.startGame());
     }
 
-    public void askForPlayerNames(){
-        enterNamePlayer1();
-        enterNamePlayer2();
-    }
-    public void enterNamePlayer1() {
+    public void enterNamePlayer1(MessageController message, PlayerController player) {
         gui.showMessage(message.enterNamePlayer1());
-        player1.setName(gui.getUserString(""));
+        player.setName(gui.getUserString(""));
     }
 
-    public void enterNamePlayer2() {
+    public void enterNamePlayer2(MessageController message, PlayerController player) {
         gui.showMessage(message.enterNamePlayer2());
-        player2.setName(gui.getUserString(""));
+        player.setName(gui.getUserString(""));
     }
 
-    public void setDiceGui() {
-        gui.setDice(diceController1.getFaceValue(), diceController2.getFaceValue());
+    public void setDiceGui(DieController die1, DieController die2) {
+        gui.setDice(die1.getFaceValue(), die2.getFaceValue());
     }
 
-    public void player1TurnGui() {
+    public void player1TurnGui(MessageController message) {
         gui.showMessage(message.player1sTurn());
     }
 
-    public void player2TurnGui() {
+    public void player2TurnGui(MessageController message) {
         gui.showMessage(message.player2sTurn());
     }
 
-    public void setPlayer1Car() {
-        felter[player1.getSum()].setCar(guiPlayer1, true);
+    public void setPlayer1Car(PlayerController player) {
+        felter[player.()].setCar(guiPlayer1, true);
     }
 
-    public void setPlayer2Car() {
-        felter[player2.getSum()].setCar(guiPlayer2, true);
+    public void setPlayer2Car(PlayerController player) {
+        felter[player.getSum()].setCar(guiPlayer2, true);
     }
 
     public void showScore(PlayerController player) {
