@@ -15,9 +15,9 @@ public class GameEngine {
         guiHandler = new Gui_Handler();
         player1 = new Player();
         player2 = new Player();
+        square = new SquareController();
         playerTC1 = new PlayerTurnController(player1, square);
         playerTC2 = new PlayerTurnController(player2, square);
-        square = new SquareController();
     }
     public void start(){
         setUpGame();
@@ -27,6 +27,7 @@ public class GameEngine {
         //int noPlayers = guiHandler.askForNoPlayers();
         //LOOP and make players
         //guiHandler.askForPlayerNames();
+        // ask for dice max value
         guiHandler.setGameUpGui(playerTC1, playerTC2);
     }
     public void playAgain(){
@@ -50,15 +51,14 @@ public class GameEngine {
         guiHandler.startGameGui(message);
         //Set player names
         guiHandler.enterNamePlayer(message, playerTC1, playerTC2);
-        //guiHandler.enterNamePlayer(message, playerTC2);
 
      //Start the main game
         do {
             guiHandler.playerTurnGui(message, playerTC1);
             guiHandler.removePlayer1Car(playerTC1);
-            playerTC1.roll(diceCup, playerTC1);
-            guiHandler.player1TurnUpdate(message.messageSquare(playerTC1.getPosition(), playerTC1), message, playerTC1, diceCup.getRef(0),diceCup.getRef(1));
-
+            playerTC1.roll(diceCup,playerTC1);
+            guiHandler.player1TurnUpdate(message.messageSquare(playerTC1.getPosition(),
+                    playerTC1), message, playerTC1, diceCup.getRef(0),diceCup.getRef(1));
             if (player1.getWon()){
                 break;
             }
@@ -66,8 +66,8 @@ public class GameEngine {
             guiHandler.playerTurnGui(message, playerTC2);
             guiHandler.removePlayer2Car(playerTC2);
             playerTC2.roll(diceCup, playerTC2);
-            guiHandler.player2TurnUpdate(message.messageSquare(playerTC2.getPosition(), playerTC2), message, playerTC2, diceCup.getRef(0),diceCup.getRef(1));
-
+            guiHandler.player2TurnUpdate(message.messageSquare(playerTC2.getPosition(),
+                    playerTC2), message, playerTC2, diceCup.getRef(0),diceCup.getRef(1));
             if (player2.getWon()){
                 break;
             }

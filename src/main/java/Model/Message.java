@@ -1,13 +1,12 @@
 package Model;
 
 public class Message {
-    private String regler="Rules of the game\n" +
+    private String rules="Rules of the game\n" +
             "Players switch 2 dice and land on a field with numbers from 2 to 12.\n" +
             "To land on each of these fields has a positive or negative effect on the players' money.\n" +
             "Players start with a cash of 1000. The game is over when a player reaches 3000.";
 
-
-    private String square1=" passed start!";
+    private String square1=" passed start";
     private String square2=" have found the tower, inside there was 250 gold coins";
     private String square3=" fell into the crater and dropped 100 gold coins";
     private String square4=" have reached the palace gates and have been granted 100 gold coins";
@@ -20,8 +19,8 @@ public class Message {
     private String square11=" avoid conscription for work in the pit, it cost you 50 gold coins to bribe a civil servant";
     private String square12=" have found gold in the mountains and have sold it for 650 gold coins";
 
-    public String regler() {return regler;}
-
+    public String getRules() {return rules;}
+    public String getSquare1() {return square1;}
     public String getSquare2() {return square2;}
     public String getSquare3() {return square3;}
     public String getSquare4() {return square4;}
@@ -34,7 +33,4 @@ public class Message {
     public String getSquare11() {return square11;}
     public String getSquare12() {return square12;}
 
-    public String getSquare1() {
-        return square1;
-    }
 }

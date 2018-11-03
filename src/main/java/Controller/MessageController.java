@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.Message;
-import Model.Player;
 
 public class MessageController {
     Message message;
@@ -99,7 +98,7 @@ public class MessageController {
         return returnString;
     }
     public String regler() {
-        String returnString = message.regler();
+        String returnString = message.getRules();
         return returnString;
     }
     public String playerTurn(PlayerTurnController player) {
@@ -107,11 +106,11 @@ public class MessageController {
         return returnString;
     }
 
-    public String setPlayerName1(PlayerTurnController player) {
+    public String setPlayerName1() {
         returnString = "Enter the name of player1: ";
         return returnString;
     }
-    public String setPlayerName2(PlayerTurnController player) {
+    public String setPlayerName2() {
         returnString = "Enter the name of player2: ";
         return returnString;
     }
@@ -129,7 +128,7 @@ public class MessageController {
         return returnString;
     }
     public String startGame(){
-        return message.regler();
+        return message.getRules();
     }
 
 }
