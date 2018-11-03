@@ -15,9 +15,10 @@ public class GameEngine {
         guiHandler = new Gui_Handler();
         player1 = new Player();
         player2 = new Player();
-        square = new SquareController();
         playerTurnController1 = new PlayerTurnController(player1, square);
         playerTurnController2 = new PlayerTurnController(player2, square);
+        square = new SquareController();
+
     }
     public void start(){
         setUpGame();
@@ -45,8 +46,7 @@ public class GameEngine {
         do {
             guiHandler.playerTurnGui(message, playerTurnController1);
             guiHandler.removePlayer1Car(playerTurnController1);
-            square.newSquare(playerTurnController1.roll(diceCup), playerTurnController1.getPosition(), playerTurnController1);
-            square.squareImpact(playerTurnController1, diceCup);
+            playerTurnController1.roll(diceCup, playerTurnController1);
             guiHandler.player1TurnUpdate(playerTurnController1, diceCup.getRef(0),diceCup.getRef(1));
             if (player1.getWon()){
                 break;
@@ -54,9 +54,7 @@ public class GameEngine {
 
             guiHandler.playerTurnGui(message, playerTurnController2);
             guiHandler.removePlayer2Car(playerTurnController2);
-            square.newSquare(playerTurnController2.roll(diceCup),
-                    playerTurnController1.getPosition(), playerTurnController2 );
-            square.squareImpact(playerTurnController2, diceCup);
+            playerTurnController2.roll(diceCup, playerTurnController2);
             guiHandler.player2TurnUpdate(playerTurnController2, diceCup.getRef(0),diceCup.getRef(1));
             if (player2.getWon()){
                 break;
@@ -66,3 +64,11 @@ public class GameEngine {
         while(!playerTurnController1.getWon() || !playerTurnController2.getWon());
     }
 }
+/*
+            guiHandler.playerTurnGui(message, playerTurnController2);
+                    guiHandler.removePlayer2Car(playerTurnController2);
+                    square.newSquare(playerTurnController2.roll(diceCup),
+                    playerTurnController1.getPosition(), playerTurnController2 );
+                    square.squareImpact(playerTurnController2, diceCup);
+                    guiHandler.player2TurnUpdate(playerTurnController2, diceCup.getRef(0),diceCup.getRef(1));
+*/
