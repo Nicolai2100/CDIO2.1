@@ -5,14 +5,17 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class DiceCupControllerTest {
-    DieController die = new DieController(6);
     DiceCupController diceCup = new DiceCupController(2,6);
 
     @Test
     public void rollAllDice() {
-        assertEquals(die.getFaceValue(), 0);
+        int die1 = diceCup.getRef(0).getFaceValue();
+        int die2 = diceCup.getRef(1).getFaceValue();
+        assertEquals(die1 + die2, 0);
         diceCup.rollAllDice();
-        assertTrue(diceCup.getSum() != 0);
+        die1 = diceCup.getRef(0).getFaceValue();
+        die2 = diceCup.getRef(1).getFaceValue();
+        assertEquals( die1 + die2, diceCup.getSum());
     }
 
     @Test
