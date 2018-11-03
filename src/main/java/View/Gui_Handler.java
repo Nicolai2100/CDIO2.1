@@ -90,19 +90,19 @@ public void startGameGui(MessageController message) {
         showScore(player);
     }
 
-   /* public void playerWonGui(MessageController message){
-        gui.showMessage(message.playerHasWon());
+    public void playerWonGui(MessageController message, PlayerTurnController player1, PlayerTurnController player2){
+        gui.showMessage(message.playerWon(player1, player2));
     }
-    public void playAgain(){
+    public void playAgain(GameEngine game){
         String svar = gui.getUserString("Vil du spille igen? tast ja/nej");
         if (svar.equals("ja"))
-            GameEngine.playGame();
+            game.start();
         else{
             gui.showMessage("Farvel");
             System.exit(1);
         }
     }
-*/
+
     /* int noPlayers = guiHandler.askForNoPlayers();
         //LOOP and make players
         gui.askForPlayerName();

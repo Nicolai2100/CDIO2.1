@@ -78,8 +78,13 @@ public class MessageController {
         return returnString;
     }
 
-    public String playerWon(PlayerTurnController player) {
-        returnString = player.getName() + " has won the game, by having 3000 or more gold coins.";
+    public String playerWon(PlayerTurnController player1, PlayerTurnController player2) {
+        if (player1.getWon()){
+            returnString = player1.getName() + " has won the game, by having 3000 or more gold coins.";
+        }
+        else {
+            returnString = player2.getName() + " has won the game, by having 3000 or more gold coins.";
+        }
         return returnString;
     }
     public String playerEndTurn(PlayerTurnController player){

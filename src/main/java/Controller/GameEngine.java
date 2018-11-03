@@ -10,6 +10,7 @@ public class GameEngine {
     private Player player1;
     private Player player2;
     private SquareController square;
+    GameEngine ref;
 
     public GameEngine(){
         guiHandler = new Gui_Handler();
@@ -62,13 +63,11 @@ public class GameEngine {
         }
         //End the game when one of the players get 40 and a double - or to double 6.
         while(!playerTurnController1.getWon() || !playerTurnController2.getWon());
+
+        guiHandler.playerWonGui(message, playerTurnController1, playerTurnController2);
+
+        //guiHandler.playAgain(ref);
     }
+
 }
-/*
-            guiHandler.playerTurnGui(message, playerTurnController2);
-                    guiHandler.removePlayer2Car(playerTurnController2);
-                    square.newSquare(playerTurnController2.roll(diceCup),
-                    playerTurnController1.getPosition(), playerTurnController2 );
-                    square.squareImpact(playerTurnController2, diceCup);
-                    guiHandler.player2TurnUpdate(playerTurnController2, diceCup.getRef(0),diceCup.getRef(1));
-*/
+
