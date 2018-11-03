@@ -3,7 +3,7 @@ package Controller;
 import Model.Square;
 
 public class SquareController {
-    Square model = new Square();
+    private Square model = new Square();
 
     public SquareController(){ }
 

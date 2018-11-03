@@ -1,7 +1,7 @@
 package Controller;
 
 public class AccountController {
-    int balance = 1000;
+    private int balance = 1000;
 
     public int getBalance()
     {

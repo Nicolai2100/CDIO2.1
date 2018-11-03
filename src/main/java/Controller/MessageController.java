@@ -3,8 +3,8 @@ package Controller;
 import Model.Message;
 
 public class MessageController {
-    Message message;
-    String returnString;
+    private Message message;
+    private String returnString;
 
     public MessageController() {
         message = new Message();
@@ -12,7 +12,7 @@ public class MessageController {
     public String messageSquare(int position, PlayerTurnController player){
 
         switch (position){
-            case 1: returnString = player.getName() + square1();
+            case 1: returnString = player.getName() + getSquare1();
             break;
             case 2: returnString = player.getName() + square2();
             break;
@@ -39,13 +39,12 @@ public class MessageController {
         }
         return returnString;
     }
-    public String square1(){
+    public String getSquare1(){
         returnString = message.getSquare1();
         return returnString;
     }
     public String square2() {
-        String returnString = message.getSquare2();
-        return returnString;
+        return message.getSquare2();
     }
 
     public String square3() {
