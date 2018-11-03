@@ -17,8 +17,17 @@ public class SquareControllerTest {
 
     @Test
     public void newSquare() {
-        //int x = square.newSquare(12,1);
-        //assertEquals(x,1);
+        for (int roll = 1; roll <= 1000; roll++){
+            int rollSum = diceCup.rollAndGetSum();
+            player.newSquare(rollSum, player.getPosition());
+            int newPlayerPosition = player.getPosition();
+            assertTrue(1 <= newPlayerPosition && newPlayerPosition <= 12 );
+        }
+
+
+
+
+
     }
 
     @Test
