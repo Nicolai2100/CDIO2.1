@@ -9,40 +9,55 @@ public class MessageController {
     public MessageController() {
         message = new Message();
     }
-    public String messageSquare(int position, PlayerTurnController player){
 
-        switch (position){
-            case 1: returnString = player.getName() + getSquare1();
-            break;
-            case 2: returnString = player.getName() + getSquare2();
-            break;
-            case 3: returnString = player.getName() + getSquare3();
-            break;
-            case 4: returnString = player.getName() + getSquare4();
-            break;
-            case 5: returnString = player.getName() + getSquare5();
-            break;
-            case 6: returnString = player.getName() + getSquare6();
-            break;
-            case 7: returnString = player.getName() + getSquare7();
-            break;
-            case 8: returnString = player.getName() + getSquare8();
-            break;
-            case 9: returnString = player.getName() + getSquare9();
-            break;
-            case 10: returnString = player.getName() + getSquare10();
-            break;
-            case 11: returnString = player.getName() + getSquare11();
-            break;
-            case 12: returnString = player.getName() + getSquare12();
-            break;
+    public String messageSquare(int position, PlayerTurnController player) {
+
+        switch (position) {
+            case 1:
+                returnString = player.getName() + getSquare1();
+                break;
+            case 2:
+                returnString = player.getName() + getSquare2();
+                break;
+            case 3:
+                returnString = player.getName() + getSquare3();
+                break;
+            case 4:
+                returnString = player.getName() + getSquare4();
+                break;
+            case 5:
+                returnString = player.getName() + getSquare5();
+                break;
+            case 6:
+                returnString = player.getName() + getSquare6();
+                break;
+            case 7:
+                returnString = player.getName() + getSquare7();
+                break;
+            case 8:
+                returnString = player.getName() + getSquare8();
+                break;
+            case 9:
+                returnString = player.getName() + getSquare9();
+                break;
+            case 10:
+                returnString = player.getName() + getSquare10();
+                break;
+            case 11:
+                returnString = player.getName() + getSquare11();
+                break;
+            case 12:
+                returnString = player.getName() + getSquare12();
+                break;
         }
         return returnString;
     }
-    public String getSquare1(){
+
+    public String getSquare1() {
         returnString = message.getSquare1();
         return returnString;
     }
+
     public String getSquare2() {
         return message.getSquare2();
     }
@@ -96,10 +111,12 @@ public class MessageController {
         String returnString = message.getSquare12();
         return returnString;
     }
+
     public String getRules() {
         String returnString = message.getRules();
         return returnString;
     }
+
     public String playerTurn(PlayerTurnController player) {
         returnString = "It is " + player.getName() + "'s turn! Press Enter to roll!";
         return returnString;
@@ -109,24 +126,26 @@ public class MessageController {
         returnString = "Enter the name of player1: ";
         return returnString;
     }
+
     public String setPlayerName2() {
         returnString = "Enter the name of player2: ";
         return returnString;
     }
 
     public String playerWon(PlayerTurnController player1, PlayerTurnController player2) {
-        if (player1.getWon()){
-           return returnString = player1.getName() + " has won the game, by having 3000 or more gold coins.";
-        }
-        else {
+        if (player1.getWon()) {
+            return returnString = player1.getName() + " has won the game, by having 3000 or more gold coins.";
+        } else {
             return returnString = player2.getName() + " has won the game, by having 3000 or more gold coins.";
         }
     }
-    public String playerEndTurn(PlayerTurnController player){
-        returnString = player.getName() + " now has "+player.getBalance()+" gold coins.";
+
+    public String playerEndTurn(PlayerTurnController player) {
+        returnString = player.getName() + " now has " + player.getBalance() + " gold coins.";
         return returnString;
     }
-    public String startGame(){
+
+    public String startGame() {
         return message.getRules();
     }
 

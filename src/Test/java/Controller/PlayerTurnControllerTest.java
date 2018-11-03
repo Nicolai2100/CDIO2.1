@@ -23,7 +23,6 @@ public class PlayerTurnControllerTest {
 
     }
 
-
     @Test
     public void getBalance() {
         assertEquals(playerTurnController.getBalance(), 1000);

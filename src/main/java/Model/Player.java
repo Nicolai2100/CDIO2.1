@@ -33,6 +33,7 @@ public class Player {
     public void setWon(boolean won) {
         this.won = won;
     }
+
     public boolean getWon() {
         return won;
     }

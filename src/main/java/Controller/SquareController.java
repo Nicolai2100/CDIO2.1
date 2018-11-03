@@ -2,9 +2,9 @@ package Controller;
 
 public class SquareController {
 
-    public void squareImpact(PlayerTurnController player, DiceCupController diceCup){
+    public void squareImpact(PlayerTurnController player, DiceCupController diceCup) {
         int newSquare = player.getPosition();
-        switch (newSquare){
+        switch (newSquare) {
             case 1:
                 // account
                 break;
