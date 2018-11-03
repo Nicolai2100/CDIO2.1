@@ -1,8 +1,6 @@
 package View;
 
 import Controller.*;
-import Model.Message;
-import Model.Player;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
@@ -14,7 +12,6 @@ public class Gui_Handler {
     private static GUI gui;
     private static GUI_Field[] felter;
     private GUI_Player guiPlayer1, guiPlayer2;
-    private GameEngine game;
     public Gui_Handler() {
         felter = new  GUI_Field[12];
         for (int i = 0; i < felter.length; i++) {
@@ -34,7 +31,6 @@ public class Gui_Handler {
 
         guiPlayer1 = new GUI_Player(player1.getName(), player1.getBalance(), car[0]);
         guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
-        //    felter[0].hasCar(guiPlayer1);
         felter[player1.getPosition()-1].setCar(guiPlayer1, true);
         felter[player2.getPosition()-1].setCar(guiPlayer2, true);
     }
@@ -64,8 +60,8 @@ public class Gui_Handler {
 
         felter[player.getPosition()-1].setCar(guiPlayer2, true);
     }
-    public void showScore(PlayerTurnController player) {
-        gui.showMessage(player.getName() + " har nu " + player.getBalance() + " point");
+    public void showScore(MessageController message, PlayerTurnController player) {
+        gui.showMessage(message.playerEndTurn(player));
     }
     public void removePlayer1Car(PlayerTurnController player) {
 
@@ -75,15 +71,15 @@ public class Gui_Handler {
 
         felter[(player.getPosition()-1)].removeAllCars();
     }
-    public void player1TurnUpdate(PlayerTurnController player, DieController die1, DieController die2) {
+    public void player1TurnUpdate(MessageController message, PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
         setPlayer1Car(player);
-        showScore(player);
+        showScore(message, player);
     }
-    public void player2TurnUpdate(PlayerTurnController player, DieController die1, DieController die2) {
+    public void player2TurnUpdate(MessageController message, PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
         setPlayer2Car(player);
-        showScore(player);
+        showScore(message, player);
     }
     public void playerWonGui(MessageController message, PlayerTurnController player1, PlayerTurnController player2){
         gui.showMessage(message.playerWon(player1, player2));

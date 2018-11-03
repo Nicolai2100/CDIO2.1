@@ -89,7 +89,6 @@ public class MessageController {
         else {
             return returnString = player2.getName() + " has won the game, by having 3000 or more gold coins.";
         }
-        //return returnString;
     }
     public String playerEndTurn(PlayerTurnController player){
         returnString = player.getName() + " now has "+player.getBalance()+" gold coins.";
