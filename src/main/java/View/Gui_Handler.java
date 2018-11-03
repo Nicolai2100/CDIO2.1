@@ -40,9 +40,9 @@ public class Gui_Handler {
     }
 
     public void enterNamePlayer(MessageController message, PlayerTurnController player1, PlayerTurnController player2) {
-        gui.showMessage(message.setPlayerName1(player1));
+        gui.showMessage(message.setPlayerName1());
         player1.setName(gui.getUserString(""));
-        gui.showMessage(message.setPlayerName2(player2));
+        gui.showMessage(message.setPlayerName2());
         player2.setName(gui.getUserString(""));
     }
     public void setDiceGui(DieController die1, DieController die2) {

@@ -56,6 +56,7 @@ public class GameEngine {
         do {
             guiHandler.playerTurnGui(message, playerTC1);
             guiHandler.removePlayer1Car(playerTC1);
+            guiHandler.setPlayer2Car(playerTC2);
             playerTC1.roll(diceCup,playerTC1);
             guiHandler.player1TurnUpdate(message.messageSquare(playerTC1.getPosition(),
                     playerTC1), message, playerTC1, diceCup.getRef(0),diceCup.getRef(1));
@@ -65,6 +66,7 @@ public class GameEngine {
 
             guiHandler.playerTurnGui(message, playerTC2);
             guiHandler.removePlayer2Car(playerTC2);
+            guiHandler.setPlayer1Car(playerTC1);
             playerTC2.roll(diceCup, playerTC2);
             guiHandler.player2TurnUpdate(message.messageSquare(playerTC2.getPosition(),
                     playerTC2), message, playerTC2, diceCup.getRef(0),diceCup.getRef(1));
