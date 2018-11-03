@@ -94,6 +94,12 @@ public void startGameGui(MessageController message) {
 
     public void playerWonGui(MessageController message, PlayerTurnController player1, PlayerTurnController player2){
         gui.showMessage(message.playerWon(player1, player2));
+        if (player1.getWon()){
+            gui.showMessage("Congratulations "+ player1.getName() + " You are victorius!!!");
+        }
+        else
+            gui.showMessage("Congratulations "+ player2.getName() + " You are victorius!!!");
+
     }
 
     public void playAgain(GameEngine game){
