@@ -58,8 +58,11 @@ public class PlayerTurnController {
     }
 
     public void setAccountBalance(int accountUpdate)
-    {
+    {   //The balance should not be able to go into minus
         int x = (accountC.getBalance()+accountUpdate);
+        if (x < 0){
+            accountC.setBalance(0);
+        }
         accountC.setBalance(x);
     }
 
