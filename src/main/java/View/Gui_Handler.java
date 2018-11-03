@@ -22,7 +22,7 @@ public class Gui_Handler {
         gui = new GUI(fields);
     }
     public void setGameUpGui(PlayerTurnController player1, PlayerTurnController player2) {
-        guiCreator();
+        fieldsAttributes();
         //GUI_Player
         GUI_Car[] car = new GUI_Car[2];
         for (int i = 0; i < car.length; i++) {
@@ -104,7 +104,7 @@ public class Gui_Handler {
         gui.askForPlayerName();
         gui.setupGUI;*/
 
-    public static void guiCreator() {
+    public static void fieldsAttributes() {
         fields[0].setTitle("Start");
         fields[0].setDescription("Start");
         fields[1].setTitle("Tower");
