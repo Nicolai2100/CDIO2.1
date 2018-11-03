@@ -40,8 +40,8 @@ public class GameEngine {
 
         guiHandler.startGameGui(message);
         //Set player names
-        guiHandler.enterNamePlayer(message, playerTurnController1);
-        guiHandler.enterNamePlayer(message, playerTurnController2);
+        guiHandler.enterNamePlayer(message, playerTurnController1, playerTurnController2);
+        //guiHandler.enterNamePlayer(message, playerTurnController2);
 
      //Start the main game
         do {

@@ -45,9 +45,11 @@ public void startGameGui(MessageController message) {
         gui.showMessage(message.startGame());
     }
 
-    public void enterNamePlayer(MessageController message, PlayerTurnController player) {
-        gui.showMessage(message.setPlayerName(player));
-        player.setName(gui.getUserString(""));
+    public void enterNamePlayer(MessageController message, PlayerTurnController player1, PlayerTurnController player2) {
+        gui.showMessage(message.setPlayerName1(player1));
+        player1.setName(gui.getUserString(""));
+        gui.showMessage(message.setPlayerName2(player2));
+        player2.setName(gui.getUserString(""));
     }
 
     public void setDiceGui(DieController die1, DieController die2) {
@@ -93,6 +95,7 @@ public void startGameGui(MessageController message) {
     public void playerWonGui(MessageController message, PlayerTurnController player1, PlayerTurnController player2){
         gui.showMessage(message.playerWon(player1, player2));
     }
+
     public void playAgain(GameEngine game){
         String svar = gui.getUserString("Vil du spille igen? tast ja/nej");
         if (svar.equals("ja"))

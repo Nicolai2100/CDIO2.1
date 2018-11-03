@@ -73,19 +73,23 @@ public class MessageController {
         return returnString;
     }
 
-    public String setPlayerName(PlayerTurnController player) {
-        returnString = "Enter the name of " + player.getName() + ": ";
+    public String setPlayerName1(PlayerTurnController player) {
+        returnString = "Enter the name of player1: ";
+        return returnString;
+    }
+    public String setPlayerName2(PlayerTurnController player) {
+        returnString = "Enter the name of player2: ";
         return returnString;
     }
 
     public String playerWon(PlayerTurnController player1, PlayerTurnController player2) {
         if (player1.getWon()){
-            returnString = player1.getName() + " has won the game, by having 3000 or more gold coins.";
+           return returnString = player1.getName() + " has won the game, by having 3000 or more gold coins.";
         }
         else {
-            returnString = player2.getName() + " has won the game, by having 3000 or more gold coins.";
+            return returnString = player2.getName() + " has won the game, by having 3000 or more gold coins.";
         }
-        return returnString;
+        //return returnString;
     }
     public String playerEndTurn(PlayerTurnController player){
         returnString = player.getName() + " now has "+player.getBalance()+" gold coins.";
