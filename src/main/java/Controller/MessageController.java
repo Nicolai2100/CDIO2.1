@@ -14,93 +14,80 @@ public class MessageController {
 
         switch (position){
             case 1: returnString = player.getName() + square1();
-            break;
+                    break;
             case 2: returnString = player.getName() + square2();
-            break;
+                    break;
             case 3: returnString = player.getName() + square3();
-            break;
+                    break;
             case 4: returnString = player.getName() + square4();
-            break;
+                    break;
             case 5: returnString = player.getName() + square5();
-            break;
+                    break;
             case 6: returnString = player.getName() + square6();
-            break;
+                    break;
             case 7: returnString = player.getName() + square7();
-            break;
+                    break;
             case 8: returnString = player.getName() + square8();
-            break;
+                    break;
             case 9: returnString = player.getName() + square9();
-            break;
+                    break;
             case 10: returnString = player.getName() + square10();
-            break;
+                    break;
             case 11: returnString = player.getName() + square11();
-            break;
+                    break;
             case 12: returnString = player.getName() + square12();
-            break;
+                    break;
         }
         return returnString;
     }
     public String square1(){
-        returnString = message.getSquare1();
-        return returnString;
+        return message.getSquare1();
     }
     public String square2() {
-        String returnString = message.getSquare2();
-        return returnString;
+        return message.getSquare2();
     }
 
     public String square3() {
-        String returnString = message.getSquare3();
-        return returnString;
+        return message.getSquare3();
     }
 
     public String square4() {
-        String returnString = message.getSquare4();
-        return returnString;
+        return message.getSquare4();
     }
 
     public String square5() {
-        String returnString = message.getSquare5();
-        return returnString;
+        return message.getSquare5();
     }
 
     public String square6() {
-        String returnString = message.getSquare6();
-        return returnString;
+        return message.getSquare6();
     }
 
     public String square7() {
-        String returnString = message.getSquare7();
-        return returnString;
+        return message.getSquare7();
     }
 
     public String square8() {
-        String returnString = message.getSquare8();
-        return returnString;
+        return message.getSquare8();
     }
 
     public String square9() {
-        String returnString = message.getSquare9();
-        return returnString;
+        return message.getSquare9();
     }
 
     public String square10() {
-        String returnString = message.getSquare10();
-        return returnString;
+        return message.getSquare10();
     }
 
     public String square11() {
-        String returnString = message.getSquare11();
-        return returnString;
+        return message.getSquare11();
     }
 
     public String square12() {
-        String returnString = message.getSquare12();
-        return returnString;
+        return message.getSquare12();
     }
     public String regler() {
-        String returnString = message.regler();
-        return returnString;
+        return message.regler();
     }
     public String playerTurn(PlayerTurnController player) {
         returnString = "It is " + player.getName() + "'s turn! Press Enter to roll!";
