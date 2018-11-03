@@ -14,12 +14,13 @@ public class PlayerTurnControllerTest {
 
     @Test
     public void setAccountBalance() {
-    int x = playerTurnController.getBalance();
-    assertEquals(x, 1000);
+    assertEquals(playerTurnController.getBalance(), 1000);
 
     playerTurnController.setAccountBalance(500);
-    int y = playerTurnController.getBalance();
-    assertEquals(y, 1500);
+    assertEquals(playerTurnController.getBalance(), 1500);
+
+    playerTurnController.setAccountBalance(-100000);
+    assertEquals(playerTurnController.getBalance(), 0);
 
     }
 
