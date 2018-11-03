@@ -10,32 +10,32 @@ public class MessageController {
     public MessageController() {
         message = new Message();
     }
-    public String messageSquare(int position){
+    public String messageSquare(int position, PlayerTurnController player){
 
         switch (position){
-            case 1: returnString = square1();
+            case 1: returnString = player.getName() + square1();
             break;
-            case 2: returnString = square2();
+            case 2: returnString = player.getName() + square2();
             break;
-            case 3: returnString = square3();
+            case 3: returnString = player.getName() + square3();
             break;
-            case 4: returnString = square4();
+            case 4: returnString = player.getName() + square4();
             break;
-            case 5: returnString = square5();
+            case 5: returnString = player.getName() + square5();
             break;
-            case 6: returnString = square6();
+            case 6: returnString = player.getName() + square6();
             break;
-            case 7: returnString = square7();
+            case 7: returnString = player.getName() + square7();
             break;
-            case 8: returnString = square8();
+            case 8: returnString = player.getName() + square8();
             break;
-            case 9: returnString = square9();
+            case 9: returnString = player.getName() + square9();
             break;
-            case 10: returnString = square10();
+            case 10: returnString = player.getName() + square10();
             break;
-            case 11: returnString = square11();
+            case 11: returnString = player.getName() + square11();
             break;
-            case 12: returnString = square12();
+            case 12: returnString = player.getName() + square12();
             break;
         }
         return returnString;
