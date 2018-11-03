@@ -8,7 +8,6 @@ public class AccountController {
     }
 
     public void setBalance(int balance) {
-
         this.balance = balance;
     }
 }

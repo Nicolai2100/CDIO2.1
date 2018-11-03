@@ -42,6 +42,10 @@ public class GameEngine {
         } else {
             System.exit(1);
         }
+//        Taget fra discord serveren
+//        if (gui.getUserLeftButtonPressed("Spil igen?", "Nej", "Jo")){
+//            System.exit(1);
+//        }
     }
 
     public void playGame() {

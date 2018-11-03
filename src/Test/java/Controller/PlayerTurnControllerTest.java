@@ -21,7 +21,6 @@ public class PlayerTurnControllerTest {
 
     playerTurnController.setAccountBalance(-100000);
     assertEquals(playerTurnController.getBalance(), 0);
-
     }
 
     @Test
