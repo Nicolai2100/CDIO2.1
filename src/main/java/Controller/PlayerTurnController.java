@@ -14,10 +14,24 @@ public class PlayerTurnController {
         accountC = new AccountController();
     }
 
-    public int roll(DiceCupController diceCup){
+    public void roll(DiceCupController diceCup, PlayerTurnController player){
+        int currentSum = diceCup.rollAndGetSum();
+
+        newSquare(currentSum, getPosition());
+
+        square.squareImpact(player, diceCup);
+    }
+
+    public void newSquare(int rollsum, int getSqaure){
+        if (rollsum + getSqaure > 12) {
+            setPosition((rollsum + getSqaure) % 12);
+        }
+        else{
+            setPosition(rollsum + getSqaure);
+        }
+
 
         return diceCup.rollAndGetSum();
-
     }
 
     public Player getRef(){

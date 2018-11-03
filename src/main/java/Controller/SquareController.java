@@ -54,7 +54,7 @@ public class SquareController {
             case 10:
                 player.setAccountBalance(-80);
                 // account -80
-                player.roll(diceCup);
+                player.roll(diceCup, player);
                 break;
             case 11:
                 player.setAccountBalance(-50);
