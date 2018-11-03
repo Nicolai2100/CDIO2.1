@@ -5,6 +5,7 @@ import Model.Player;
 public class PlayerTurnController {
 
     private Player model;
+    private PlayerTurnController ref;
     private SquareController square;
     private AccountController accountC;
 
@@ -16,9 +17,7 @@ public class PlayerTurnController {
 
     public void roll(DiceCupController diceCup, PlayerTurnController player){
         int currentSum = diceCup.rollAndGetSum();
-
         newSquare(currentSum, getPosition());
-
         square.squareImpact(player, diceCup);
     }
 
@@ -29,6 +28,10 @@ public class PlayerTurnController {
         else{
             setPosition(rollsum + getSqaure);
         }
+    }
+
+    public void won(){
+       if (accountC.getBalance() >= 3000) model.setWon(true);
     }
 
     public Player getRef(){
@@ -53,7 +56,6 @@ public class PlayerTurnController {
 
     public void setAccountBalance(int accountUpdate)
     {
-
         int x = (accountC.getBalance()+accountUpdate);
         accountC.setBalance(x);
     }
@@ -61,7 +63,6 @@ public class PlayerTurnController {
     public int getBalance() {
         return accountC.getBalance();
     }
-
     public void setWon(boolean bool) {
         model.setWon(bool);
     }
