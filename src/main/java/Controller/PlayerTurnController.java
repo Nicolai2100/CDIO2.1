@@ -5,7 +5,6 @@ import Model.Player;
 public class PlayerTurnController {
 
     private Player model;
-    private PlayerTurnController ref;
     private SquareController square;
     private AccountController accountC;
 
@@ -34,11 +33,7 @@ public class PlayerTurnController {
     }
 
     public void won(){
-       if (accountC.getBalance() >= 3000) model.setWon(true);
-    }
-
-    public Player getRef(){
-        return model;
+       if (accountC.getBalance() >= 3000) setWon(true);
     }
 
     public int getPosition() {
@@ -65,7 +60,6 @@ public class PlayerTurnController {
         }
         accountC.setBalance(x);
     }
-
     public int getBalance() {
         return accountC.getBalance();
     }
