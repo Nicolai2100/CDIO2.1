@@ -1,14 +1,12 @@
 package Controller;
 
 import Model.Player;
-import Model.Square;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class SquareControllerTest {
 
-    Square model = new Square();
     SquareController square = new SquareController();
 
     Player playerModel = new Player();

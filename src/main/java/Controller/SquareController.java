@@ -1,12 +1,6 @@
 package Controller;
 
-import Model.Square;
-
 public class SquareController {
-    private Square model = new Square();
-
-    public SquareController(){ }
-
 
     public void squareImpact(PlayerTurnController player, DiceCupController diceCup){
         int newSquare = player.getPosition();
