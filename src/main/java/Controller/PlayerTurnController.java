@@ -29,9 +29,6 @@ public class PlayerTurnController {
         else{
             setPosition(rollsum + getSqaure);
         }
-
-
-        return diceCup.rollAndGetSum();
     }
 
     public Player getRef(){
