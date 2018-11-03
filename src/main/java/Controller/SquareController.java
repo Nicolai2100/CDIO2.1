@@ -5,9 +5,7 @@ import Model.Square;
 public class SquareController {
     Square model = new Square();
 
-    public SquareController(){
-
-    }
+    public SquareController(){ }
 
 
     public void squareImpact(PlayerTurnController player, DiceCupController diceCup){

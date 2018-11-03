@@ -22,7 +22,10 @@ public class PlayerTurnController {
     }
 
     public void newSquare(int rollsum, int getSqaure){
-        if (rollsum + getSqaure > 12) {
+        if (rollsum + getSqaure == 24){
+            setPosition(12);
+        }
+        else if (rollsum + getSqaure > 12) {
             setPosition((rollsum + getSqaure) % 12);
         }
         else{
