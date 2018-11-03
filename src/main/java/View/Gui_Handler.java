@@ -128,4 +128,10 @@ public class Gui_Handler {
         fields[11].setTitle("Goldmine");
         fields[11].setDescription("+650");
     }
+
+    public DiceCupController setDieFaces() {
+        String svar = gui.getUserString("What sided cube do you wish to play with?");
+        int dieFaces = Integer.parseInt(svar);
+        return new DiceCupController(2, dieFaces);
+    }
 }
