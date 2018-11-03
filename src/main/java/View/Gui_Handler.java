@@ -12,6 +12,8 @@ public class Gui_Handler {
     private static GUI gui;
     private static GUI_Field[] fields;
     private GUI_Player guiPlayer1, guiPlayer2;
+
+    //Construktor
     public Gui_Handler() {
         fields = new  GUI_Field[12];
         for (int i = 0; i < fields.length; i++) {
