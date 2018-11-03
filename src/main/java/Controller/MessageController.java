@@ -10,6 +10,40 @@ public class MessageController {
     public MessageController() {
         message = new Message();
     }
+    public String messageSquare(int position){
+
+        switch (position){
+            case 1: returnString = square1();
+            break;
+            case 2: returnString = square2();
+            break;
+            case 3: returnString = square3();
+            break;
+            case 4: returnString = square4();
+            break;
+            case 5: returnString = square5();
+            break;
+            case 6: returnString = square6();
+            break;
+            case 7: returnString = square7();
+            break;
+            case 8: returnString = square8();
+            break;
+            case 9: returnString = square9();
+            break;
+            case 10: returnString = square10();
+            break;
+            case 11: returnString = square11();
+            break;
+            case 12: returnString = square12();
+            break;
+        }
+        return returnString;
+    }
+    public String square1(){
+        returnString = message.getSquare1();
+        return returnString;
+    }
     public String square2() {
         String returnString = message.getSquare2();
         return returnString;
