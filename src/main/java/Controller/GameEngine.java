@@ -10,7 +10,6 @@ public class GameEngine {
     private Player player1;
     private Player player2;
     private SquareController square;
-    GameEngine ref;
 
     public GameEngine(){
         guiHandler = new Gui_Handler();
@@ -19,7 +18,6 @@ public class GameEngine {
         playerTurnController1 = new PlayerTurnController(player1, square);
         playerTurnController2 = new PlayerTurnController(player2, square);
         square = new SquareController();
-
     }
     public void start(){
         setUpGame();
@@ -30,6 +28,14 @@ public class GameEngine {
         //LOOP and make players
         //guiHandler.askForPlayerNames();
         guiHandler.setGameUpGui(playerTurnController1, playerTurnController2);
+    }
+    public void playAgain(){
+            String svar = guiHandler.playAgainGui();
+        if (svar.equals("ja"))
+            start();
+        else{
+            System.exit(1);
+        }
     }
     public void playGame() {
         //Controller
@@ -49,9 +55,9 @@ public class GameEngine {
             guiHandler.removePlayer1Car(playerTurnController1);
             playerTurnController1.roll(diceCup, playerTurnController1);
             guiHandler.player1TurnUpdate(playerTurnController1, diceCup.getRef(0),diceCup.getRef(1));
-            if (player1.getWon()){
+           /* if (player1.getWon()){
                 break;
-            }
+            }*/
 
             guiHandler.playerTurnGui(message, playerTurnController2);
             guiHandler.removePlayer2Car(playerTurnController2);
@@ -66,7 +72,8 @@ public class GameEngine {
 
         guiHandler.playerWonGui(message, playerTurnController1, playerTurnController2);
 
-        //guiHandler.playAgain(ref);
+        playAgain();
+
     }
 
 }

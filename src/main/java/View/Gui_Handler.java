@@ -93,15 +93,12 @@ public class Gui_Handler {
         else
             gui.showMessage("Congratulations "+ player2.getName() + " You are victorius!!!");
     }
-    public void playAgain(GameEngine game){
-        String svar = gui.getUserString("Vil du spille igen? tast ja/nej");
-        if (svar.equals("ja"))
-            game.start();
-        else{
-            gui.showMessage("Farvel");
-            System.exit(1);
-        }
+
+    public String playAgainGui(){
+        String svar = gui.getUserString("Vil I spille igen? tast ja/nej");
+        return svar;
     }
+
     /* int noPlayers = guiHandler.askForNoPlayers();
         //LOOP and make players
         gui.askForPlayerName();
