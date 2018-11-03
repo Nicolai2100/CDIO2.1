@@ -1,4 +1,4 @@
-/*
+
 package Controller;
 
 import Model.Player;
@@ -26,14 +26,9 @@ public class PlayerTurnControllerTest {
 
     @Test
     public void getBalance() {
-
         assertEquals(playerTurnController.getBalance(), 1000);
-        System.out.println(playerTurnController.getPosition());
-        playerTurnController.roll(diceCup);
+        playerTurnController.setPosition(12);
         square.squareImpact(playerTurnController, diceCup);
-        System.out.println(playerTurnController.getPosition());
-        System.out.println(playerTurnController.getBalance());
-        //assertTrue(playerTurnController.getBalance() != 1000);
-
+        assertEquals(1650, playerTurnController.getBalance());
     }
-}*/
+}
