@@ -14,7 +14,7 @@ public class Gui_Handler {
     private static GUI gui;
     private static GUI_Field[] felter;
     private GUI_Player guiPlayer1, guiPlayer2;
-
+    private GameEngine game;
     public Gui_Handler() {
         felter = new  GUI_Field[12];
         for (int i = 0; i < felter.length; i++) {
@@ -39,9 +39,7 @@ public class Gui_Handler {
         felter[player2.getPosition()-1].setCar(guiPlayer2, true);
     }
 
-
-
-public void startGameGui(MessageController message) {
+    public void startGameGui(MessageController message) {
         gui.showMessage(message.startGame());
     }
 
@@ -51,7 +49,6 @@ public void startGameGui(MessageController message) {
         gui.showMessage(message.setPlayerName2(player2));
         player2.setName(gui.getUserString(""));
     }
-
     public void setDiceGui(DieController die1, DieController die2) {
         gui.setDice(die1.getFaceValue(), die2.getFaceValue());
     }
@@ -67,11 +64,9 @@ public void startGameGui(MessageController message) {
 
         felter[player.getPosition()-1].setCar(guiPlayer2, true);
     }
-
     public void showScore(PlayerTurnController player) {
         gui.showMessage(player.getName() + " har nu " + player.getBalance() + " point");
     }
-
     public void removePlayer1Car(PlayerTurnController player) {
 
         felter[(player.getPosition()-1)].removeAllCars();
@@ -80,7 +75,6 @@ public void startGameGui(MessageController message) {
 
         felter[(player.getPosition()-1)].removeAllCars();
     }
-
     public void player1TurnUpdate(PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
         setPlayer1Car(player);
@@ -91,7 +85,6 @@ public void startGameGui(MessageController message) {
         setPlayer2Car(player);
         showScore(player);
     }
-
     public void playerWonGui(MessageController message, PlayerTurnController player1, PlayerTurnController player2){
         gui.showMessage(message.playerWon(player1, player2));
         if (player1.getWon()){
@@ -99,9 +92,7 @@ public void startGameGui(MessageController message) {
         }
         else
             gui.showMessage("Congratulations "+ player2.getName() + " You are victorius!!!");
-
     }
-
     public void playAgain(GameEngine game){
         String svar = gui.getUserString("Vil du spille igen? tast ja/nej");
         if (svar.equals("ja"))
@@ -111,7 +102,6 @@ public void startGameGui(MessageController message) {
             System.exit(1);
         }
     }
-
     /* int noPlayers = guiHandler.askForNoPlayers();
         //LOOP and make players
         gui.askForPlayerName();
