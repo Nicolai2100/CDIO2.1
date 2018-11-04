@@ -50,7 +50,7 @@ public class PlayerTurnController {
         model.setName(name);
     }
 
-    public void setAccountBalance(int accountUpdate) {   //The balance should not be able to go into minus
+    public void updateAccountBalance(int accountUpdate) {   //The balance should not be able to go into minus
         int newBalance = (accountC.getBalance() + accountUpdate);
         if (newBalance < 0) {
             newBalance = 0;
