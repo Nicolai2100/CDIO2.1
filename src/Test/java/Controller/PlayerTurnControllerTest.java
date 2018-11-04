@@ -12,6 +12,15 @@ public class PlayerTurnControllerTest {
     DiceCupController diceCup = new DiceCupController(2,6);
     PlayerTurnController playerTurnController = new PlayerTurnController(player, square);
 
+    @org.junit.Test
+    public void roll() {
+        int currentPosition = playerTurnController.getPosition();
+        assertEquals(currentPosition, 1);
+        playerTurnController.roll(diceCup, playerTurnController);
+        int sum = diceCup.getSum();
+        assertEquals(playerTurnController.getPosition(), (sum % 12) + currentPosition);
+    }
+
     @Test
     public void newSquare() {
         assertEquals(playerTurnController.getPosition(), 1);
@@ -24,6 +33,13 @@ public class PlayerTurnControllerTest {
 
         playerTurnController.newSquare(2,3);
         assertEquals(playerTurnController.getPosition(), 5);
+
+        for (int roll = 1; roll <= 1000; roll++){
+            int rollSum = diceCup.rollAndGetSum();
+            playerTurnController.newSquare(rollSum, playerTurnController.getPosition());
+            int newPlayerPosition = player.getPosition();
+            assertTrue(1 <= newPlayerPosition && newPlayerPosition <= 12 );
+        }
     }
 
     @Test

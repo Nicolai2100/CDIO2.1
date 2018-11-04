@@ -14,16 +14,6 @@ public class SquareControllerTest {
     PlayerTurnController player = new PlayerTurnController(playerModel,square);
 
     @Test
-    public void newSquare() {
-        for (int roll = 1; roll <= 1000; roll++){
-            int rollSum = diceCup.rollAndGetSum();
-            player.newSquare(rollSum, player.getPosition());
-            int newPlayerPosition = player.getPosition();
-            assertTrue(1 <= newPlayerPosition && newPlayerPosition <= 12 );
-        }
-    }
-
-    @Test
     public void squareImpact() {
         int[] position = {1,2,3,4,5,6,7,8,9,11,12};
         int[] fieldList = {0,250,-100,100,-20,180,0,-70,60,-50,650};
@@ -35,6 +25,5 @@ public class SquareControllerTest {
             int balancePostImpact = player.getBalance();
             assertEquals(balancePostImpact, initialBalance+fieldList[i]);
         }
-
     }
 }
