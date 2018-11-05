@@ -22,6 +22,21 @@ public class Gui_Handler {
         }
         gui = new GUI(fields);
     }
+
+    public GUI_Player getGuiPlayer(PlayerTurnController player){
+        GUI_Player guiPlayer;
+
+        if (player.getRef()==1){
+            guiPlayer = guiPlayer1;
+        }
+        else
+        //      (player.getRef() == 2)
+        {
+            guiPlayer = guiPlayer2;
+        }
+        return guiPlayer;
+    }
+
     public void setGameUpGui(PlayerTurnController player1, PlayerTurnController player2) {
         fieldsAttributes();
         //GUI_Player
@@ -59,20 +74,6 @@ public class Gui_Handler {
     public void setPlayerCar(PlayerTurnController player) {
        fields[player.getPosition()-1].setCar(getGuiPlayer(player), true);
     }
-    public GUI_Player getGuiPlayer(PlayerTurnController player){
-        GUI_Player guiPlayer;
-
-        if (player.getRef()==1){
-            guiPlayer = guiPlayer1;
-        }
-        else
-      //      (player.getRef() == 2)
-        {
-            guiPlayer = guiPlayer2;
-        }
-        return guiPlayer;
-    }
-
     public void showScore(MessageController message, PlayerTurnController player) {
         gui.showMessage(message.playerEndTurn(player));
     }
