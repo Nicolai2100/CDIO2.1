@@ -12,6 +12,7 @@ public class PlayerTurnController {
         this.model = model;
         this.square = square;
         accountC = new AccountController();
+
     }
 
     public void roll(DiceCupController diceCup, PlayerTurnController player) {

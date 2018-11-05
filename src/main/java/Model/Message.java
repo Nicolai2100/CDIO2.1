@@ -18,6 +18,7 @@ public class Message {
     private String square10 = " 80 gold coins you bought an extra turn, at the werewall";
     private String square11 = " avoided conscription for work in the pit, the cost was 50 gold coins to bribe a civil servant";
     private String square12 = " has found gold in the mountains and has sold it for 650 gold coins";
+    private String rollAgain = " you landed on the werewall and lose 80 gold coins, but you can roll again!";
 
     public String getRules() {
         return rules;
@@ -71,4 +72,5 @@ public class Message {
         return square12;
     }
 
+    public String getRollAgain() {return rollAgain;}
 }

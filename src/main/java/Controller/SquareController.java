@@ -36,6 +36,7 @@ public class SquareController {
                 break;
             case 10:
                 player.updateAccountBalance(-80);
+
                 player.roll(diceCup, player);
                 break;
             case 11:

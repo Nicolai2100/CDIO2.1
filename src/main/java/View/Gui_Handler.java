@@ -73,17 +73,17 @@ public class Gui_Handler {
 
         fields[(player.getPosition()-1)].removeAllCars();
     }
-    public void player1TurnUpdate(String str, MessageController message, PlayerTurnController player, DieController die1, DieController die2) {
+    public void player1UpdateGUI(PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
         setPlayer1Car(player);
-        gui.showMessage(str);
-        showScore(message, player);
     }
-    public void player2TurnUpdate(String str, MessageController message, PlayerTurnController player, DieController die1, DieController die2) {
+   public void playerUpdate(String str){
+       gui.showMessage(str);
+   }
+
+    public void player2UpdateGUI(PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
         setPlayer2Car(player);
-        gui.showMessage(str);
-        showScore(message, player);
     }
     public void playerWonGui(MessageController message, PlayerTurnController player1, PlayerTurnController player2){
         gui.showMessage(message.playerWon(player1, player2));

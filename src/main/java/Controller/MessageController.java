@@ -149,4 +149,8 @@ public class MessageController {
         return message.getRules();
     }
 
+    public String rollAgain(){
+        return message.getRollAgain();
+    }
+
 }
