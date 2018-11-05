@@ -124,7 +124,7 @@ public class Gui_Handler {
         fields[8].setTitle("Huts in the mountain");
         fields[8].setDescription("+60");
         fields[9].setTitle("The Werewall");
-        fields[9].setDescription("-80 - ekstra tur!");
+        fields[9].setDescription("-80 - extra turn!");
         fields[10].setTitle("The Pit");
         fields[10].setDescription("-50");
         fields[11].setTitle("Goldmine");
