@@ -1,6 +1,7 @@
 package View;
 
 import Controller.*;
+import Model.Player;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
@@ -54,46 +55,39 @@ public class Gui_Handler {
     {
         gui.showMessage(message.playerTurn(player));
     }
-    public void setPlayer1Car(PlayerTurnController player) {
 
-        fields[player.getPosition()-1].setCar(guiPlayer1, true);
+    public void setPlayerCar(PlayerTurnController player) {
+       fields[player.getPosition()-1].setCar(getGuiPlayer(player), true);
     }
-    public void setPlayerCar(PlayerTurnController player, GUI_Player gui_player) {
+    public GUI_Player getGuiPlayer(PlayerTurnController player){
+        GUI_Player guiPlayer;
 
-        fields[player.getPosition()-1].setCar(gui_player, true);
+        if (player.getRef()==1){
+            guiPlayer = guiPlayer1;
+        }
+        else
+      //      (player.getRef() == 2)
+        {
+            guiPlayer = guiPlayer2;
+        }
+        return guiPlayer;
     }
-    public GUI_Player getGuiPlayer1(PlayerTurnController player){
-        return guiPlayer1;
-    }
-    public GUI_Player getGuiPlayer2(PlayerTurnController player){
-        return guiPlayer2;
-    }
-    public void setPlayer2Car(PlayerTurnController player) {
 
-        fields[player.getPosition()-1].setCar(guiPlayer2, true);
-    }
     public void showScore(MessageController message, PlayerTurnController player) {
         gui.showMessage(message.playerEndTurn(player));
     }
-    public void removePlayer1Car(PlayerTurnController player) {
+    public void removeCar(PlayerTurnController player) {
 
         fields[(player.getPosition()-1)].removeAllCars();
     }
-    public void removePlayer2Car(PlayerTurnController player) {
+    public void removeSpecificCar(PlayerTurnController player) {
 
-        fields[(player.getPosition()-1)].removeAllCars();
+        fields[(9)].removeAllCars();
     }
-    public void player1UpdateGUI(PlayerTurnController player, DieController die1, DieController die2) {
+
+    public void playerUpdateGUI(PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
-        setPlayer1Car(player);
-    }
-    public void player2UpdateGUI(PlayerTurnController player, DieController die1, DieController die2) {
-        setDiceGui(die1, die2);
-        setPlayer2Car(player);
-    }
-    public void playerUpdateGUI(PlayerTurnController player, GUI_Player gui_player, DieController die1, DieController die2) {
-        setDiceGui(die1, die2);
-        setPlayerCar(player, gui_player);
+        setPlayerCar(player);
     }
     public void fieldFeedback(String str){
         gui.showMessage(str);

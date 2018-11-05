@@ -36,8 +36,8 @@ public class GameEngine {
     public void playAgain() {
         String svar = guiHandler.playAgainGui();
         if (svar.equals("ja")) {
-            guiHandler.removePlayer1Car(playerTC1);
-            guiHandler.removePlayer2Car(playerTC2);
+            guiHandler.removeCar(playerTC1);
+            guiHandler.removeCar(playerTC2);
             start();
         } else {
             System.exit(1);
@@ -60,20 +60,18 @@ public class GameEngine {
         //Start the main game
         do {
             guiHandler.playerTurnGui(message, playerTC1);
-            guiHandler.removePlayer1Car(playerTC1);
-            guiHandler.setPlayerCar(playerTC2, guiHandler.getGuiPlayer2(playerTC2));
+            guiHandler.removeCar(playerTC1);
+            guiHandler.setPlayerCar(playerTC2);
             playerTC1.roll(message, guiHandler, diceCup, playerTC1);
-            //guiHandler.playerUpdateGUI(playerTC1, guiHandler.getGuiPlayer1(playerTC1), diceCup.getRef(0), diceCup.getRef(1));
             guiHandler.showScore(message, playerTC1);
             if (player1.getWon()) {
                 break;
             }
 
             guiHandler.playerTurnGui(message, playerTC2);
-            guiHandler.removePlayer2Car(playerTC2);
-            guiHandler.setPlayerCar(playerTC1, guiHandler.getGuiPlayer1(playerTC1));
+            guiHandler.removeCar(playerTC2);
+            guiHandler.setPlayerCar(playerTC1);
             playerTC2.roll(message, guiHandler, diceCup, playerTC2);
-            //guiHandler.playerUpdateGUI(playerTC2, guiHandler.getGuiPlayer2(playerTC2), diceCup.getRef(0), diceCup.getRef(1));
             guiHandler.showScore(message, playerTC2);
             if (player2.getWon()) {
                 break;

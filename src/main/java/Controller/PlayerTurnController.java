@@ -8,18 +8,19 @@ public class PlayerTurnController {
     private Player model;
     private SquareController square;
     private AccountController accountC;
+    private int ref;
 
     public PlayerTurnController(Player model, SquareController square) {
         this.model = model;
         this.square = square;
         accountC = new AccountController();
-
+        ref =+ 1;
     }
 
-    public void roll(MessageController message, Gui_Handler gui, DiceCupController diceCup, PlayerTurnController player) {
+    public void roll(MessageController message, Gui_Handler gui, DiceCupController diceCup, PlayerTurnController player1) {
         int currentSum = diceCup.rollAndGetSum();
         newSquare(currentSum, getPosition());
-        square.squareImpact(message, gui, player, diceCup);
+        square.squareImpact(message, gui, player1, diceCup);
     }
 
     public void newSquare(int rollsum, int getSqaure) {
@@ -72,5 +73,7 @@ public class PlayerTurnController {
         return model.getWon();
     }
 
-
+    public int getRef() {
+        return ref;
+    }
 }
