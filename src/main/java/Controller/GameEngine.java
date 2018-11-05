@@ -50,22 +50,20 @@ public class GameEngine {
 
     public void playGame() {
         //Controller
-        DiceCupController diceCup = new DiceCupController(2, 6);
+        //DiceCupController diceCup = new DiceCupController(2, 6);
         MessageController message = new MessageController();
 
         guiHandler.startGameGui(message);
         //Set player names
         guiHandler.enterNamePlayer(message, playerTC1, playerTC2);
-        //diceCup = guiHandler.setDieFaces();
+        DiceCupController diceCup = guiHandler.setDieFaces();
         //Start the main game
         do {
             guiHandler.playerTurnGui(message, playerTC1);
             guiHandler.removePlayer1Car(playerTC1);
             guiHandler.setPlayer2Car(playerTC2);
-            playerTC1.roll(diceCup, playerTC1);
             guiHandler.player1UpdateGUI(playerTC1, diceCup.getRef(0), diceCup.getRef(1));
-            guiHandler.playerUpdate(message.messageSquare(playerTC1.getPosition(),
-                    playerTC1));
+            playerTC1.roll(playerTC1, message, guiHandler, diceCup);
             guiHandler.showScore(message, playerTC1);
             if (player1.getWon()) {
                 break;
@@ -74,10 +72,8 @@ public class GameEngine {
             guiHandler.playerTurnGui(message, playerTC2);
             guiHandler.removePlayer2Car(playerTC2);
             guiHandler.setPlayer1Car(playerTC1);
-            playerTC2.roll(diceCup, playerTC2);
+            playerTC2.roll(playerTC2, message, guiHandler, diceCup);
             guiHandler.player2UpdateGUI(playerTC2, diceCup.getRef(0), diceCup.getRef(1));
-            guiHandler.playerUpdate(message.messageSquare(playerTC2.getPosition(),
-                    playerTC2));
             guiHandler.showScore(message, playerTC2);
             if (player2.getWon()) {
                 break;

@@ -1,8 +1,10 @@
 package Controller;
 
+import View.Gui_Handler;
+
 public class SquareController {
 
-    public void squareImpact(PlayerTurnController player, DiceCupController diceCup) {
+    public void squareImpact(PlayerTurnController player, MessageController message, Gui_Handler gui, DiceCupController diceCup) {
         int newSquare = player.getPosition();
         switch (newSquare) {
             case 1:
@@ -37,7 +39,7 @@ public class SquareController {
             case 10:
                 player.updateAccountBalance(-80);
 
-                player.roll(diceCup, player);
+                player.roll(player, message, gui, diceCup);
                 break;
             case 11:
                 player.updateAccountBalance(-50);

@@ -2,6 +2,7 @@
 package Controller;
 
 import Model.Player;
+import View.Gui_Handler;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,12 +12,14 @@ public class PlayerTurnControllerTest {
     SquareController square = new SquareController();
     DiceCupController diceCup = new DiceCupController(2,6);
     PlayerTurnController playerTurnController = new PlayerTurnController(player, square);
+    Gui_Handler gui = new Gui_Handler();
+    MessageController message = new MessageController();
 
     @org.junit.Test
     public void roll() {
         int currentPosition = playerTurnController.getPosition();
         assertEquals(currentPosition, 1);
-        playerTurnController.roll(diceCup, playerTurnController);
+        playerTurnController.roll(playerTurnController, message, gui, diceCup);
         int sum = diceCup.getSum();
         assertEquals(playerTurnController.getPosition(), (sum % 12) + currentPosition);
     }
@@ -66,7 +69,7 @@ public class PlayerTurnControllerTest {
     public void getBalance() {
         assertEquals(playerTurnController.getBalance(), 1000);
         playerTurnController.setPosition(12);
-        square.squareImpact(playerTurnController, diceCup);
+        square.squareImpact(playerTurnController, message, gui, diceCup);
         assertEquals(1650, playerTurnController.getBalance());
     }
 }
