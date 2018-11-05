@@ -8,41 +8,41 @@ public class SquareController {
             case 1:
                 break;
             case 2:
-                player.setAccountBalance(250);
+                player.updateAccountBalance(250);
                 player.won();
                 break;
             case 3:
-                player.setAccountBalance(-100);
+                player.updateAccountBalance(-100);
                 break;
             case 4:
-                player.setAccountBalance(100);
+                player.updateAccountBalance(100);
                 player.won();
                 break;
             case 5:
-                player.setAccountBalance(-20);
+                player.updateAccountBalance(-20);
                 break;
             case 6:
-                player.setAccountBalance(180);
+                player.updateAccountBalance(180);
                 player.won();
                 break;
             case 7:
                 break;
             case 8:
-                player.setAccountBalance(-70);
+                player.updateAccountBalance(-70);
                 break;
             case 9:
-                player.setAccountBalance(60);
+                player.updateAccountBalance(60);
                 player.won();
                 break;
             case 10:
-                player.setAccountBalance(-80);
+                player.updateAccountBalance(-80);
                 player.roll(diceCup, player);
                 break;
             case 11:
-                player.setAccountBalance(-50);
+                player.updateAccountBalance(-50);
                 break;
             case 12:
-                player.setAccountBalance(650);
+                player.updateAccountBalance(650);
                 player.won();
                 break;
         }

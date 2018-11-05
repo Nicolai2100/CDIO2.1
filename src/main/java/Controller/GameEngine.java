@@ -58,7 +58,7 @@ public class GameEngine {
         guiHandler.startGameGui(message);
         //Set player names
         guiHandler.enterNamePlayer(message, playerTC1, playerTC2);
-        diceCup = guiHandler.setDieFaces();
+        //diceCup = guiHandler.setDieFaces();
         //Start the main game
         do {
             guiHandler.playerTurnGui(message, playerTC1);
