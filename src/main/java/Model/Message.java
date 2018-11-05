@@ -16,7 +16,7 @@ public class Message {
     private String square8 = " was robbed for 70 gold coins in the black cave.";
     private String square9 = " found 60 gold coins in some huts in the mountains.";
     private String square10 = " 80 gold coins you bought an extra turn, at the werewall";
-    private String square11 = " avoid conscription for work in the pit, it cost you 50 gold coins to bribe a civil servant";
+    private String square11 = " avoided conscription for work in the pit, the cost was 50 gold coins to bribe a civil servant";
     private String square12 = " has found gold in the mountains and has sold it for 650 gold coins";
 
     public String getRules() {
