@@ -1,7 +1,6 @@
 package View;
 
 import Controller.*;
-import Model.Player;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
@@ -25,13 +24,10 @@ public class Gui_Handler {
 
     public GUI_Player getGuiPlayer(PlayerTurnController player){
         GUI_Player guiPlayer;
-
         if (player.getObjectNumb() == 1){
             guiPlayer = guiPlayer1;
         }
-        else
-        //      (player.getRef() == 2)
-        {
+        else{
             guiPlayer = guiPlayer2;
         }
         return guiPlayer;

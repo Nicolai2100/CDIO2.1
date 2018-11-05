@@ -5,10 +5,10 @@ public class Player {
     private String name = "";
     private boolean won = false;
     private int position = 1;
-    private int objektNumber;
+    private int objectNumber;
 
-    public Player(int objektNumber){
-        this.objektNumber = objektNumber;
+    public Player(int objectNumber){
+        this.objectNumber = objectNumber;
     }
 
     public String getName() {
@@ -19,14 +19,6 @@ public class Player {
         this.name = name;
     }
 
-    /*public int getBalance() {
-        return balance;
-    }
-
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
-*/
     public int getPosition() {
         return position;
     }
@@ -43,7 +35,7 @@ public class Player {
         return won;
     }
 
-    public int getObjektNumber() {
-        return objektNumber;
+    public int getObjectNumber() {
+        return objectNumber;
     }
 }

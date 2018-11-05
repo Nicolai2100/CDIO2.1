@@ -8,17 +8,14 @@ public class PlayerTurnController {
     private Player model;
     private SquareController square;
     private AccountController accountC;
-    private int ref;
 
     public PlayerTurnController(Player model, SquareController square) {
         this.model = model;
         this.square = square;
         accountC = new AccountController();
-        ref =+ 1;
     }
-
     public int getObjectNumb(){
-       return model.getObjektNumber();
+       return model.getObjectNumber();
     }
 
     public void roll(MessageController message, Gui_Handler gui, DiceCupController diceCup, PlayerTurnController player1) {
@@ -75,9 +72,5 @@ public class PlayerTurnController {
 
     public boolean getWon() {
         return model.getWon();
-    }
-
-    public int getRef() {
-        return ref;
     }
 }
