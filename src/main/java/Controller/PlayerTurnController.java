@@ -17,6 +17,10 @@ public class PlayerTurnController {
         ref =+ 1;
     }
 
+    public int getObjectNumb(){
+       return model.getObjektNumber();
+    }
+
     public void roll(MessageController message, Gui_Handler gui, DiceCupController diceCup, PlayerTurnController player1) {
         int currentSum = diceCup.rollAndGetSum();
         newSquare(currentSum, getPosition());

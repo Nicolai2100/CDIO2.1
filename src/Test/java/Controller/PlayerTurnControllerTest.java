@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PlayerTurnControllerTest {
-    Player player = new Player();
+    Player player = new Player(1);
     SquareController square = new SquareController();
     DiceCupController diceCup = new DiceCupController(2,6);
     PlayerTurnController playerTurnController = new PlayerTurnController(player, square);

@@ -26,7 +26,7 @@ public class Gui_Handler {
     public GUI_Player getGuiPlayer(PlayerTurnController player){
         GUI_Player guiPlayer;
 
-        if (player.getRef()==1){
+        if (player.getObjectNumb() == 1){
             guiPlayer = guiPlayer1;
         }
         else

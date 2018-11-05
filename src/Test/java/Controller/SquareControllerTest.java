@@ -10,7 +10,7 @@ public class SquareControllerTest {
 
     SquareController square = new SquareController();
 
-    Player playerModel = new Player();
+    Player playerModel = new Player(1);
     DiceCupController diceCup = new DiceCupController(2,6);
     PlayerTurnController player = new PlayerTurnController(playerModel,square);
     MessageController message = new MessageController();

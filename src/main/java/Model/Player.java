@@ -5,6 +5,11 @@ public class Player {
     private String name = "";
     private boolean won = false;
     private int position = 1;
+    private int objektNumber;
+
+    public Player(int objektNumber){
+        this.objektNumber = objektNumber;
+    }
 
     public String getName() {
         return name;
@@ -38,4 +43,7 @@ public class Player {
         return won;
     }
 
+    public int getObjektNumber() {
+        return objektNumber;
+    }
 }

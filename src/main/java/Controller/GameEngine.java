@@ -13,8 +13,8 @@ public class GameEngine {
 
     public GameEngine() {
         guiHandler = new Gui_Handler();
-        player1 = new Player();
-        player2 = new Player();
+        player1 = new Player(1);
+        player2 = new Player(2);
         square = new SquareController();
         playerTC1 = new PlayerTurnController(player1, square);
         playerTC2 = new PlayerTurnController(player2, square);
