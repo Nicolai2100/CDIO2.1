@@ -2,7 +2,7 @@ package Model;
 
 public class Message {
     private String rules = "Rules of the game\n" +
-            "Players roll 2 dice and land on a square, from 2 to 12.\n" +
+            "Players roll 2 dice and land on a field.\n" +
             "To land on each of these fields has a positive or negative effect on the players' account.\n" +
             "Players start with 1000 gold coins. The game is over when a player reaches 3000 gold coins.";
 

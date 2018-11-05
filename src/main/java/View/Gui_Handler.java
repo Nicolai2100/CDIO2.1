@@ -12,6 +12,8 @@ public class Gui_Handler {
     private static GUI gui;
     private static GUI_Field[] fields;
     private GUI_Player guiPlayer1, guiPlayer2;
+
+    //Construktor
     public Gui_Handler() {
         fields = new  GUI_Field[12];
         for (int i = 0; i < fields.length; i++) {
@@ -20,7 +22,7 @@ public class Gui_Handler {
         gui = new GUI(fields);
     }
     public void setGameUpGui(PlayerTurnController player1, PlayerTurnController player2) {
-        guiCreator();
+        fieldsAttributes();
         //GUI_Player
         GUI_Car[] car = new GUI_Car[2];
         for (int i = 0; i < car.length; i++) {
@@ -102,7 +104,7 @@ public class Gui_Handler {
         gui.askForPlayerName();
         gui.setupGUI;*/
 
-    public static void guiCreator() {
+    public static void fieldsAttributes() {
         fields[0].setTitle("Start");
         fields[0].setDescription("Start");
         fields[1].setTitle("Tower");
@@ -122,7 +124,7 @@ public class Gui_Handler {
         fields[8].setTitle("Huts in the mountain");
         fields[8].setDescription("+60");
         fields[9].setTitle("The Werewall");
-        fields[9].setDescription("-80 - ekstra tur!");
+        fields[9].setDescription("-80 - extra turn!");
         fields[10].setTitle("The Pit");
         fields[10].setDescription("-50");
         fields[11].setTitle("Goldmine");
