@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Player;
+import View.Gui_Handler;
 
 public class PlayerTurnController {
 
@@ -15,10 +16,10 @@ public class PlayerTurnController {
 
     }
 
-    public void roll(DiceCupController diceCup, PlayerTurnController player) {
+    public void roll(MessageController message, Gui_Handler gui, DiceCupController diceCup, PlayerTurnController player) {
         int currentSum = diceCup.rollAndGetSum();
         newSquare(currentSum, getPosition());
-        square.squareImpact(player, diceCup);
+        square.squareImpact(message, gui, player, diceCup);
     }
 
     public void newSquare(int rollsum, int getSqaure) {

@@ -58,6 +58,16 @@ public class Gui_Handler {
 
         fields[player.getPosition()-1].setCar(guiPlayer1, true);
     }
+    public void setPlayerCar(PlayerTurnController player, GUI_Player gui_player) {
+
+        fields[player.getPosition()-1].setCar(gui_player, true);
+    }
+    public GUI_Player getGuiPlayer1(PlayerTurnController player){
+        return guiPlayer1;
+    }
+    public GUI_Player getGuiPlayer2(PlayerTurnController player){
+        return guiPlayer2;
+    }
     public void setPlayer2Car(PlayerTurnController player) {
 
         fields[player.getPosition()-1].setCar(guiPlayer2, true);
@@ -77,14 +87,18 @@ public class Gui_Handler {
         setDiceGui(die1, die2);
         setPlayer1Car(player);
     }
-   public void playerUpdate(String str){
-       gui.showMessage(str);
-   }
-
     public void player2UpdateGUI(PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
         setPlayer2Car(player);
     }
+    public void playerUpdateGUI(PlayerTurnController player, GUI_Player gui_player, DieController die1, DieController die2) {
+        setDiceGui(die1, die2);
+        setPlayerCar(player, gui_player);
+    }
+    public void fieldFeedback(String str){
+        gui.showMessage(str);
+    }
+
     public void playerWonGui(MessageController message, PlayerTurnController player1, PlayerTurnController player2){
         gui.showMessage(message.playerWon(player1, player2));
         if (player1.getWon()){

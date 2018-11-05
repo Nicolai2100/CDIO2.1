@@ -61,11 +61,9 @@ public class GameEngine {
         do {
             guiHandler.playerTurnGui(message, playerTC1);
             guiHandler.removePlayer1Car(playerTC1);
-            guiHandler.setPlayer2Car(playerTC2);
-            playerTC1.roll(diceCup, playerTC1);
-            guiHandler.player1UpdateGUI(playerTC1, diceCup.getRef(0), diceCup.getRef(1));
-            guiHandler.playerUpdate(message.messageSquare(playerTC1.getPosition(),
-                    playerTC1));
+            guiHandler.setPlayerCar(playerTC2, guiHandler.getGuiPlayer2(playerTC2));
+            playerTC1.roll(message, guiHandler, diceCup, playerTC1);
+            //guiHandler.playerUpdateGUI(playerTC1, guiHandler.getGuiPlayer1(playerTC1), diceCup.getRef(0), diceCup.getRef(1));
             guiHandler.showScore(message, playerTC1);
             if (player1.getWon()) {
                 break;
@@ -73,11 +71,9 @@ public class GameEngine {
 
             guiHandler.playerTurnGui(message, playerTC2);
             guiHandler.removePlayer2Car(playerTC2);
-            guiHandler.setPlayer1Car(playerTC1);
-            playerTC2.roll(diceCup, playerTC2);
-            guiHandler.player2UpdateGUI(playerTC2, diceCup.getRef(0), diceCup.getRef(1));
-            guiHandler.playerUpdate(message.messageSquare(playerTC2.getPosition(),
-                    playerTC2));
+            guiHandler.setPlayerCar(playerTC1, guiHandler.getGuiPlayer1(playerTC1));
+            playerTC2.roll(message, guiHandler, diceCup, playerTC2);
+            //guiHandler.playerUpdateGUI(playerTC2, guiHandler.getGuiPlayer2(playerTC2), diceCup.getRef(0), diceCup.getRef(1));
             guiHandler.showScore(message, playerTC2);
             if (player2.getWon()) {
                 break;

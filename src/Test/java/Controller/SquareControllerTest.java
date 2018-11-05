@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Player;
+import View.Gui_Handler;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,6 +13,8 @@ public class SquareControllerTest {
     Player playerModel = new Player();
     DiceCupController diceCup = new DiceCupController(2,6);
     PlayerTurnController player = new PlayerTurnController(playerModel,square);
+    MessageController message = new MessageController();
+    Gui_Handler gui = new Gui_Handler();
 
     @Test
     public void squareImpact() {
@@ -21,7 +24,7 @@ public class SquareControllerTest {
         for (int i = 0; i < position.length; i++) {
             int initialBalance = player.getBalance();
             player.setPosition(position[i]);
-            square.squareImpact(player, diceCup);
+            square.squareImpact(message, gui, player, diceCup);
             int balancePostImpact = player.getBalance();
             assertEquals(balancePostImpact, initialBalance+fieldList[i]);
         }
