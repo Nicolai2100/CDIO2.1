@@ -148,9 +148,4 @@ public class MessageController {
     public String startGame() {
         return message.getRules();
     }
-
-    public String rollAgain(){
-        return message.getRollAgain();
-    }
-
 }

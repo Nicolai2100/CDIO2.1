@@ -59,8 +59,8 @@ public class SquareController {
                 gui.guiBoardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
                 gui.fieldFeedback(message.messageSquare(player.getPosition(), player));
                 gui.playerTurnGui(message, player);
-                gui.removeSpecificCar();
 
+                gui.removeSpecificCar();
                 player.roll(message, gui, diceCup, player);
                 break;
             case 11:

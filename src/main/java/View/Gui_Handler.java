@@ -22,17 +22,6 @@ public class Gui_Handler {
         gui = new GUI(fields);
     }
 
-    public GUI_Player getGuiPlayer(PlayerTurnController player){
-        GUI_Player guiPlayer;
-        if (player.getObjectNumb() == 1){
-            guiPlayer = guiPlayer1;
-        }
-        else{
-            guiPlayer = guiPlayer2;
-        }
-        return guiPlayer;
-    }
-
     public void setGameUpGui(PlayerTurnController player1, PlayerTurnController player2) {
         fieldsAttributes();
         //GUI_Player
@@ -48,6 +37,17 @@ public class Gui_Handler {
         guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
         fields[player1.getPosition()-1].setCar(guiPlayer1, true);
         fields[player2.getPosition()-1].setCar(guiPlayer2, true);
+    }
+
+    public GUI_Player getGuiPlayer(PlayerTurnController player){
+        GUI_Player guiPlayer;
+        if (player.getObjectNumb() == 1){
+            guiPlayer = guiPlayer1;
+        }
+        else{
+            guiPlayer = guiPlayer2;
+        }
+        return guiPlayer;
     }
 
     public void startGameGui(MessageController message) {
