@@ -1,7 +1,12 @@
 package Controller;
 
 import View.Gui_Handler;
+import gui_fields.GUI_Field;
+import gui_fields.GUI_Street;
+import gui_main.GUI;
 import org.junit.Test;
+
+import java.awt.*;
 
 import static org.junit.Assert.*;
 

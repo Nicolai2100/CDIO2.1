@@ -11,11 +11,13 @@ public class DiceCupControllerTest {
     public void rollAllDice() {
         int die1 = diceCup.getRef(0).getFaceValue();
         int die2 = diceCup.getRef(1).getFaceValue();
-        assertEquals(die1 + die2, 0);
+        assertEquals(0, die1);
+        assertEquals(0, die2);
         diceCup.rollAllDice();
         die1 = diceCup.getRef(0).getFaceValue();
         die2 = diceCup.getRef(1).getFaceValue();
-        assertEquals( die1 + die2, diceCup.getSum());
+        assertTrue(1 <= die1 && die1 <= 6);
+        assertTrue(1 <= die2 && die2 <= 6);
     }
 
     @Test
@@ -30,12 +32,10 @@ public class DiceCupControllerTest {
     @Test
     public void rollAndGetSum() {
         assertEquals(diceCup.getSum(), 0);
-        diceCup.rollAndGetSum();
-        DieController die1 = diceCup.getRef(0);
-        DieController die2 = diceCup.getRef(1);
-        int sum = die1.getFaceValue()+die2.getFaceValue();
-        assertEquals(diceCup.rollAndGetSum(), sum);
-        assertTrue(2 <= sum && sum <= 12);
+        int metodeSum = diceCup.rollAndGetSum();
+        int sum = diceCup.getRef(0).getFaceValue() + diceCup.getRef(1).getFaceValue();
+        assertEquals(metodeSum, sum);
+        assertTrue(2 <= metodeSum && metodeSum <= 12);
 
     }
 }
