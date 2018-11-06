@@ -10,14 +10,14 @@ public class GameEngine {
     private Player player1;
     private Player player2;
     private SquareController square;
+    MessageController message;
 
     public GameEngine() {
         guiHandler = new Gui_Handler();
-        player1 = new Player(1);
-        player2 = new Player(2);
         square = new SquareController();
-        playerTC1 = new PlayerTurnController(player1, square);
-        playerTC2 = new PlayerTurnController(player2, square);
+        playerTC1 = new PlayerTurnController(1, square);
+        playerTC2 = new PlayerTurnController(2, square);
+        message = new MessageController();
     }
 
     public void start() {
@@ -51,7 +51,6 @@ public class GameEngine {
     public void playGame() {
         //Controller
         DiceCupController diceCup = new DiceCupController(2, 6);
-        MessageController message = new MessageController();
 
         guiHandler.startGameGui(message);
         //Set player names

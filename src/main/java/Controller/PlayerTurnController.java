@@ -9,8 +9,8 @@ public class PlayerTurnController {
     private SquareController square;
     private AccountController accountC;
 
-    public PlayerTurnController(Player model, SquareController square) {
-        this.model = model;
+    public PlayerTurnController(int objectNumb, SquareController square) {
+        this.model = new Player(objectNumb);
         this.square = square;
         accountC = new AccountController();
     }
