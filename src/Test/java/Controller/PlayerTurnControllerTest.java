@@ -11,7 +11,7 @@ public class PlayerTurnControllerTest {
     Player player = new Player(1);
     SquareController square = new SquareController();
     DiceCupController diceCup = new DiceCupController(2,6);
-    PlayerTurnController playerTurnController = new PlayerTurnController(player, square);
+    PlayerTurnController playerTurnController = new PlayerTurnController(1, square);
     MessageController message = new MessageController();
     Gui_Handler gui = new Gui_Handler();
     @org.junit.Test

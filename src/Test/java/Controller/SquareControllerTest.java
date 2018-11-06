@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Player;
 import View.Gui_Handler;
 import org.junit.Test;
 
@@ -10,9 +9,8 @@ public class SquareControllerTest {
 
     SquareController square = new SquareController();
 
-    Player playerModel = new Player(1);
     DiceCupController diceCup = new DiceCupController(2,6);
-    PlayerTurnController player = new PlayerTurnController(playerModel,square);
+    PlayerTurnController player = new PlayerTurnController(1, square);
     MessageController message = new MessageController();
     Gui_Handler gui = new Gui_Handler();
 

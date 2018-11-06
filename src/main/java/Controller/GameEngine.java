@@ -1,14 +1,11 @@
 package Controller;
 
-import Model.Player;
 import View.Gui_Handler;
 
 public class GameEngine {
     private Gui_Handler guiHandler;
     private PlayerTurnController playerTC1;
     private PlayerTurnController playerTC2;
-    private Player player1;
-    private Player player2;
     private SquareController square;
     MessageController message;
 
@@ -63,7 +60,7 @@ public class GameEngine {
             guiHandler.setPlayerCar(playerTC2);
             playerTC1.roll(message, guiHandler, diceCup, playerTC1);
             guiHandler.showScore(message, playerTC1);
-            if (player1.getWon()) {
+            if (playerTC1.getWon()) {
                 break;
             }
 
@@ -72,7 +69,7 @@ public class GameEngine {
             guiHandler.setPlayerCar(playerTC1);
             playerTC2.roll(message, guiHandler, diceCup, playerTC2);
             guiHandler.showScore(message, playerTC2);
-            if (player2.getWon()) {
+            if (playerTC2.getWon()) {
                 break;
             }
         }

@@ -6,9 +6,19 @@ public class Player {
     private boolean won = false;
     private int position = 1;
     private int objectNumber;
+    private Account account;
 
     public Player(int objectNumber){
         this.objectNumber = objectNumber;
+        this.account = new Account();
+    }
+
+    public Account getBalance() {
+        return account;
+    }
+
+    public void setBalance(int account) {
+        this.account.setBalance(account);
     }
 
     public String getName() {

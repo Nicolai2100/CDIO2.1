@@ -1,6 +1,6 @@
-package Controller;
+package Model;
 
-public class AccountController {
+public class Account{
     private int balance = 1000;
 
     public int getBalance() {

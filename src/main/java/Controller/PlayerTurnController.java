@@ -7,12 +7,10 @@ public class PlayerTurnController {
 
     private Player model;
     private SquareController square;
-    private AccountController accountC;
 
     public PlayerTurnController(int objectNumb, SquareController square) {
         this.model = new Player(objectNumb);
         this.square = square;
-        accountC = new AccountController();
     }
     public int getObjectNumb(){
        return model.getObjectNumber();
@@ -35,7 +33,7 @@ public class PlayerTurnController {
     }
 
     public void won() {
-        if (accountC.getBalance() >= 3000) setWon(true);
+        if (model.getBalance().getBalance() >= 3000) setWon(true);
     }
 
     public int getPosition() {
@@ -55,15 +53,15 @@ public class PlayerTurnController {
     }
 
     public void updateAccountBalance(int accountUpdate) {   //The balance should not be able to go into minus
-        int newBalance = (accountC.getBalance() + accountUpdate);
+        int newBalance = (model.getBalance().getBalance() + accountUpdate);
         if (newBalance < 0) {
             newBalance = 0;
         }
-        accountC.setBalance(newBalance);
+        model.setBalance(newBalance);
     }
 
     public int getBalance() {
-        return accountC.getBalance();
+        return model.getBalance().getBalance();
     }
 
     public void setWon(boolean bool) {
