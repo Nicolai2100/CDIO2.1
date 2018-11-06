@@ -40,9 +40,10 @@ public class Gui_Handler {
         for (int i = 0; i < car.length; i++) {
             car[i] = new GUI_Car();
         }
+        //Car objects
         car[0].setPrimaryColor(Color.BLACK);
         car[1].setPrimaryColor(Color.BLUE);
-
+        //Gui_Player objects
         guiPlayer1 = new GUI_Player(player1.getName(), player1.getBalance(), car[0]);
         guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
         fields[player1.getPosition()-1].setCar(guiPlayer1, true);
@@ -77,12 +78,12 @@ public class Gui_Handler {
 
         fields[(player.getPosition()-1)].removeAllCars();
     }
-    public void removeSpecificCar(PlayerTurnController player) {
-
+    //Only used for field 10
+    public void removeSpecificCar() {
         fields[(9)].removeAllCars();
     }
 
-    public void playerUpdateGUI(PlayerTurnController player, DieController die1, DieController die2) {
+    public void guiBoardUpdate(PlayerTurnController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
         setPlayerCar(player);
     }
@@ -90,7 +91,7 @@ public class Gui_Handler {
         gui.showMessage(str);
     }
 
-    public void playerWonGui(MessageController message, PlayerTurnController player1, PlayerTurnController player2){
+    public void playerWonGuiMessage(MessageController message, PlayerTurnController player1, PlayerTurnController player2){
         gui.showMessage(message.playerWon(player1, player2));
         if (player1.getWon()){
             gui.showMessage("Congratulations "+ player1.getName() + " You are victorius!!!");
@@ -98,7 +99,6 @@ public class Gui_Handler {
         else
             gui.showMessage("Congratulations "+ player2.getName() + " You are victorius!!!");
     }
-
     public String playAgainGui(){
         String svar = gui.getUserString("Vil I spille igen? tast ja/nej");
         return svar;
