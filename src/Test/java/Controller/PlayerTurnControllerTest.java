@@ -15,6 +15,7 @@ public class PlayerTurnControllerTest {
     Gui_Handler gui = new Gui_Handler();
     @Test
     public void roll() {
+        gui.setGameUpGui(ptc1, ptc2);
         int currentPosition = ptc2.getPosition();
         assertEquals(currentPosition, 1);
         ptc2.roll(message, gui, diceCup, ptc2);
