@@ -7,10 +7,12 @@ public class PlayerTurnController {
 
     private Player model;
     private SquareController square;
+    private static int numOfPlayers = 0;
 
     public PlayerTurnController(int objectNumb, SquareController square) {
         this.model = new Player(objectNumb);
         this.square = square;
+        numOfPlayers++;
     }
     public int getObjectNumb(){
        return model.getObjectNumber();
@@ -70,5 +72,9 @@ public class PlayerTurnController {
 
     public boolean getWon() {
         return model.getWon();
+    }
+
+    public static int getNumOfPlayers() {
+        return numOfPlayers;
     }
 }

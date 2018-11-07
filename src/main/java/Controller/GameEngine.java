@@ -22,7 +22,7 @@ public class GameEngine {
         playGame();
     }
 
-    private void setUpGame() {
+    public void setUpGame() {
         //int noPlayers = guiHandler.askForNoPlayers();
         //LOOP and make players
         //guiHandler.askForPlayerNames();
