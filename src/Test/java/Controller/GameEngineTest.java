@@ -8,7 +8,7 @@ public class GameEngineTest {
     GameEngine gameEngine = new GameEngine();
 
     @Test
-    public void playGame() {
+    public void setUpGame() {
         gameEngine.setUpGame();
         assertEquals(PlayerTurnController.getNumOfPlayers(), 2);
     }
