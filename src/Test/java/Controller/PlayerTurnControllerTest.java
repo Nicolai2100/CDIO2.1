@@ -2,7 +2,6 @@
 package Controller;
 
 import View.Gui_Handler;
-import View.MessageHandler;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -48,7 +47,7 @@ public class PlayerTurnControllerTest {
     public void won() {
         assertEquals(ptc2.getBalance(), 1000);
         assertFalse(ptc2.getWon());
-        ptc2.updateAccountBalance(3000);
+        ptc2.updatePlayerBalance(3000);
         ptc2.won();
         assertTrue(ptc2.getWon());
     }
@@ -57,10 +56,10 @@ public class PlayerTurnControllerTest {
     public void updateAccountBalance() {
     assertEquals(ptc2.getBalance(), 1000);
 
-    ptc2.updateAccountBalance(500);
+    ptc2.updatePlayerBalance(500);
     assertEquals(ptc2.getBalance(), 1500);
 
-    ptc2.updateAccountBalance(-100000);
+    ptc2.updatePlayerBalance(-100000);
     assertEquals(ptc2.getBalance(), 0);
     }
 
