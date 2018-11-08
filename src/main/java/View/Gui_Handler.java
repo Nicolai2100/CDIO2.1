@@ -141,8 +141,20 @@ public class Gui_Handler {
 
 
     public DiceCupController setDieFaces() {
-        String svar = gui.getUserString("What sided cube do you wish to play with?");
-        int dieFaces = Integer.parseInt(svar);
+        int dieFaces = 0;
+        String input;
+        do {
+        input = gui.getUserString("What sided die do you wish to play with?");
+
+        if (input.charAt(0) < 49 || input.charAt(0) > 54){
+
+            input = gui.getUserString("Wrong input! Please insert a number between 1 and 6");
+            dieFaces = Integer.parseInt(input);
+        }
+        else {
+            dieFaces = Integer.parseInt(input);
+        }
+        }while((dieFaces > 0) && (dieFaces < 7));
         return new DiceCupController(2, dieFaces);
     }
 }
