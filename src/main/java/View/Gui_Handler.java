@@ -143,16 +143,17 @@ public class Gui_Handler {
     public DiceCupController setDieFaces() {
         int dieFaces;
         String input;
-        input = gui.getUserString("What sided die do you wish to play with?");
-        do {
-            if (input.charAt(0) < 49 || input.charAt(0) > 54){
-                input = gui.getUserString("Wrong input! Please insert a number between 1 and 6");
-                dieFaces = Integer.parseInt(input);
-            } else {
-                dieFaces = Integer.parseInt(input);
+        while(true){
+            input = gui.getUserString("What sided die do you wish to play with?");
+            if (input.matches("^[0-9]*$") && input.length() > 0){
+                if (Integer.parseInt(input) < 1 || Integer.parseInt(input) > 6 ){
+                    gui.getUserString("Wrong input! Please insert a number between 1 and 6");
+                } else {
+                    dieFaces = Integer.parseInt(input);
+                    break;
+                }
             }
-        }while((dieFaces < 1) || (dieFaces > 6));
-
+        }
         return new DiceCupController(2, dieFaces);
     }
 }
