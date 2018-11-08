@@ -7,6 +7,7 @@ public class GameEngine {
     private PlayerController playerTC1;
     private PlayerController playerTC2;
     private SquareController square;
+    private DiceCupController diceCup;
 
     public GameEngine() {
         guiHandler = new Gui_Handler();
@@ -26,6 +27,10 @@ public class GameEngine {
         //guiHandler.askForPlayerNames();
         // ask for dice max value
         guiHandler.setGameUpGui(playerTC1, playerTC2);
+        guiHandler.startGameGui();
+        //Set player names
+        guiHandler.enterNamePlayer(playerTC1, playerTC2);
+        diceCup = guiHandler.setDieFaces();
     }
 
     public void playAgain() {
@@ -42,16 +47,8 @@ public class GameEngine {
 //            System.exit(1);
 //        }
     }
-
+    //Start the main game
     public void playGame() {
-        //Controller
-        DiceCupController diceCup = new DiceCupController(2, 6);
-
-        guiHandler.startGameGui();
-        //Set player names
-        guiHandler.enterNamePlayer(playerTC1, playerTC2);
-        //diceCup = guiHandler.setDieFaces();
-        //Start the main game
         do {
             guiHandler.playerTurnGui(playerTC1);
             guiHandler.removeCar(playerTC1);
