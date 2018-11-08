@@ -76,6 +76,7 @@ public class Gui_Handler {
     public void showScore(PlayerController player) {
         gui.showMessage(message.playerEndTurn(player));
     }
+
     public void removeCar(PlayerController player) {
 
         fields[(player.getPosition()-1)].removeAllCars();
