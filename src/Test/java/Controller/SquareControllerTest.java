@@ -12,7 +12,6 @@ public class SquareControllerTest {
     DiceCupController diceCup = new DiceCupController(2,6);
     PlayerController player1 = new PlayerController(1, square);
     PlayerController player2 = new PlayerController(2, square);
-    MessageHandler message = new MessageHandler();
     Gui_Handler gui = new Gui_Handler();
 
     @Test
@@ -24,7 +23,7 @@ public class SquareControllerTest {
         for (int i = 0; i < position.length; i++) {
             int initialBalance = player1.getBalance();
             player1.setPosition(position[i]);
-            square.squareImpact(message, gui, player1, diceCup);
+            square.squareImpact(gui, player1, diceCup);
             int balancePostImpact = player1.getBalance();
             assertEquals(balancePostImpact, initialBalance+fieldList[i]);
         }

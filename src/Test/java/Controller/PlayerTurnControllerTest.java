@@ -12,14 +12,13 @@ public class PlayerTurnControllerTest {
     DiceCupController diceCup = new DiceCupController(2,6);
     PlayerController ptc1 = new PlayerController(1, square);
     PlayerController ptc2 = new PlayerController(2, square);
-    MessageHandler message = new MessageHandler();
     Gui_Handler gui = new Gui_Handler();
     @Test
     public void roll() {
         gui.setGameUpGui(ptc1, ptc2);
         int currentPosition = ptc2.getPosition();
         assertEquals(currentPosition, 1);
-        ptc2.roll(message, gui, diceCup, ptc2);
+        ptc2.roll(gui, diceCup, ptc2);
         int sum = diceCup.getSum();
         assertEquals(ptc2.getPosition(), (sum % 12) + currentPosition);
     }
@@ -72,7 +71,7 @@ public class PlayerTurnControllerTest {
         ptc2.setPosition(12);
         gui.setPlayerCar(ptc2);
 
-        square.squareImpact(message, gui, ptc2, diceCup);
+        square.squareImpact(gui, ptc2, diceCup);
         assertEquals(1650, ptc2.getBalance());
     }
 }
