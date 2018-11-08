@@ -18,7 +18,7 @@ public class Player {
     }
 
     public void setBalance(int account) {
-        this.account.setBalance(account);
+        this.account.updateBalance(account);
     }
 
     public String getName() {

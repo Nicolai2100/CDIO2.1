@@ -53,12 +53,8 @@ public class PlayerController {
         model.setName(name);
     }
 
-    public void updateAccountBalance(int accountUpdate) {   //The balance should not be able to go into minus
-        int newBalance = (model.getBalance().getBalance() + accountUpdate);
-        if (newBalance < 0) {
-            newBalance = 0;
-        }
-        model.setBalance(newBalance);
+    public void updatePlayerBalance(int accountUpdate) {
+        model.setBalance(accountUpdate);
     }
 
     public int getBalance() {
