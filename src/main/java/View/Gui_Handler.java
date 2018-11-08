@@ -141,20 +141,19 @@ public class Gui_Handler {
 
 
     public DiceCupController setDieFaces() {
-        int dieFaces = 0;
+        int dieFaces;
         String input;
-        do {
         input = gui.getUserString("What sided die do you wish to play with?");
+        do {
+            if (input.charAt(0) < 49 || input.charAt(0) > 54){
+                input = gui.getUserString("Wrong input! Please insert a number between 1 and 6");
+                dieFaces = Integer.parseInt(input);
+            } else {
+                dieFaces = Integer.parseInt(input);
+            }
+        }while((dieFaces < 1) || (dieFaces > 6));
 
-        if (input.charAt(0) < 49 || input.charAt(0) > 54){
-
-            input = gui.getUserString("Wrong input! Please insert a number between 1 and 6");
-            dieFaces = Integer.parseInt(input);
-        }
-        else {
-            dieFaces = Integer.parseInt(input);
-        }
-        }while((dieFaces > 0) && (dieFaces < 7));
         return new DiceCupController(2, dieFaces);
     }
 }
+
