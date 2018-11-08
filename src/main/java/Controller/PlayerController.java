@@ -22,13 +22,13 @@ public class PlayerController {
         square.squareImpact(gui, player1, diceCup);
     }
 
-    public void newSquare(int rollsum, int getSqaure) {
-        if (rollsum + getSqaure == 24) {
+    public void newSquare(int rollSum, int playerPosition) {
+        if (rollSum + playerPosition == 24) {
             setPosition(12);
-        } else if (rollsum + getSqaure > 12) {
-            setPosition((rollsum + getSqaure) % 12);
+        } else if (rollSum + playerPosition > 12) {
+            setPosition((rollSum + playerPosition) % 12);
         } else {
-            setPosition(rollsum + getSqaure);
+            setPosition(rollSum + playerPosition);
         }
     }
 
