@@ -2,18 +2,15 @@ package Controller;
 
 import Model.Player;
 import View.Gui_Handler;
-import View.MessageHandler;
 
 public class PlayerController {
 
     private Player model;
     private SquareController square;
-    private static int numOfPlayers = 0;
 
     public PlayerController(int objectNumb, SquareController square) {
         this.model = new Player(objectNumb);
         this.square = square;
-        numOfPlayers++;
     }
     public int getObjectNumb(){
        return model.getObjectNumber();
@@ -73,9 +70,5 @@ public class PlayerController {
 
     public boolean getWon() {
         return model.getWon();
-    }
-
-    public static int getNumOfPlayers() {
-        return numOfPlayers;
     }
 }
