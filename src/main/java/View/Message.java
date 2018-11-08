@@ -1,4 +1,4 @@
-package Model;
+package View;
 
 public class Message {
     private String rules = "Rules of the game\n" +

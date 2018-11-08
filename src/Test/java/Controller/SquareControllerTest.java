@@ -1,6 +1,7 @@
 package Controller;
 
 import View.Gui_Handler;
+import View.MessageHandler;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,9 +10,9 @@ public class SquareControllerTest {
 
     SquareController square = new SquareController();
     DiceCupController diceCup = new DiceCupController(2,6);
-    PlayerTurnController player1 = new PlayerTurnController(1, square);
-    PlayerTurnController player2 = new PlayerTurnController(2, square);
-    MessageController message = new MessageController();
+    PlayerController player1 = new PlayerController(1, square);
+    PlayerController player2 = new PlayerController(2, square);
+    MessageHandler message = new MessageHandler();
     Gui_Handler gui = new Gui_Handler();
 
     @Test

@@ -2,6 +2,7 @@
 package Controller;
 
 import View.Gui_Handler;
+import View.MessageHandler;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,9 +10,9 @@ import static org.junit.Assert.*;
 public class PlayerTurnControllerTest {
     SquareController square = new SquareController();
     DiceCupController diceCup = new DiceCupController(2,6);
-    PlayerTurnController ptc1 = new PlayerTurnController(1, square);
-    PlayerTurnController ptc2 = new PlayerTurnController(2, square);
-    MessageController message = new MessageController();
+    PlayerController ptc1 = new PlayerController(1, square);
+    PlayerController ptc2 = new PlayerController(2, square);
+    MessageHandler message = new MessageHandler();
     Gui_Handler gui = new Gui_Handler();
     @Test
     public void roll() {

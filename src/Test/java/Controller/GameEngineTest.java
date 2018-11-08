@@ -10,6 +10,6 @@ public class GameEngineTest {
     @Test
     public void setUpGame() {
         gameEngine.setUpGame();
-        assertEquals(PlayerTurnController.getNumOfPlayers(), 2);
+        assertEquals(PlayerController.getNumOfPlayers(), 2);
     }
 }

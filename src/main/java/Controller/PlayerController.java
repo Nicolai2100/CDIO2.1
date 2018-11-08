@@ -2,14 +2,15 @@ package Controller;
 
 import Model.Player;
 import View.Gui_Handler;
+import View.MessageHandler;
 
-public class PlayerTurnController {
+public class PlayerController {
 
     private Player model;
     private SquareController square;
     private static int numOfPlayers = 0;
 
-    public PlayerTurnController(int objectNumb, SquareController square) {
+    public PlayerController(int objectNumb, SquareController square) {
         this.model = new Player(objectNumb);
         this.square = square;
         numOfPlayers++;
@@ -18,10 +19,10 @@ public class PlayerTurnController {
        return model.getObjectNumber();
     }
 
-    public void roll(MessageController message, Gui_Handler gui, DiceCupController diceCup, PlayerTurnController player1) {
+    public void roll(Gui_Handler gui, DiceCupController diceCup, PlayerController player1) {
         int currentSum = diceCup.rollAndGetSum();
         newSquare(currentSum, getPosition());
-        square.squareImpact(message, gui, player1, diceCup);
+        square.squareImpact(gui, player1, diceCup);
     }
 
     public void newSquare(int rollsum, int getSqaure) {

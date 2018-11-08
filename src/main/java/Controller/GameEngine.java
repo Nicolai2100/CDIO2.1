@@ -4,17 +4,15 @@ import View.Gui_Handler;
 
 public class GameEngine {
     private Gui_Handler guiHandler;
-    private PlayerTurnController playerTC1;
-    private PlayerTurnController playerTC2;
+    private PlayerController playerTC1;
+    private PlayerController playerTC2;
     private SquareController square;
-    MessageController message;
 
     public GameEngine() {
         guiHandler = new Gui_Handler();
         square = new SquareController();
-        playerTC1 = new PlayerTurnController(1, square);
-        playerTC2 = new PlayerTurnController(2, square);
-        message = new MessageController();
+        playerTC1 = new PlayerController(1, square);
+        playerTC2 = new PlayerController(2, square);
     }
 
     public void start() {
@@ -49,26 +47,26 @@ public class GameEngine {
         //Controller
         DiceCupController diceCup = new DiceCupController(2, 6);
 
-        guiHandler.startGameGui(message);
+        guiHandler.startGameGui();
         //Set player names
-        guiHandler.enterNamePlayer(message, playerTC1, playerTC2);
+        guiHandler.enterNamePlayer(playerTC1, playerTC2);
         //diceCup = guiHandler.setDieFaces();
         //Start the main game
         do {
-            guiHandler.playerTurnGui(message, playerTC1);
+            guiHandler.playerTurnGui(playerTC1);
             guiHandler.removeCar(playerTC1);
             guiHandler.setPlayerCar(playerTC2);
-            playerTC1.roll(message, guiHandler, diceCup, playerTC1);
-            guiHandler.showScore(message, playerTC1);
+            playerTC1.roll(guiHandler, diceCup, playerTC1);
+            guiHandler.showScore(playerTC1);
             if (playerTC1.getWon()) {
                 break;
             }
 
-            guiHandler.playerTurnGui(message, playerTC2);
+            guiHandler.playerTurnGui(playerTC2);
             guiHandler.removeCar(playerTC2);
             guiHandler.setPlayerCar(playerTC1);
-            playerTC2.roll(message, guiHandler, diceCup, playerTC2);
-            guiHandler.showScore(message, playerTC2);
+            playerTC2.roll(guiHandler, diceCup, playerTC2);
+            guiHandler.showScore(playerTC2);
             if (playerTC2.getWon()) {
                 break;
             }
@@ -76,7 +74,7 @@ public class GameEngine {
         //End the game when one of the players get 40 and a double - or to double 6.
         while (!playerTC1.getWon() || !playerTC2.getWon());
 
-        guiHandler.playerWonGuiMessage(message, playerTC1, playerTC2);
+        guiHandler.playerWonGuiMessage(playerTC1, playerTC2);
 
         //playAgain();
 
