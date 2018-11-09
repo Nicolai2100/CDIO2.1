@@ -112,11 +112,6 @@ public class MessageHandler {
         return returnString;
     }
 
-    public String getRules() {
-        String returnString = message.getRules();
-        return returnString;
-    }
-
     public String playerTurn(PlayerController player) {
         returnString = "It is " + player.getName() + "'s turn! Press Enter to roll!";
         return returnString;

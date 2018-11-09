@@ -71,7 +71,7 @@ public class GameEngine {
         //End the game when one of the players get 40 and a double - or to double 6.
         while (!playerTC1.getWon() || !playerTC2.getWon());
 
-        guiHandler.playerWonGuiMessage(playerTC1, playerTC2);
+        guiHandler.playerWonGui(playerTC1, playerTC2);
 
         //playAgain();
 
