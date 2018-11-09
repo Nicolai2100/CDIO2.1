@@ -22,9 +22,6 @@ public class GameEngine {
     }
 
     public void setUpGame() {
-        //int noPlayers = guiHandler.askForNoPlayers();
-        //LOOP and make players
-        //guiHandler.askForPlayerNames();
         // ask for dice max value
         guiHandler.setGameUpGui(playerTC1, playerTC2);
         guiHandler.startGameGui();
@@ -33,20 +30,6 @@ public class GameEngine {
         diceCup = guiHandler.setDieFaces();
     }
 
-    public void playAgain() {
-        String svar = guiHandler.playAgainGui();
-        if (svar.equals("ja")) {
-            guiHandler.removeCar(playerTC1);
-            guiHandler.removeCar(playerTC2);
-            start();
-        } else {
-            System.exit(1);
-        }
-//        Taget fra discord serveren
-//        if (gui.getUserLeftButtonPressed("Spil igen?", "Nej", "Jo")){
-//            System.exit(1);
-//        }
-    }
     //Start the main game
     public void playGame() {
         do {
@@ -73,8 +56,25 @@ public class GameEngine {
 
         guiHandler.playerWonGui(playerTC1, playerTC2);
 
-        //playAgain();
+        /*
+        int noPlayers = guiHandler.askForNoPlayers();
+        LOOP and make players
+        guiHandler.askForPlayerNames();
 
+        playAgain();
+        public void playAgain() {
+            String svar = guiHandler.playAgainGui();
+            if (svar.equals("ja")) {
+                guiHandler.removeCar(playerTC1);
+                guiHandler.removeCar(playerTC2);
+                start();
+            } else {
+                System.exit(1);
+            }
+            Taget fra discord serveren
+            if (gui.getUserLeftButtonPressed("Spil igen?", "Nej", "Jo")){
+                System.exit(1);
+            }*/
     }
 
 }
