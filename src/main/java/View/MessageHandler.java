@@ -1,16 +1,16 @@
-package Controller;
+package View;
 
-import Model.Message;
+import Controller.PlayerController;
 
-public class MessageController {
+public class MessageHandler {
     private Message message;
     private String returnString;
 
-    public MessageController() {
+    public MessageHandler() {
         message = new Message();
     }
 
-    public String messageSquare(int position, PlayerTurnController player) {
+    public String messageSquare(int position, PlayerController player) {
 
         switch (position) {
             case 1:
@@ -112,12 +112,7 @@ public class MessageController {
         return returnString;
     }
 
-    public String getRules() {
-        String returnString = message.getRules();
-        return returnString;
-    }
-
-    public String playerTurn(PlayerTurnController player) {
+    public String playerTurn(PlayerController player) {
         returnString = "It is " + player.getName() + "'s turn! Press Enter to roll!";
         return returnString;
     }
@@ -132,7 +127,7 @@ public class MessageController {
         return returnString;
     }
 
-    public String playerWon(PlayerTurnController player1, PlayerTurnController player2) {
+    public String playerWon(PlayerController player1, PlayerController player2) {
         if (player1.getWon()) {
             return returnString = player1.getName() + " has won the game, by having 3000 or more gold coins.";
         } else {
@@ -140,7 +135,7 @@ public class MessageController {
         }
     }
 
-    public String playerEndTurn(PlayerTurnController player) {
+    public String playerEndTurn(PlayerController player) {
         returnString = player.getName() + " now has " + player.getBalance() + " gold coins.";
         return returnString;
     }
@@ -148,9 +143,4 @@ public class MessageController {
     public String startGame() {
         return message.getRules();
     }
-
-    public String rollAgain(){
-        return message.getRollAgain();
-    }
-
 }

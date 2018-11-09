@@ -5,6 +5,21 @@ public class Player {
     private String name = "";
     private boolean won = false;
     private int position = 1;
+    private int objectNumber;
+    private Account account;
+
+    public Player(int objectNumber){
+        this.objectNumber = objectNumber;
+        this.account = new Account();
+    }
+
+    public Account getBalance() {
+        return account;
+    }
+
+    public void setBalance(int account) {
+        this.account.updateBalance(account);
+    }
 
     public String getName() {
         return name;
@@ -14,14 +29,6 @@ public class Player {
         this.name = name;
     }
 
-    /*public int getBalance() {
-        return balance;
-    }
-
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
-*/
     public int getPosition() {
         return position;
     }
@@ -38,4 +45,7 @@ public class Player {
         return won;
     }
 
+    public int getObjectNumber() {
+        return objectNumber;
+    }
 }

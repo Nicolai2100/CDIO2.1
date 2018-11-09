@@ -4,49 +4,86 @@ import View.Gui_Handler;
 
 public class SquareController {
 
-    public void squareImpact(PlayerTurnController player, MessageController message, Gui_Handler gui, DiceCupController diceCup) {
+    public void squareImpact(Gui_Handler gui, PlayerController player, DiceCupController diceCup) {
         int newSquare = player.getPosition();
         switch (newSquare) {
             case 1:
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
                 break;
             case 2:
-                player.updateAccountBalance(250);
+                player.updatePlayerBalance(250);
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
                 player.won();
                 break;
             case 3:
-                player.updateAccountBalance(-100);
+                player.updatePlayerBalance(-100);
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
+
                 break;
             case 4:
-                player.updateAccountBalance(100);
+                player.updatePlayerBalance(100);
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
+
                 player.won();
                 break;
             case 5:
-                player.updateAccountBalance(-20);
+                player.updatePlayerBalance(-20);
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
+
                 break;
             case 6:
-                player.updateAccountBalance(180);
+                player.updatePlayerBalance(180);
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
+
                 player.won();
                 break;
             case 7:
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
+
                 break;
             case 8:
-                player.updateAccountBalance(-70);
+                player.updatePlayerBalance(-70);
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
+
                 break;
             case 9:
-                player.updateAccountBalance(60);
+                player.updatePlayerBalance(60);
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
+
                 player.won();
                 break;
             case 10:
-                player.updateAccountBalance(-80);
+                player.updatePlayerBalance(-80);
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
 
-                player.roll(player, message, gui, diceCup);
+                gui.playerTurnGui(player);
+
+                gui.removeSpecificCar();
+                player.roll(gui, diceCup, player);
                 break;
             case 11:
-                player.updateAccountBalance(-50);
+                player.updatePlayerBalance(-50);
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
+
                 break;
             case 12:
-                player.updateAccountBalance(650);
+                player.updatePlayerBalance(650);
+                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(player.getPosition(), player);
+
                 player.won();
+
                 break;
         }
     }

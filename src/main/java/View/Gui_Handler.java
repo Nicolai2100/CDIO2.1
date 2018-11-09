@@ -9,6 +9,7 @@ import gui_main.GUI;
 import java.awt.*;
 
 public class Gui_Handler {
+    private MessageHandler message;
     private static GUI gui;
     private static GUI_Field[] fields;
     private GUI_Player guiPlayer1, guiPlayer2;
@@ -20,28 +21,42 @@ public class Gui_Handler {
             fields[i] = new GUI_Street("" + i, "", "", "", Color.YELLOW, Color.BLACK);
         }
         gui = new GUI(fields);
+        message = new MessageHandler();
     }
-    public void setGameUpGui(PlayerTurnController player1, PlayerTurnController player2) {
+
+    public void setGameUpGui(PlayerController player1, PlayerController player2) {
         fieldsAttributes();
         //GUI_Player
         GUI_Car[] car = new GUI_Car[2];
         for (int i = 0; i < car.length; i++) {
             car[i] = new GUI_Car();
         }
+        //Car objects
         car[0].setPrimaryColor(Color.BLACK);
         car[1].setPrimaryColor(Color.BLUE);
-
+        //Gui_Player objects
         guiPlayer1 = new GUI_Player(player1.getName(), player1.getBalance(), car[0]);
         guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
         fields[player1.getPosition()-1].setCar(guiPlayer1, true);
         fields[player2.getPosition()-1].setCar(guiPlayer2, true);
     }
 
-    public void startGameGui(MessageController message) {
+    public GUI_Player getGuiPlayer(PlayerController player){
+        GUI_Player guiPlayer;
+        if (player.getObjectNumb() == 1){
+            guiPlayer = guiPlayer1;
+        }
+        else{
+            guiPlayer = guiPlayer2;
+        }
+        return guiPlayer;
+    }
+
+    public void startGameGui() {
         gui.showMessage(message.startGame());
     }
 
-    public void enterNamePlayer(MessageController message, PlayerTurnController player1, PlayerTurnController player2) {
+    public void enterNamePlayer(PlayerController player1, PlayerController player2) {
         gui.showMessage(message.setPlayerName1());
         player1.setName(gui.getUserString(""));
         gui.showMessage(message.setPlayerName2());
@@ -50,42 +65,33 @@ public class Gui_Handler {
     public void setDiceGui(DieController die1, DieController die2) {
         gui.setDice(die1.getFaceValue(), die2.getFaceValue());
     }
-    public void playerTurnGui(MessageController message, PlayerTurnController player)
+    public void playerTurnGui(PlayerController player)
     {
         gui.showMessage(message.playerTurn(player));
     }
-    public void setPlayer1Car(PlayerTurnController player) {
 
-        fields[player.getPosition()-1].setCar(guiPlayer1, true);
+    public void setPlayerCar(PlayerController player) {
+       fields[player.getPosition()-1].setCar(getGuiPlayer(player), true);
     }
-    public void setPlayer2Car(PlayerTurnController player) {
-
-        fields[player.getPosition()-1].setCar(guiPlayer2, true);
-    }
-    public void showScore(MessageController message, PlayerTurnController player) {
+    public void showScore(PlayerController player) {
         gui.showMessage(message.playerEndTurn(player));
     }
-    public void removePlayer1Car(PlayerTurnController player) {
+
+    public void removeCar(PlayerController player) {
 
         fields[(player.getPosition()-1)].removeAllCars();
     }
-    public void removePlayer2Car(PlayerTurnController player) {
+    //Only used for field 10
+    public void removeSpecificCar() {
+        fields[(9)].removeAllCars();
+    }
 
-        fields[(player.getPosition()-1)].removeAllCars();
-    }
-    public void player1UpdateGUI(PlayerTurnController player, DieController die1, DieController die2) {
+    public void boardUpdate(PlayerController player, DieController die1, DieController die2) {
         setDiceGui(die1, die2);
-        setPlayer1Car(player);
+        setPlayerCar(player);
     }
-   public void playerUpdate(String str){
-       gui.showMessage(str);
-   }
 
-    public void player2UpdateGUI(PlayerTurnController player, DieController die1, DieController die2) {
-        setDiceGui(die1, die2);
-        setPlayer2Car(player);
-    }
-    public void playerWonGui(MessageController message, PlayerTurnController player1, PlayerTurnController player2){
+    public void playerWonGui(PlayerController player1, PlayerController player2){
         gui.showMessage(message.playerWon(player1, player2));
         if (player1.getWon()){
             gui.showMessage("Congratulations "+ player1.getName() + " You are victorius!!!");
@@ -94,15 +100,26 @@ public class Gui_Handler {
             gui.showMessage("Congratulations "+ player2.getName() + " You are victorius!!!");
     }
 
-    public String playAgainGui(){
-        String svar = gui.getUserString("Vil I spille igen? tast ja/nej");
-        return svar;
+    public void messageSquareGui(int position, PlayerController player){
+        gui.showMessage(message.messageSquare(position, player));
     }
 
-    /* int noPlayers = guiHandler.askForNoPlayers();
-        //LOOP and make players
-        gui.askForPlayerName();
-        gui.setupGUI;*/
+    public DiceCupController setDieFaces() {
+        int dieFaces;
+        String input;
+        while(true){
+            input = gui.getUserString("What sided die do you wish to play with?");
+            if (input.matches("^[0-9]*$") && input.length() > 0){
+                if (Integer.parseInt(input) < 1 || Integer.parseInt(input) > 6 ){
+                    gui.showMessage("Wrong input! Please insert a number between 1 and 6");
+                } else {
+                    dieFaces = Integer.parseInt(input);
+                    break;
+                }
+            }
+        }
+        return new DiceCupController(2, dieFaces);
+    }
 
     public static void fieldsAttributes() {
         fields[0].setTitle("Start");
@@ -130,12 +147,15 @@ public class Gui_Handler {
         fields[11].setTitle("Goldmine");
         fields[11].setDescription("+650");
     }
+    /* int noPlayers = guiHandler.askForNoPlayers();
+    //LOOP and make players
+    gui.askForPlayerName();
+    gui.setupGUI;
 
-
-    public DiceCupController setDieFaces() {
-        String svar = gui.getUserString("What sided cube do you wish to play with?");
-        int dieFaces = Integer.parseInt(svar);
-        return new DiceCupController(2
-                , dieFaces);
+    public String playAgainGui(){
+        String svar = gui.getUserString("Vil I spille igen? tast ja/nej");
+        return svar;
     }
+    */
 }
+

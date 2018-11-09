@@ -1,75 +1,76 @@
 
 package Controller;
 
-import Model.Player;
 import View.Gui_Handler;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class PlayerTurnControllerTest {
-    Player player = new Player();
     SquareController square = new SquareController();
     DiceCupController diceCup = new DiceCupController(2,6);
-    PlayerTurnController playerTurnController = new PlayerTurnController(player, square);
+    PlayerController ptc1 = new PlayerController(1, square);
+    PlayerController ptc2 = new PlayerController(2, square);
     Gui_Handler gui = new Gui_Handler();
-    MessageController message = new MessageController();
-
-    @org.junit.Test
+    @Test
     public void roll() {
-        int currentPosition = playerTurnController.getPosition();
+        gui.setGameUpGui(ptc1, ptc2);
+        int currentPosition = ptc2.getPosition();
         assertEquals(currentPosition, 1);
-        playerTurnController.roll(playerTurnController, message, gui, diceCup);
+        ptc2.roll(gui, diceCup, ptc2);
         int sum = diceCup.getSum();
-        assertEquals(playerTurnController.getPosition(), (sum % 12) + currentPosition);
+        assertEquals(ptc2.getPosition(), (sum % 12) + currentPosition);
     }
 
     @Test
     public void newSquare() {
-        assertEquals(playerTurnController.getPosition(), 1);
+        assertEquals(ptc2.getPosition(), 1);
 
-        playerTurnController.newSquare(12,12);
-        assertEquals(playerTurnController.getPosition(), 12);
+        ptc2.newSquare(12,12);
+        assertEquals(ptc2.getPosition(), 12);
 
-        playerTurnController.newSquare(11,3);
-        assertEquals(playerTurnController.getPosition(), 2);
+        ptc2.newSquare(11,3);
+        assertEquals(ptc2.getPosition(), 2);
 
-        playerTurnController.newSquare(2,3);
-        assertEquals(playerTurnController.getPosition(), 5);
+        ptc2.newSquare(2,3);
+        assertEquals(ptc2.getPosition(), 5);
 
         for (int roll = 1; roll <= 1000; roll++){
             int rollSum = diceCup.rollAndGetSum();
-            playerTurnController.newSquare(rollSum, playerTurnController.getPosition());
-            int newPlayerPosition = player.getPosition();
+            ptc2.newSquare(rollSum, ptc2.getPosition());
+            int newPlayerPosition = ptc2.getPosition();
             assertTrue(1 <= newPlayerPosition && newPlayerPosition <= 12 );
         }
     }
 
     @Test
     public void won() {
-        assertEquals(playerTurnController.getBalance(), 1000);
-        assertFalse(playerTurnController.getWon());
-        playerTurnController.updateAccountBalance(3000);
-        playerTurnController.won();
-        assertTrue(playerTurnController.getWon());
+        assertEquals(ptc2.getBalance(), 1000);
+        assertFalse(ptc2.getWon());
+        ptc2.updatePlayerBalance(3000);
+        ptc2.won();
+        assertTrue(ptc2.getWon());
     }
 
     @Test
     public void updateAccountBalance() {
-    assertEquals(playerTurnController.getBalance(), 1000);
+    assertEquals(ptc2.getBalance(), 1000);
 
-    playerTurnController.updateAccountBalance(500);
-    assertEquals(playerTurnController.getBalance(), 1500);
+    ptc2.updatePlayerBalance(500);
+    assertEquals(ptc2.getBalance(), 1500);
 
-    playerTurnController.updateAccountBalance(-100000);
-    assertEquals(playerTurnController.getBalance(), 0);
+    ptc2.updatePlayerBalance(-100000);
+    assertEquals(ptc2.getBalance(), 0);
     }
 
     @Test
     public void getBalance() {
-        assertEquals(playerTurnController.getBalance(), 1000);
-        playerTurnController.setPosition(12);
-        square.squareImpact(playerTurnController, message, gui, diceCup);
-        assertEquals(1650, playerTurnController.getBalance());
+        assertEquals(ptc2.getBalance(), 1000);
+        gui.setGameUpGui(ptc1, ptc2);
+        ptc2.setPosition(12);
+        gui.setPlayerCar(ptc2);
+
+        square.squareImpact(gui, ptc2, diceCup);
+        assertEquals(1650, ptc2.getBalance());
     }
 }
