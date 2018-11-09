@@ -147,7 +147,7 @@ public class Gui_Handler {
             input = gui.getUserString("What sided die do you wish to play with?");
             if (input.matches("^[0-9]*$") && input.length() > 0){
                 if (Integer.parseInt(input) < 1 || Integer.parseInt(input) > 6 ){
-                    gui.getUserString("Wrong input! Please insert a number between 1 and 6");
+                    gui.showMessage("Wrong input! Please insert a number between 1 and 6");
                 } else {
                     dieFaces = Integer.parseInt(input);
                     break;
