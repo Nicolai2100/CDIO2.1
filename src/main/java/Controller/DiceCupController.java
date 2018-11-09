@@ -10,12 +10,12 @@ public class DiceCupController {
     public DiceCupController(int noDice, Gui_Handler gui) {
         this.gui = gui;
         dice = new DieController[noDice];
-        int noFaces = setDieFaces(gui.setDieFaces());
+        int noFaces = setDieMax(gui.setDieFaces());
         for (int i = 0; i < noDice; i++) {
             dice[i] = new DieController(noFaces);
         }
     }
-    public int setDieFaces(int userInput){
+    public int setDieMax(int userInput){
         int noFaces = userInput;
         return noFaces;
     }

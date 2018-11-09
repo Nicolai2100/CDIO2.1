@@ -1,7 +1,7 @@
 package Model;
 
 public class Die {
-    private final int MAX;
+    private int MAX;
     private int faceValue;
 
     public Die(int noFaces) {
@@ -15,8 +15,8 @@ public class Die {
     public void setFaceValue(int faceValue) {
         this.faceValue = faceValue;
     }
-
-    public int getMAX() {
+    public void setMax(int value){this.MAX = value;}
+    public int getMax() {
         return MAX;
     }
 }
