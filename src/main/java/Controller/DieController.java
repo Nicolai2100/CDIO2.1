@@ -17,4 +17,7 @@ public class DieController {
     public int getFaceValue() {
         return model.getFaceValue();
     }
+    public int getMax(){
+       return model.getFaceValue();
+    }
 }
