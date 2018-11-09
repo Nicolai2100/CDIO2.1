@@ -1,11 +1,13 @@
 package Controller;
 
+import View.Gui_Handler;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class DiceCupControllerTest {
-    DiceCupController diceCup = new DiceCupController(2,6);
+    Gui_Handler gui = new Gui_Handler();
+    DiceCupController diceCup = new DiceCupController(2,gui);
 
     @Test
     public void rollAllDice() {

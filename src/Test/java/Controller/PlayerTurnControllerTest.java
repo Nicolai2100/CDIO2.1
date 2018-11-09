@@ -7,11 +7,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PlayerTurnControllerTest {
+    Gui_Handler gui = new Gui_Handler();
+
     SquareController square = new SquareController();
-    DiceCupController diceCup = new DiceCupController(2,6);
+    DiceCupController diceCup = new DiceCupController(2,gui);
     PlayerController ptc1 = new PlayerController(1, square);
     PlayerController ptc2 = new PlayerController(2, square);
-    Gui_Handler gui = new Gui_Handler();
+
     @Test
     public void roll() {
         gui.setGameUpGui(ptc1, ptc2);

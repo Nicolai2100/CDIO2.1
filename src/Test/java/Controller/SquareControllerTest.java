@@ -1,18 +1,16 @@
 package Controller;
 
 import View.Gui_Handler;
-import View.MessageHandler;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class SquareControllerTest {
-
+    Gui_Handler gui = new Gui_Handler();
     SquareController square = new SquareController();
-    DiceCupController diceCup = new DiceCupController(2,6);
+    DiceCupController diceCup = new DiceCupController(2,gui);
     PlayerController player1 = new PlayerController(1, square);
     PlayerController player2 = new PlayerController(2, square);
-    Gui_Handler gui = new Gui_Handler();
 
     @Test
     public void squareImpact() {

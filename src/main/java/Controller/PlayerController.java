@@ -8,6 +8,7 @@ public class PlayerController {
     private Player model;
     private SquareController square;
     private static int numOfPlayers;
+
     public PlayerController(int objectNumb, SquareController square) {
         this.model = new Player(objectNumb);
         this.square = square;

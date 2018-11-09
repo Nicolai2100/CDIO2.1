@@ -104,7 +104,7 @@ public class Gui_Handler {
         gui.showMessage(message.messageSquare(position, player));
     }
 
-    public DiceCupController setDieFaces() {
+    public int setDieFaces() {
         int dieFaces;
         String input;
         while(true){
@@ -118,7 +118,7 @@ public class Gui_Handler {
                 }
             }
         }
-        return new DiceCupController(2, dieFaces);
+        return dieFaces;
     }
 
     public static void fieldsAttributes() {

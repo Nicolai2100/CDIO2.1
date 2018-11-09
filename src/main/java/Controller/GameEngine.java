@@ -27,7 +27,7 @@ public class GameEngine {
         guiHandler.startGameGui();
         //Set player names
         guiHandler.enterNamePlayer(playerTC1, playerTC2);
-        diceCup = guiHandler.setDieFaces();
+        diceCup = new DiceCupController(2, guiHandler);
     }
 
     //Start the main game
