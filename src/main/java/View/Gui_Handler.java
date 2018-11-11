@@ -96,15 +96,17 @@ public class Gui_Handler {
     }
 
     public void setPlayerCar(PlayerController player, int i) {
-       fields[player.getPosition(i)-1].setCar(getGuiPlayer(i), true);
+       fields[(player.getPosition(i)-1)].setCar(getGuiPlayer(i), true);
     }
     public void showScore(PlayerController player, int i) {
         gui.showMessage(message.playerEndTurn(player, i));
     }
 
     public void removeCar(PlayerController player, int i) {
+
         fields[(player.getPosition(i)-1)].removeAllCars();
     }
+
     //Only used for field 10
     public void removeSpecificCar() {
         fields[(9)].removeAllCars();

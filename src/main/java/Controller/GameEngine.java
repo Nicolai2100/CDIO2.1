@@ -35,7 +35,7 @@ public class GameEngine {
     //Start the main game
     public void playGame() {
         int j = 0;
-        int i = 0;
+        int i;
 
         do {
             i = playerTurnC.calcTurn(j);
@@ -43,7 +43,7 @@ public class GameEngine {
             //message
             guiHandler.playerTurnGui(playerC, i);
             //Move the player's car
-            guiHandler.removeCar(playerC, i);
+            //guiHandler.removeCar(playerC, i);
             guiHandler.setPlayerCar(playerC, i);
             //roll
             playerC.roll(diceCup, i);

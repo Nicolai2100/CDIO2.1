@@ -24,14 +24,19 @@ public class PlayerController {
     }
 
     public void newSquare(int rollSum, int i) {
+        int newPosition;
         if (rollSum + getPosition(i) == 24) {
-            setPosition(( 12) , i);
+            newPosition = 12;
+            setPosition(newPosition, i);
+
         } else if ((rollSum + getPosition(i)) > 12) {
-            setPosition((((rollSum + getPosition(i))) % 12), i);
+            newPosition = ((rollSum + getPosition(i)) % 12);
+            setPosition(newPosition, i);
             System.out.println(getPosition(i));
 
         } else {
-            setPosition((rollSum + getPosition(i)),i);
+            newPosition = (rollSum + getPosition(i));
+            setPosition(newPosition, i);
             System.out.println(getPosition(i));
         }
     }
@@ -41,7 +46,7 @@ public class PlayerController {
     }
 
     public int getPosition(int i) {
-        return playerModels[i].getPosition();
+        return playerModels[i ].getPosition();
     }
 
     public void setPosition(int position, int i) {
