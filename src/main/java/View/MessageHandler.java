@@ -10,44 +10,44 @@ public class MessageHandler {
         message = new Message();
     }
 
-    public String messageSquare(int position, PlayerController player) {
+    public String messageSquare(int position, PlayerController player, int i) {
 
         switch (position) {
             case 1:
-                returnString = player.getName() + getSquare1();
+                returnString = player.getName(i) + getSquare1();
                 break;
             case 2:
-                returnString = player.getName() + getSquare2();
+                returnString = player.getName(i) + getSquare2();
                 break;
             case 3:
-                returnString = player.getName() + getSquare3();
+                returnString = player.getName(i) + getSquare3();
                 break;
             case 4:
-                returnString = player.getName() + getSquare4();
+                returnString = player.getName(i) + getSquare4();
                 break;
             case 5:
-                returnString = player.getName() + getSquare5();
+                returnString = player.getName(i) + getSquare5();
                 break;
             case 6:
-                returnString = player.getName() + getSquare6();
+                returnString = player.getName(i) + getSquare6();
                 break;
             case 7:
-                returnString = player.getName() + getSquare7();
+                returnString = player.getName(i) + getSquare7();
                 break;
             case 8:
-                returnString = player.getName() + getSquare8();
+                returnString = player.getName(i) + getSquare8();
                 break;
             case 9:
-                returnString = player.getName() + getSquare9();
+                returnString = player.getName(i) + getSquare9();
                 break;
             case 10:
-                returnString = player.getName() + getSquare10();
+                returnString = player.getName(i) + getSquare10();
                 break;
             case 11:
-                returnString = player.getName() + getSquare11();
+                returnString = player.getName(i) + getSquare11();
                 break;
             case 12:
-                returnString = player.getName() + getSquare12();
+                returnString = player.getName(i) + getSquare12();
                 break;
         }
         return returnString;
@@ -112,8 +112,8 @@ public class MessageHandler {
         return returnString;
     }
 
-    public String playerTurn(PlayerController player) {
-        returnString = "It is " + player.getName() + "'s turn! Press Enter to roll!";
+    public String playerTurn(PlayerController player, int i) {
+        returnString = "It is " + player.getName(i) + "'s turn! Press Enter to roll!";
         return returnString;
     }
 
@@ -127,16 +127,16 @@ public class MessageHandler {
         return returnString;
     }
 
-    public String playerWon(PlayerController player1, PlayerController player2) {
-        if (player1.getWon()) {
-            return returnString = player1.getName() + " has won the game, by having 3000 or more gold coins.";
+    public String playerWon(PlayerController playerC, int i) {
+        if (playerC.getRef(i).getWon()) {
+            return returnString = playerC.getName(i) + " has won the game, by having 3000 or more gold coins.";
         } else {
-            return returnString = player2.getName() + " has won the game, by having 3000 or more gold coins.";
+            return returnString = playerC.getName(i) + " has won the game, by having 3000 or more gold coins.";
         }
     }
 
-    public String playerEndTurn(PlayerController player) {
-        returnString = player.getName() + " now has " + player.getBalance() + " gold coins.";
+    public String playerEndTurn(PlayerController player, int i) {
+        returnString = player.getName(i) + " now has " + player.getBalance(i) + " gold coins.";
         return returnString;
     }
 

@@ -5,72 +5,74 @@ import View.Gui_Handler;
 
 public class PlayerController {
 
-    private Player model;
     private SquareController square;
     private static int numOfPlayers;
+    private Player [] playerModels;
 
-    public PlayerController(int objectNumb, SquareController square) {
-        this.model = new Player(objectNumb);
+    public PlayerController(int numOfPlayers) {
+        playerModels = new Player[numOfPlayers];
+        for (int i = 0; i < numOfPlayers; i++) {
+            playerModels[i] = new Player(i);
+        }
         this.square = square;
         numOfPlayers++;
     }
-    public int getObjectNumb(){
-       return model.getObjectNumber();
-    }
 
-    public void roll(Gui_Handler gui, DiceCupController diceCup, PlayerController player1) {
+    public void roll(Gui_Handler gui, DiceCupController diceCup, int i) {
         int currentSum = diceCup.rollAndGetSum();
-        newSquare(currentSum, getPosition());
-        square.squareImpact(gui, player1, diceCup);
+        newSquare(currentSum, playerModels[i].getPosition());
+    }
+    public Player getRef(int i){
+        return playerModels[i];
     }
 
-    public void newSquare(int rollSum, int playerPosition) {
-        if (rollSum + playerPosition == 24) {
-            setPosition(12);
-        } else if (rollSum + playerPosition > 12) {
-            setPosition((rollSum + playerPosition) % 12);
+    public void newSquare(int rollSum, int i) {
+        if (rollSum + playerModels[i].getPosition() == 24) {
+            playerModels[i].setPosition(12);
+        } else if (rollSum + playerModels[i].getPosition() > 12) {
+            playerModels[i].setPosition((rollSum + playerModels[i].getPosition()) % 12);
         } else {
-            setPosition(rollSum + playerPosition);
+            playerModels[i].setPosition(rollSum + playerModels[i].getPosition());
         }
     }
 
-    public void won() {
-        if (model.getBalance().getBalance() >= 3000) setWon(true);
+    public void won(int i) {
+        if (playerModels[i].getBalance().getBalance() >= 3000) setWon(true, i);
     }
 
-    public int getPosition() {
-        return model.getPosition();
+    public int getPosition(int i) {
+        return playerModels[i].getPosition();
     }
 
-    public void setPosition(int position) {
-        model.setPosition(position);
+    public void setPosition(int position, int i) {
+        playerModels[i].setPosition(position);
     }
 
-    public String getName() {
-        return model.getName();
+    public String getName(int i) {
+        return playerModels[i].getName();
     }
 
-    public void setName(String name) {
-        model.setName(name);
+    public void setName(String name, int i) {
+        playerModels[i].setName(name);
     }
 
-    public void updatePlayerBalance(int accountUpdate) {
-        model.setBalance(accountUpdate);
+    public void updatePlayerBalance(int accountUpdate, int i) {
+        playerModels[i].setBalance(accountUpdate);
     }
 
-    public int getBalance() {
-        return model.getBalance().getBalance();
+    public int getBalance(int i) {
+        return playerModels[i].getBalance().getBalance();
     }
 
-    public void setWon(boolean bool) {
-        model.setWon(bool);
+    public void setWon(boolean bool, int i) {
+        playerModels[i].setWon(bool);
     }
 
-    public boolean getWon() {
-        return model.getWon();
+    public boolean getWon(int i) {
+        return playerModels[i].getWon();
     }
 
-    public static int getNumOfPlayers(){
+    public static int getNumOfPlayers(int i){
         return numOfPlayers;
     }
 }

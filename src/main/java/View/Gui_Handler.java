@@ -94,16 +94,16 @@ public class Gui_Handler {
         gui.showMessage(message.playerTurn(player));
     }
 
-    public void setPlayerCar(PlayerController player) {
-       fields[player.getPosition()-1].setCar(getGuiPlayer(player), true);
+    public void setPlayerCar(PlayerController player, int i) {
+       fields[player.getPosition(i)-1].setCar(getGuiPlayer(player), true);
     }
     public void showScore(PlayerController player) {
         gui.showMessage(message.playerEndTurn(player));
     }
 
-    public void removeCar(PlayerController player) {
+    public void removeCar(PlayerController player, int i) {
 
-        fields[(player.getPosition()-1)].removeAllCars();
+        fields[(player.getPosition(i)-1)].removeAllCars();
     }
     //Only used for field 10
     public void removeSpecificCar() {
@@ -114,15 +114,15 @@ public class Gui_Handler {
         setDiceGui(die1, die2);
         setPlayerCar(player);
     }
-
-    public void playerWonGui(PlayerController player1, PlayerController player2){
-        gui.showMessage(message.playerWon(player1, player2));
+/*
+    public void playerWonGui(PlayerController player1, int i){
+        gui.showMessage(message.playerWon(player1.won(i));
         if (player1.getWon()){
             gui.showMessage("Congratulations "+ player1.getName() + " You are victorius!!!");
         }
         else
             gui.showMessage("Congratulations "+ player2.getName() + " You are victorius!!!");
-    }
+    }*/
 
     public void messageSquareGui(int position, PlayerController player){
         gui.showMessage(message.messageSquare(position, player));

@@ -1,88 +1,89 @@
 package Controller;
 
+import Model.Player;
 import View.Gui_Handler;
 
 public class SquareController {
 
-    public void squareImpact(Gui_Handler gui, PlayerController player, DiceCupController diceCup) {
-        int newSquare = player.getPosition();
+    public void squareImpact(Gui_Handler gui, DiceCupController diceCup, PlayerController playerC, int i) {
+        int newSquare = playerC.getRef(i).getPosition();
         switch (newSquare) {
             case 1:
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
                 break;
             case 2:
-                player.updatePlayerBalance(250);
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
-                player.won();
+                playerC.updatePlayerBalance(250, i);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
+                playerC.won(i);
                 break;
             case 3:
-                player.updatePlayerBalance(-100);
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                playerC.updatePlayerBalance(-100, i);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
 
                 break;
             case 4:
-                player.updatePlayerBalance(100);
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                playerC.updatePlayerBalance(100, i);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
 
-                player.won();
+                playerC.won(i);
                 break;
             case 5:
-                player.updatePlayerBalance(-20);
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                playerC.updatePlayerBalance(-20,i);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
 
                 break;
             case 6:
-                player.updatePlayerBalance(180);
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                playerC.updatePlayerBalance(180,i);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
 
-                player.won();
+                playerC.won(i);
                 break;
             case 7:
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
 
                 break;
             case 8:
-                player.updatePlayerBalance(-70);
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                playerC.updatePlayerBalance(-70,i);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
 
                 break;
             case 9:
-                player.updatePlayerBalance(60);
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                playerC.updatePlayerBalance(60,i);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
 
-                player.won();
+                playerC.won(i);
                 break;
             case 10:
-                player.updatePlayerBalance(-80);
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                playerC.updatePlayerBalance(-80,i);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
 
-                gui.playerTurnGui(player);
+                gui.playerTurnGui(playerC);
 
                 gui.removeSpecificCar();
-                player.roll(gui, diceCup, player);
+                playerC.roll(gui, diceCup, i);
                 break;
             case 11:
-                player.updatePlayerBalance(-50);
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                playerC.updatePlayerBalance(-50, i);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
 
                 break;
             case 12:
-                player.updatePlayerBalance(650);
-                gui.boardUpdate(player, diceCup.getRef(0), diceCup.getRef(1));
-                gui.messageSquareGui(player.getPosition(), player);
+                playerC.updatePlayerBalance(650, i);
+                gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1));
+                gui.messageSquareGui(playerC.getPosition(i), playerC);
 
-                player.won();
+                playerC.won(i);
 
                 break;
         }

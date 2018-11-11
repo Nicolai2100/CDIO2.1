@@ -35,21 +35,24 @@ public class GameEngine {
             i++;
             playerTurnC.setTurn(i);
             //message
-            guiHandler.playerTurnGui(playerTurnC.getRef(i));
+            guiHandler.playerTurnGui(playerTurnC.getRef());
             //Move the player's car
-            guiHandler.removeCar(playerTurnC.getRef(i));
-            guiHandler.setPlayerCar(playerTurnC.getRef(i));
+            guiHandler.removeCar(playerTurnC.getRef());
+            guiHandler.setPlayerCar(playerTurnC.getRef());
             //roll
-            playerTurnC.getRef(i).roll(guiHandler, diceCup, playerTurnC.getRef(i));
+            playerTurnC.getRef().roll(guiHandler, diceCup, i);
+            //Square method
+            square.squareImpact(guiHandler, diceCup, playerTurnC.getRef(), i);
+
             //Status
-            guiHandler.showScore(playerTurnC.getRef(i));
+            guiHandler.showScore(playerTurnC.getRef());
             /*if (playerTC1.getWon()) {
                 break;
             }*/
 
         }
         //End the game when one of the players get 40 and a double - or to double 6.
-        while (!playerTurnC.getRef(i).getWon());
+        while (!playerTurnC.getRef().getWon(i));
 
         //guiHandler.playerWonGui(playerTC1, playerTC2);
 

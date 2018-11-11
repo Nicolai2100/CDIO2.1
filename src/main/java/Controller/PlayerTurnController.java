@@ -5,19 +5,17 @@ public class PlayerTurnController {
     private int numOfPlayers;
 
     SquareController square = new SquareController();
-    PlayerController [] playerCArray;
+    PlayerController playerC;
 
     public PlayerTurnController(int numOfPlayers){
         this.numOfPlayers = numOfPlayers;
-        playerCArray = new PlayerController[numOfPlayers];
-        for (int i = 0; i < numOfPlayers; i++) {
-                        playerCArray[i] = new PlayerController(i,square);
-        }
+
+        playerC = new PlayerController(numOfPlayers);
     }
     /*public int playerTurnCalc(int turn){
     }*/
-    public PlayerController getRef(int i){
-        return playerCArray[i];
+    public PlayerController getRef(){
+        return playerC;
     }
     public int getNumOfPlayers() {
         return numOfPlayers;
