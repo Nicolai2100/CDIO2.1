@@ -117,8 +117,8 @@ public class MessageHandler {
         return returnString;
     }
 
-    public String setPlayerName1() {
-        returnString = "Enter the name of player1: ";
+    public String setPlayerName(int playerNumber) {
+        returnString = "Enter the name of player: " + playerNumber;
         return returnString;
     }
 

@@ -23,22 +23,40 @@ public class Gui_Handler {
         gui = new GUI(fields);
         message = new MessageHandler();
     }
-
-    public void setGameUpGui(PlayerController player1, PlayerController player2) {
+    public int choseNumOfPlayers(){
+        int players = gui.getUserInteger("How many players is participating in the game?");
+        return players;
+    }
+    public void setGameUpGui(int numOfPlayers, PlayerTurnController playerC) {
         fieldsAttributes();
-        //GUI_Player
-        GUI_Car[] car = new GUI_Car[2];
+        //GUI_Car
+        GUI_Car[] car = new GUI_Car[numOfPlayers];
         for (int i = 0; i < car.length; i++) {
             car[i] = new GUI_Car();
         }
-        //Car objects
-        car[0].setPrimaryColor(Color.BLACK);
+        //Car objects get color
+        for (int i = 0; i < car.length; i++) {
+            car[i].setPrimaryColor(Color.YELLOW);
+        }
+
+        /*car[0].setPrimaryColor(Color.BLACK);
         car[1].setPrimaryColor(Color.BLUE);
-        //Gui_Player objects
+        */
+        ///GUI_Player
+        GUI_Player [] gui_Players = new GUI_Player[numOfPlayers];
+        for (int i = 0; i < numOfPlayers; i++) {
+            gui_Players[i]= new GUI_Player(playerC.getRef(i).getName(), 0, car[i]);
+        }
+
+/*
         guiPlayer1 = new GUI_Player(player1.getName(), player1.getBalance(), car[0]);
         guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
-        fields[player1.getPosition()-1].setCar(guiPlayer1, true);
-        fields[player2.getPosition()-1].setCar(guiPlayer2, true);
+*/
+        for (int i = 0; i < numOfPlayers; i++) {
+            fields[1].setCar(gui_Players[i], true);
+        }
+        /*fields[player1.getPosition()-1].setCar(guiPlayer1, true);
+        fields[player2.getPosition()-1].setCar(guiPlayer2, true);*/
     }
 
     public GUI_Player getGuiPlayer(PlayerController player){
@@ -56,11 +74,17 @@ public class Gui_Handler {
         gui.showMessage(message.startGame());
     }
 
-    public void enterNamePlayer(PlayerController player1, PlayerController player2) {
-        gui.showMessage(message.setPlayerName1());
-        player1.setName(gui.getUserString(""));
+    public void enterNamePlayer(PlayerTurnController playerTC) {
+
+        for (int i = 0; i < playerTC.getNumOfPlayers(); i++) {
+            gui.showMessage(message.setPlayerName(i));
+            playerTC.getRef(i).setName(gui.getUserString(""));
+        }
+
+/*
         gui.showMessage(message.setPlayerName2());
         player2.setName(gui.getUserString(""));
+*/
     }
     public void setDiceGui(DieController die1, DieController die2) {
         gui.setDice(die1.getFaceValue(), die2.getFaceValue());
