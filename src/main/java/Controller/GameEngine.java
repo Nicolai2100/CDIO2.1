@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Player;
 import View.Gui_Handler;
 
 public class GameEngine {
@@ -46,9 +47,9 @@ public class GameEngine {
             //guiHandler.removeCar(playerC, i);
             guiHandler.setPlayerCar(playerC, i);
             //roll
-            playerC.roll(diceCup, i);
+            playerC.roll(playerC.getRef(i), diceCup, i);
             //Square method
-            square.squareImpact(guiHandler, diceCup, playerC, i);
+            square.squareImpact(playerC.getRef(i), guiHandler, diceCup, playerC, i);
 
             //Status
             guiHandler.showScore(playerC, i);

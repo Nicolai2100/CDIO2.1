@@ -15,29 +15,36 @@ public class PlayerController {
         }
     }
 
-    public void roll(DiceCupController diceCup, int i) {
+    public void roll(Player  playerM, DiceCupController diceCup, int i) {
         int currentSum = diceCup.rollAndGetSum();
-        newSquare(currentSum, i);
+        newSquare(currentSum, playerM);
     }
     public Player getRef(int i){
         return playerModels[i];
     }
 
-    public void newSquare(int rollSum, int i) {
+    public void newSquare(int rollSum, Player playerM) {
         int newPosition;
-        if (rollSum + getPosition(i) == 24) {
-            newPosition = 12;
-            setPosition(newPosition, i);
+        int oldPosition = playerM.getPosition();
 
-        } else if ((rollSum + getPosition(i)) > 12) {
-            newPosition = ((rollSum + getPosition(i)) % 12);
-            setPosition(newPosition, i);
-            System.out.println(getPosition(i));
+        if (rollSum + oldPosition == 24) {
+            newPosition = 12;
+            playerM.setPosition(newPosition);
+
+        } else if ((rollSum + oldPosition) > 12) {
+            newPosition = ((rollSum + oldPosition) % 12);
+            System.out.println(playerM.getPosition());
+            System.out.println(rollSum);
+            playerM.setPosition((newPosition));
+            System.out.println(playerM.getPosition());
 
         } else {
-            newPosition = (rollSum + getPosition(i));
-            setPosition(newPosition, i);
-            System.out.println(getPosition(i));
+            newPosition = (rollSum + oldPosition);
+            System.out.println(playerM.getPosition());
+            System.out.println(rollSum);
+            playerM.setPosition((newPosition));
+            System.out.println(playerM.getPosition());
+
         }
     }
 
@@ -46,12 +53,14 @@ public class PlayerController {
     }
 
     public int getPosition(int i) {
-        return playerModels[i ].getPosition();
+        return playerModels[i].getPosition();
     }
 
-    public void setPosition(int position, int i) {
-        playerModels[i].setPosition(playerModels[i].getPosition() + position);
+    public void setPosition(int newPosition, int i) {
+        int oldPosition = playerModels[i].getPosition();
+        playerModels[i].setPosition(oldPosition + newPosition);
     }
+
     public String getName(int i) {
         return playerModels[i].getName();
     }

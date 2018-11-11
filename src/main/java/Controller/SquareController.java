@@ -1,10 +1,11 @@
 package Controller;
 
+import Model.Player;
 import View.Gui_Handler;
 
 public class SquareController {
 
-    public void squareImpact(Gui_Handler gui, DiceCupController diceCup, PlayerController playerC, int i) {
+    public void squareImpact(Player PlayerM, Gui_Handler gui, DiceCupController diceCup, PlayerController playerC, int i) {
         int newSquare = playerC.getRef(i).getPosition();
         switch (newSquare) {
             case 1:
@@ -69,7 +70,7 @@ public class SquareController {
                 gui.playerTurnGui(playerC, i);
 
                 gui.removeSpecificCar();
-                playerC.roll(diceCup, i);
+                playerC.roll(playerC.getRef(i), diceCup, i);
                 break;
             case 11:
                 playerC.updatePlayerBalance(-50, i);
