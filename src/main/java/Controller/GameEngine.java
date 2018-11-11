@@ -7,7 +7,7 @@ public class GameEngine {
     private SquareController square;
     private DiceCupController diceCup;
     private PlayerTurnController playerTurnC;
-    int i = -1;
+    int j = 0;
 
     public GameEngine() {
         guiHandler = new Gui_Handler();
@@ -32,27 +32,28 @@ public class GameEngine {
     //Start the main game
     public void playGame() {
         do {
-            i++;
+            int i = playerTurnC.calcTurn(j);
             playerTurnC.setTurn(i);
             //message
-            guiHandler.playerTurnGui(playerTurnC.getRef());
+            guiHandler.playerTurnGui(playerTurnC.getPC(), i);
             //Move the player's car
-            guiHandler.removeCar(playerTurnC.getRef());
-            guiHandler.setPlayerCar(playerTurnC.getRef());
+            guiHandler.removeCar(playerTurnC.getPC(), i);
+            guiHandler.setPlayerCar(playerTurnC.getPC(), i);
             //roll
-            playerTurnC.getRef().roll(guiHandler, diceCup, i);
+            playerTurnC.getPC().roll(diceCup, i);
             //Square method
-            square.squareImpact(guiHandler, diceCup, playerTurnC.getRef(), i);
+            square.squareImpact(guiHandler, diceCup, playerTurnC.getPC(), i);
 
             //Status
-            guiHandler.showScore(playerTurnC.getRef());
+            guiHandler.showScore(playerTurnC.getPC(), i);
             /*if (playerTC1.getWon()) {
                 break;
             }*/
+            j++;
 
         }
         //End the game when one of the players get 40 and a double - or to double 6.
-        while (!playerTurnC.getRef().getWon(i));
+        while (!playerTurnC.getPC().getWon(j));
 
         //guiHandler.playerWonGui(playerTC1, playerTC2);
 

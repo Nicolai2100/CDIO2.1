@@ -12,7 +12,7 @@ public class Gui_Handler {
     private MessageHandler message;
     private static GUI gui;
     private static GUI_Field[] fields;
-    private GUI_Player guiPlayer1, guiPlayer2;
+    GUI_Player [] gui_Players;
 
     //Construktor
     public Gui_Handler() {
@@ -43,9 +43,9 @@ public class Gui_Handler {
         car[1].setPrimaryColor(Color.BLUE);
         */
         ///GUI_Player
-        GUI_Player [] gui_Players = new GUI_Player[numOfPlayers];
+        gui_Players = new GUI_Player[numOfPlayers];
         for (int i = 0; i < numOfPlayers; i++) {
-            gui_Players[i]= new GUI_Player(playerC.getRef(i).getName(), 0, car[i]);
+            gui_Players[i]= new GUI_Player(playerC.getPC().getName(i), 0, car[i]);
         }
 
 /*
@@ -53,20 +53,14 @@ public class Gui_Handler {
         guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
 */
         for (int i = 0; i < numOfPlayers; i++) {
-            fields[1].setCar(gui_Players[i], true);
+            fields[0].setCar(gui_Players[i], true);
         }
         /*fields[player1.getPosition()-1].setCar(guiPlayer1, true);
         fields[player2.getPosition()-1].setCar(guiPlayer2, true);*/
     }
 
-    public GUI_Player getGuiPlayer(PlayerController player){
-        GUI_Player guiPlayer;
-        if (player.getObjectNumb() == 1){
-            guiPlayer = guiPlayer1;
-        }
-        else{
-            guiPlayer = guiPlayer2;
-        }
+    public GUI_Player getGuiPlayer(int i){
+        GUI_Player guiPlayer = gui_Players[i];
         return guiPlayer;
     }
 
@@ -78,7 +72,7 @@ public class Gui_Handler {
 
         for (int i = 0; i < playerTC.getNumOfPlayers(); i++) {
             gui.showMessage(message.setPlayerName(i));
-            playerTC.getRef(i).setName(gui.getUserString(""));
+            playerTC.getPC().getRef(i).setName(gui.getUserString(""));
         }
 
 /*
@@ -89,16 +83,16 @@ public class Gui_Handler {
     public void setDiceGui(DieController die1, DieController die2) {
         gui.setDice(die1.getFaceValue(), die2.getFaceValue());
     }
-    public void playerTurnGui(PlayerController player)
+    public void playerTurnGui(PlayerController player, int i)
     {
-        gui.showMessage(message.playerTurn(player));
+        gui.showMessage(message.playerTurn(player, i));
     }
 
     public void setPlayerCar(PlayerController player, int i) {
-       fields[player.getPosition(i)-1].setCar(getGuiPlayer(player), true);
+       fields[player.getPosition(i)-1].setCar(getGuiPlayer(i), true);
     }
-    public void showScore(PlayerController player) {
-        gui.showMessage(message.playerEndTurn(player));
+    public void showScore(PlayerController player, int i) {
+        gui.showMessage(message.playerEndTurn(player, i));
     }
 
     public void removeCar(PlayerController player, int i) {
@@ -110,9 +104,9 @@ public class Gui_Handler {
         fields[(9)].removeAllCars();
     }
 
-    public void boardUpdate(PlayerController player, DieController die1, DieController die2) {
+    public void boardUpdate(PlayerController player, DieController die1, DieController die2, int i) {
         setDiceGui(die1, die2);
-        setPlayerCar(player);
+        setPlayerCar(player, i);
     }
 /*
     public void playerWonGui(PlayerController player1, int i){
@@ -124,8 +118,8 @@ public class Gui_Handler {
             gui.showMessage("Congratulations "+ player2.getName() + " You are victorius!!!");
     }*/
 
-    public void messageSquareGui(int position, PlayerController player){
-        gui.showMessage(message.messageSquare(position, player));
+    public void messageSquareGui(int position, PlayerController player, int i){
+        gui.showMessage(message.messageSquare(position, player, i));
     }
 
     public int setDieFaces() {

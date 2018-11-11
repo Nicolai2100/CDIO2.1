@@ -122,11 +122,6 @@ public class MessageHandler {
         return returnString;
     }
 
-    public String setPlayerName2() {
-        returnString = "Enter the name of player2: ";
-        return returnString;
-    }
-
     public String playerWon(PlayerController playerC, int i) {
         if (playerC.getRef(i).getWon()) {
             return returnString = playerC.getName(i) + " has won the game, by having 3000 or more gold coins.";

@@ -14,14 +14,20 @@ public class PlayerTurnController {
     }
     /*public int playerTurnCalc(int turn){
     }*/
-    public PlayerController getRef(){
+    public PlayerController getPC(){
         return playerC;
     }
     public int getNumOfPlayers() {
         return numOfPlayers;
     }
 
+    public int calcTurn(int i) {
+        int currentTurn = numOfPlayers%i;
+        return currentTurn;
+    }
+
     public void setTurn(int currentTurn){
+
         this.turn = currentTurn;
 
     }

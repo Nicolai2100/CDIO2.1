@@ -18,7 +18,7 @@ public class PlayerController {
         numOfPlayers++;
     }
 
-    public void roll(Gui_Handler gui, DiceCupController diceCup, int i) {
+    public void roll(DiceCupController diceCup, int i) {
         int currentSum = diceCup.rollAndGetSum();
         newSquare(currentSum, playerModels[i].getPosition());
     }

@@ -1,3 +1,4 @@
+/*
 package Controller;
 
 import org.junit.Test;
@@ -12,4 +13,4 @@ public class GameEngineTest {
         gameEngine.setUpGame();
         assertEquals(PlayerController.getNumOfPlayers(), 2);
     }
-}
+}*/
