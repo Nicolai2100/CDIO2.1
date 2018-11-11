@@ -28,7 +28,7 @@ public class Gui_Handler {
         int players = 3;
         return players;
     }
-    public void setGameUpGui(int numOfPlayers, PlayerTurnController playerC) {
+    public void setGameUpGui(int numOfPlayers, PlayerController player) {
         fieldsAttributes();
         //GUI_Car
         GUI_Car[] car = new GUI_Car[numOfPlayers];
@@ -46,7 +46,7 @@ public class Gui_Handler {
         ///GUI_Player
         gui_Players = new GUI_Player[numOfPlayers];
         for (int i = 0; i < numOfPlayers; i++) {
-            gui_Players[i]= new GUI_Player(playerC.getPC().getName(i), 0, car[i]);
+            gui_Players[i]= new GUI_Player(player.getName(i), 0, car[i]);
         }
 
 /*
@@ -69,11 +69,17 @@ public class Gui_Handler {
         gui.showMessage(message.startGame());
     }
 
-    public void enterNamePlayer(PlayerTurnController playerTC) {
+    public void enterNamePlayer(PlayerController playerC) {
 
-        for (int i = 0; i < playerTC.getNumOfPlayers(); i++) {
+        for (int i = 0; i < playerC.getNumOfPlayers(); i++) {
+/*
             gui.showMessage(message.setPlayerName(i+1));
-            playerTC.getPC().getRef(i).setName(gui.getUserString(""));
+            playerC.setName(gui.getUserString(""),i);
+*/
+            playerC.setName("1",0);
+            playerC.setName("2",1);
+            playerC.setName("3",2);
+
         }
 
 /*
@@ -97,7 +103,6 @@ public class Gui_Handler {
     }
 
     public void removeCar(PlayerController player, int i) {
-
         fields[(player.getPosition(i)-1)].removeAllCars();
     }
     //Only used for field 10
@@ -124,8 +129,8 @@ public class Gui_Handler {
     }
 
     public int setDieFaces() {
-        int dieFaces;
-        String input;
+        int dieFaces = 6;
+        /*String input;
         while(true){
             input = gui.getUserString("What sided die do you wish to play with?");
             if (input.matches("^[0-9]*$") && input.length() > 0){
@@ -136,7 +141,7 @@ public class Gui_Handler {
                     break;
                 }
             }
-        }
+        }*/
         return dieFaces;
     }
 

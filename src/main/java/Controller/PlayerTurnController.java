@@ -5,13 +5,9 @@ public class PlayerTurnController {
     private int turn = 0;
     private int numOfPlayers;
 
-    SquareController square = new SquareController();
-    PlayerController playerC;
-
     public PlayerTurnController(int numOfPlayers){
         this.numOfPlayers = numOfPlayers;
 
-        playerC = new PlayerController(numOfPlayers);
     }
     // når der er 3 players,
     //j = 0 så skal i = 0
@@ -36,10 +32,6 @@ public class PlayerTurnController {
     }*/
 
 
-
-    public PlayerController getPC(){
-        return playerC;
-    }
 
     public int getNumOfPlayers() {
         return numOfPlayers;

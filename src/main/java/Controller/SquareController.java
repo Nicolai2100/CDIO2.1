@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Player;
 import View.Gui_Handler;
 
 public class SquareController {
@@ -41,8 +40,8 @@ public class SquareController {
                 playerC.updatePlayerBalance(180,i);
                 gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1), i);
                 gui.messageSquareGui(playerC.getPosition(i), playerC, i);
+                playerC.getWon(i);
 
-                playerC.won(i);
                 break;
             case 7:
                 gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1), i);

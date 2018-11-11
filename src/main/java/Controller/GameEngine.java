@@ -6,6 +6,7 @@ public class GameEngine {
     private Gui_Handler guiHandler;
     private SquareController square;
     private DiceCupController diceCup;
+    private PlayerController playerC;
     private PlayerTurnController playerTurnC;
 
     public GameEngine() {
@@ -19,35 +20,38 @@ public class GameEngine {
     }
 
     public void setUpGame() {
-        // ask for dice max value
-        playerTurnC = new PlayerTurnController(guiHandler.choseNumOfPlayers());
-        guiHandler.setGameUpGui(playerTurnC.getNumOfPlayers(), playerTurnC);
-        guiHandler.startGameGui();
+        //guiHandler.startGameGui();
+
+        playerC = new PlayerController(guiHandler.choseNumOfPlayers());
+        playerTurnC = new PlayerTurnController(playerC.getNumOfPlayers());
+
+        guiHandler.setGameUpGui(playerC.getNumOfPlayers(), playerC);
         //Set player names
-        guiHandler.enterNamePlayer(playerTurnC);
+        guiHandler.enterNamePlayer(playerC);
+        // ask for dice max value
         diceCup = new DiceCupController(2, guiHandler);
     }
 
     //Start the main game
     public void playGame() {
         int j = 0;
-        //int i = 0;
+        int i = 0;
 
         do {
-            int i = playerTurnC.calcTurn(j);
+            i = playerTurnC.calcTurn(j);
             playerTurnC.setTurn(i);
             //message
-            guiHandler.playerTurnGui(playerTurnC.getPC(), i);
+            guiHandler.playerTurnGui(playerC, i);
             //Move the player's car
-            guiHandler.removeCar(playerTurnC.getPC(), i);
-            guiHandler.setPlayerCar(playerTurnC.getPC(), i);
+            guiHandler.removeCar(playerC, i);
+            guiHandler.setPlayerCar(playerC, i);
             //roll
-            playerTurnC.getPC().roll(diceCup, i);
+            playerC.roll(diceCup, i);
             //Square method
-            square.squareImpact(guiHandler, diceCup, playerTurnC.getPC(), i);
+            square.squareImpact(guiHandler, diceCup, playerC, i);
 
             //Status
-            guiHandler.showScore(playerTurnC.getPC(), i);
+            guiHandler.showScore(playerC, i);
             /*if (playerTC1.getWon()) {
                 break;
             }*/
@@ -55,7 +59,7 @@ public class GameEngine {
 
         }
         //End the game when one of the players get 40 and a double - or to double 6.
-        while (!playerTurnC.getPC().getWon(j));
+        while (!playerC.getWon(i));
 
         //guiHandler.playerWonGui(playerTC1, playerTC2);
 

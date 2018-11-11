@@ -1,21 +1,18 @@
 package Controller;
 
 import Model.Player;
-import View.Gui_Handler;
 
 public class PlayerController {
 
-    private SquareController square;
-    private static int numOfPlayers;
+    private int numOfPlayers;
     private Player [] playerModels;
 
     public PlayerController(int numOfPlayers) {
+        this.numOfPlayers = numOfPlayers;
         playerModels = new Player[numOfPlayers];
         for (int i = 0; i < numOfPlayers; i++) {
             playerModels[i] = new Player(i);
         }
-        this.square = square;
-        numOfPlayers++;
     }
 
     public void roll(DiceCupController diceCup, int i) {
@@ -27,12 +24,15 @@ public class PlayerController {
     }
 
     public void newSquare(int rollSum, int i) {
-        if (rollSum + playerModels[i].getPosition() == 24) {
-            setPosition( 12 , i);
-        } else if (rollSum + playerModels[i].getPosition() > 12) {
-            setPosition((rollSum + playerModels[i].getPosition()) % 12, i);
+        if (rollSum + getPosition(i) == 24) {
+            setPosition(( 12) , i);
+        } else if ((rollSum + getPosition(i)) > 12) {
+            setPosition((((rollSum + getPosition(i))) % 12), i);
+            System.out.println(getPosition(i));
+
         } else {
-            setPosition(rollSum + playerModels[i].getPosition(),i);
+            setPosition((rollSum + getPosition(i)),i);
+            System.out.println(getPosition(i));
         }
     }
 
@@ -47,7 +47,6 @@ public class PlayerController {
     public void setPosition(int position, int i) {
         playerModels[i].setPosition(playerModels[i].getPosition() + position);
     }
-
     public String getName(int i) {
         return playerModels[i].getName();
     }
@@ -71,8 +70,7 @@ public class PlayerController {
     public boolean getWon(int i) {
         return playerModels[i].getWon();
     }
-
-    public static int getNumOfPlayers(int i){
+    public int getNumOfPlayers(){
         return numOfPlayers;
     }
 }
