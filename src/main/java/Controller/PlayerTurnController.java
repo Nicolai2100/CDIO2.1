@@ -1,4 +1,5 @@
 package Controller;
+//klassen har fået ansvar den ikke skal have, hvorfor skulle den skabe objektet af PlayerController?
 
 public class PlayerTurnController {
     private int turn = 0;
@@ -12,18 +13,36 @@ public class PlayerTurnController {
 
         playerC = new PlayerController(numOfPlayers);
     }
+    // når der er 3 players,
+    //j = 0 så skal i = 0
+    //j = 1 så skal i = 1
+    //j = 2 så skal i = 2
+    //j = 3 så skal i = 0
+    //j = 4 så skal i = 1
+
+    public int calcTurn(int j) {
+        int currentTurn;
+        if (j < numOfPlayers){
+            currentTurn = j;
+        }
+        else {
+            currentTurn = j%numOfPlayers;
+        }
+        return currentTurn;
+    }
+
+
     /*public int playerTurnCalc(int turn){
     }*/
+
+
+
     public PlayerController getPC(){
         return playerC;
     }
+
     public int getNumOfPlayers() {
         return numOfPlayers;
-    }
-
-    public int calcTurn(int i) {
-        int currentTurn = numOfPlayers%i;
-        return currentTurn;
     }
 
     public void setTurn(int currentTurn){

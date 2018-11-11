@@ -20,7 +20,7 @@ public class PlayerController {
 
     public void roll(DiceCupController diceCup, int i) {
         int currentSum = diceCup.rollAndGetSum();
-        newSquare(currentSum, playerModels[i].getPosition());
+        newSquare(currentSum, i);
     }
     public Player getRef(int i){
         return playerModels[i];
@@ -28,11 +28,11 @@ public class PlayerController {
 
     public void newSquare(int rollSum, int i) {
         if (rollSum + playerModels[i].getPosition() == 24) {
-            playerModels[i].setPosition(12);
+            setPosition( 12 , i);
         } else if (rollSum + playerModels[i].getPosition() > 12) {
-            playerModels[i].setPosition((rollSum + playerModels[i].getPosition()) % 12);
+            setPosition((rollSum + playerModels[i].getPosition()) % 12, i);
         } else {
-            playerModels[i].setPosition(rollSum + playerModels[i].getPosition());
+            setPosition(rollSum + playerModels[i].getPosition(),i);
         }
     }
 
@@ -45,7 +45,7 @@ public class PlayerController {
     }
 
     public void setPosition(int position, int i) {
-        playerModels[i].setPosition(position);
+        playerModels[i].setPosition(playerModels[i].getPosition() + position);
     }
 
     public String getName(int i) {

@@ -7,7 +7,6 @@ public class GameEngine {
     private SquareController square;
     private DiceCupController diceCup;
     private PlayerTurnController playerTurnC;
-    int j = 0;
 
     public GameEngine() {
         guiHandler = new Gui_Handler();
@@ -31,6 +30,9 @@ public class GameEngine {
 
     //Start the main game
     public void playGame() {
+        int j = 0;
+        //int i = 0;
+
         do {
             int i = playerTurnC.calcTurn(j);
             playerTurnC.setTurn(i);

@@ -24,7 +24,8 @@ public class Gui_Handler {
         message = new MessageHandler();
     }
     public int choseNumOfPlayers(){
-        int players = gui.getUserInteger("How many players is participating in the game?");
+        //int players = gui.getUserInteger("How many players is participating in the game?");
+        int players = 3;
         return players;
     }
     public void setGameUpGui(int numOfPlayers, PlayerTurnController playerC) {
@@ -71,7 +72,7 @@ public class Gui_Handler {
     public void enterNamePlayer(PlayerTurnController playerTC) {
 
         for (int i = 0; i < playerTC.getNumOfPlayers(); i++) {
-            gui.showMessage(message.setPlayerName(i));
+            gui.showMessage(message.setPlayerName(i+1));
             playerTC.getPC().getRef(i).setName(gui.getUserString(""));
         }
 
