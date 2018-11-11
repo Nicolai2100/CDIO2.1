@@ -1,3 +1,4 @@
+/*
 package Controller;
 
 import View.Gui_Handler;
@@ -26,4 +27,4 @@ public class SquareControllerTest {
             assertEquals(balancePostImpact, initialBalance+fieldList[i]);
         }
     }
-}
+}*/
