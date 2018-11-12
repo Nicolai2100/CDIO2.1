@@ -53,9 +53,9 @@ public class GameEngine {
 
             //Status
             guiHandler.showScore(playerC, i);
-            /*if (playerTC1.getWon()) {
-                break;
-            }*/
+
+            playerC.won(i);
+
             j++;
 
         }

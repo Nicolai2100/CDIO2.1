@@ -16,7 +16,6 @@ public class SquareController {
                 playerC.updatePlayerBalance(250, i);
                 gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1), i);
                 gui.messageSquareGui(playerC.getPosition(i), playerC, i);
-                playerC.won(i);
                 break;
             case 3:
                 playerC.updatePlayerBalance(-100, i);
@@ -29,7 +28,6 @@ public class SquareController {
                 gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1), i);
                 gui.messageSquareGui(playerC.getPosition(i), playerC, i);
 
-                playerC.won(i);
                 break;
             case 5:
                 playerC.updatePlayerBalance(-20,i);
@@ -41,7 +39,6 @@ public class SquareController {
                 playerC.updatePlayerBalance(180,i);
                 gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1), i);
                 gui.messageSquareGui(playerC.getPosition(i), playerC, i);
-                playerC.getWon(i);
 
                 break;
             case 7:
@@ -60,7 +57,6 @@ public class SquareController {
                 gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1), i);
                 gui.messageSquareGui(playerC.getPosition(i), playerC, i);
 
-                playerC.won(i);
                 break;
             case 10:
                 playerC.updatePlayerBalance(-80,i);
@@ -82,8 +78,6 @@ public class SquareController {
                 playerC.updatePlayerBalance(650, i);
                 gui.boardUpdate(playerC, diceCup.getRef(0), diceCup.getRef(1), i);
                 gui.messageSquareGui(playerC.getPosition(i), playerC, i);
-
-                playerC.won(i);
 
                 break;
         }

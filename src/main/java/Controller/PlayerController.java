@@ -2,6 +2,11 @@ package Controller;
 
 import Model.Player;
 
+/**
+ * Klassen er ansvarlig for at skace objekter af model-klassen Player, (creator).
+ * Klassen har metoder til at ændre og påvirke Player objekternes data.
+ */
+
 public class PlayerController {
 
     private int numOfPlayers;

@@ -172,6 +172,8 @@ public class Gui_Handler {
         fields[10].setDescription("-50");
         fields[11].setTitle("Goldmine");
         fields[11].setDescription("+650");
+
+
     }
     /* int noPlayers = guiHandler.askForNoPlayers();
     //LOOP and make players

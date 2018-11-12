@@ -1,6 +1,9 @@
 package Controller;
 //klassen har fået ansvar den ikke skal have, hvorfor skulle den skabe objektet af PlayerController?
 
+/**
+ *
+ */
 public class PlayerTurnController {
     private int turn = 0;
     private int numOfPlayers;
